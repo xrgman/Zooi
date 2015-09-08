@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -14,12 +15,13 @@ namespace WindowsFormsApplication1
 
         public Simulator()
         {
-    
+            Thread updateThread = new Thread(new ThreadStart(update));
+            updateThread.Start();
         }
 
         public String ReceiveCommand(String command)
         {
-            String splittedCommand = command.Substring(0, 2);
+            String splittedCommand = command.Substring(0,2);
             switch(splittedCommand)
             {
                 case "RS":
@@ -33,74 +35,111 @@ namespace WindowsFormsApplication1
                     actual_power = 0;
                     commandMode = false;
                     return "ACK";
-                    break;
                 case "ID":
                     return "Simulator";
-                    break;
                 case "VE":
                     return "120";
-                    break;
                 case "CM":
                     commandMode = true;
                     return "ACK";
                 case "ST":
                     return getStatus();
-                    break;
                 case "PW":
-                    String newPower = command.Substring(3, command.Length);
-                    int convertedPower;
-                    if(!Int32.TryParse(newPower, out convertedPower))
+                    if (commandMode)
                     {
-                        return "ERROR";
+                        String[] newPower = command.Split(' ');
+                        int convertedPower;
+                        if (!Int32.TryParse(newPower[1], out convertedPower))
+                        {
+                            return "ERROR";
+                        }
+                        else
+                        {
+                            if (requested_power > 400)
+                                requested_power = 400;
+                            else if (requested_power < 0)
+                                requested_power = 0;
+                            else 
+                                requested_power = convertedPower;
+                            return getStatus();
+                        }
                     }
-                    else
-                    {
-                        requested_power = convertedPower;
-                        return getStatus();
-                    }
-                    break;
+                    return "";
                 case "PD":
-                    String newDistance = command.Substring(3, command.Length);
-                    int convertedDistance;
-                    if (!Int32.TryParse(newDistance, out convertedDistance))
+                    if (commandMode)
                     {
-                        return "ERROR";
+                        String[] newDistance = command.Split(' ');
+                        int convertedDistance;
+                        if (!Int32.TryParse(newDistance[1], out convertedDistance))
+                        {
+                            return "ERROR";
+                        }
+                        else
+                        {
+                            distance = convertedDistance / 10;
+                            return getStatus();
+                        }
                     }
-                    else
-                    {
-                        distance = convertedDistance/10;
-                        return getStatus();
-                    }
-                    break;
+                    return "";
                 case "PT":
-                    String newTime = command.Substring(3, command.Length);
-                    int convertedTime;
-                    if (!Int32.TryParse(newTime, out convertedTime))
+                    if (commandMode)
                     {
-                        return "ERROR";
+                        String[] newTime = command.Split(' ');
+                        int convertedTime;
+                        if (!Int32.TryParse(newTime[1], out convertedTime))
+                        {
+                            return "ERROR";
+                        }
+                        else
+                        {
+                            int seconds;
+                            if (newTime[1].Length < 3)
+                            {
+                                seconds = Int32.Parse(newTime[1]);
+                                if (seconds > 60)
+                                    seconds = 59;
+                                time = seconds;
+                            }
+                            else
+                            {
+                                seconds = Int32.Parse(newTime[1].Substring(newTime[1].Length-2));
+                                if (seconds > 60)
+                                    seconds = 59;
+                                String finalTime = newTime[1].Substring(0,newTime[1].Length-2) + seconds; 
+                                time = Int32.Parse(finalTime);
+                            }
+                            return getStatus();
+                        }
                     }
-                    else
-                    {
-                        int seconds = Int32.Parse(command.Substring(command.Length - 2, command.Length));
-                        if (seconds > 60)
-                            seconds = 59;
-                        String finalTime = newTime.Substring(0, command.Length - 2) + seconds;
-                        time = Int32.Parse(finalTime);
-                        return getStatus();
-                    }
-                    break;
+                    return "";
+                default:
+                    return "";
             }
-
-
-            return "";   
         }
 
         private String getStatus()
         {
             String timeString = time.ToString();
-            if(timeString.Length > 1)
-                timeString = timeString.Substring(0, timeString.Length - 2) + ":" + timeString.Substring(timeString.Length - 2, timeString.Length);
+            if (time < 1)
+                timeString = "00:00";
+            else if (time < 10)
+                timeString = "00:0" + time;
+            else if (time < 100)
+                timeString = "00:" + time;
+            else if (time < 1000)
+                timeString = "0" + timeString.Substring(0, 1) + ":" + timeString.Substring(1,2);
+            else
+                timeString = timeString.Substring(0, timeString.Length-2) + ":" + timeString.Substring(timeString.Length-2);
             return pulse + "\t" + rpm + "\t" + speed * 10 + "\t" + distance + "\t" + requested_power + "\t" + energy + "\t" + timeString + "\t" + actual_power;
+        }
+
+        private void update()
+        {
+            while(true)
+            {
+                time += 1;
+                Thread.Sleep(1000);
+            }
         }
     }
 }

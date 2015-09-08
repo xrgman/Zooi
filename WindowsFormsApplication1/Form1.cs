@@ -28,12 +28,13 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(commPort.IsOpen) {
+            if(commPort.IsOpen) 
                 commPort.WriteLine("rs");
-                pwrTxtBox.Text = "";
-                timeTxtBox.Text = "";
-                distanceTxtBox.Text = "";
-            }
+            if (!usingCommport && simulator != null)
+                consoleOutput.Text = simulator.ReceiveCommand("RS");
+            pwrTxtBox.Text = "";
+            timeTxtBox.Text = "";
+            distanceTxtBox.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -74,41 +75,49 @@ namespace WindowsFormsApplication1
             commChooser.Dispose();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-           
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            if(commPort.IsOpen)
+            if(commPort.IsOpen || simulator != null)
             {
-                commPort.WriteLine("cm");
+                if (usingCommport)
+                    commPort.WriteLine("cm");
+                else
+                    simulator.ReceiveCommand("CM");
                 if(pwrTxtBox.Text != "")
                 {
                     if (usingCommport)
                         commPort.WriteLine("PW " + pwrTxtBox.Text);
                     else
-                        consoleOutput.Text = simulator.ReceiveCommand("PW" + pwrTxtBox.Text);
+                    {
+                        String status = simulator.ReceiveCommand("PW " + pwrTxtBox.Text);
+                        consoleOutput.Text = status;
+                        if(status != "ERROR")
+                            outputStatus(status);
+                    }   
                 }
                 if (timeTxtBox.Text != "")
                 {
                     if(usingCommport)
                         commPort.WriteLine("PT " + timeTxtBox.Text);
                     else
-                        consoleOutput.Text = simulator.ReceiveCommand("PT" + timeTxtBox.Text);
+                    {
+                        String status = simulator.ReceiveCommand("PT " + timeTxtBox.Text);
+                        consoleOutput.Text = status;
+                        if (status != "ERROR")
+                            outputStatus(status);
+                    }
                 }
                 if (distanceTxtBox.Text != "")
                 {
                     if(usingCommport)
                         commPort.WriteLine("PD " + distanceTxtBox.Text);
                     else
-                        consoleOutput.Text = simulator.ReceiveCommand("PD" + distanceTxtBox.Text);
+                    {
+                        String status = simulator.ReceiveCommand("PD " + distanceTxtBox.Text);
+                        consoleOutput.Text = status;
+                        if (status != "ERROR")
+                            outputStatus(status);
+                    }
                 }
             }
         }
@@ -296,7 +305,25 @@ namespace WindowsFormsApplication1
             if(usingCommport)
                 commPort.WriteLine("ST");
             else
-                consoleOutput.Text = simulator.ReceiveCommand("ST");
+            {
+                String status = simulator.ReceiveCommand("ST");
+                consoleOutput.Text = status;
+                outputStatus(status);
+            }
+                
+        }
+
+        public void outputStatus(String status)
+        {
+            String[] values = status.Split('\t');
+            setLabel(values[0], "pulse");
+            setLabel(values[1], "rpm");
+            setLabel(values[2], "speed");
+            setLabel(values[3], "distance");
+            setLabel(values[4], "requested_power");
+            setLabel(values[5], "energy");
+            setLabel(values[6], "time");
+            setLabel(values[7], "actual_power");
         }
     }
 
@@ -343,15 +370,7 @@ namespace WindowsFormsApplication1
                         }
                         else //The status reply
                         {
-                            String[] values = splittedInput2;
-                            parent.setLabel(values[0], "pulse");
-                            parent.setLabel(values[1], "rpm");
-                            parent.setLabel(values[2], "speed");
-                            parent.setLabel(values[3], "distance");
-                            parent.setLabel(values[4], "requested_power");
-                            parent.setLabel(values[5], "energy");
-                            parent.setLabel(values[6], "time");
-                            parent.setLabel(values[7], "actual_power");
+                        parent.outputStatus(input);
                     }
 
                     String display = "";
