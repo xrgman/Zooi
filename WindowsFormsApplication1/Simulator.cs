@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
                     commandMode = false;
                     return "ACK";
                 case "ID":
-                    return "Simulator";
+                    return "SF1B1706";
                 case "VE":
                     return "120";
                 case "CM":
@@ -130,7 +130,36 @@ namespace WindowsFormsApplication1
                 timeString = "0" + timeString.Substring(0, 1) + ":" + timeString.Substring(1,2);
             else
                 timeString = timeString.Substring(0, timeString.Length-2) + ":" + timeString.Substring(timeString.Length-2);
-            return pulse + "\t" + rpm + "\t" + speed * 10 + "\t" + distance + "\t" + requested_power + "\t" + energy + "\t" + timeString + "\t" + actual_power;
+
+            //generate rpm
+            Random r = new Random();
+            int newrpm = r.Next(rpm-10, rpm + 20);
+            if(newrpm >0)
+                rpm = newrpm;
+            if (rpm > 150)
+                rpm -= r.Next(rpm-145);
+            
+
+            //generate pulse 
+            pulse = 60 + (int)(0.5 * rpm);
+
+            //generate speed (km/uur)
+            speed = (int)(rpm / 2.5);
+
+            //generate distance (meter)
+            int actualDistance = (int)(speed / 3.6) * time;  //when time == 0 distance is also 0
+            if (actualDistance > distance)
+                distance = actualDistance;
+
+            //generate engergy (kcal)
+            energy = distance * (requested_power +1);
+
+            //generate actual power
+            actual_power = requested_power;
+
+
+
+            return pulse + "\t" + rpm + "\t" + speed + "\t" + distance + "\t" + requested_power + "\t" + energy + "\t" + timeString + "\t" + actual_power;
         }
 
         private void update()

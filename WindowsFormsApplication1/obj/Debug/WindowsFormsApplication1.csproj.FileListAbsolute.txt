@@ -28,3 +28,13 @@ C:\Users\Beer\Dropbox\school\periode 1\project\WindowsFormsApplication1\WindowsF
 C:\Users\Beer\Dropbox\school\periode 1\project\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
 C:\Users\Beer\Dropbox\school\periode 1\project\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Beer\Dropbox\school\periode 1\project\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\rene\Documents\CycleMasterPro2000\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
