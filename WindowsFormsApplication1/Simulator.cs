@@ -131,14 +131,29 @@ namespace WindowsFormsApplication1
             else
                 timeString = timeString.Substring(0, timeString.Length-2) + ":" + timeString.Substring(timeString.Length-2);
 
+           return pulse + "\t" + rpm + "\t" + speed + "\t" + distance + "\t" + requested_power + "\t" + energy + "\t" + timeString + "\t" + actual_power;
+        }
+
+        private void update()
+        {
+            while(true)
+            {
+                time += 1;
+                UpdateValues();
+                Thread.Sleep(1000);
+            }
+        }
+
+        private void UpdateValues()
+        {
             //generate rpm
             Random r = new Random();
-            int newrpm = r.Next(rpm-10, rpm + 20);
-            if(newrpm >0)
+            int newrpm = r.Next(rpm - 10, rpm + 20);
+            if (newrpm > 0)
                 rpm = newrpm;
             if (rpm > 150)
-                rpm -= r.Next(rpm-145);
-            
+                rpm -= r.Next(rpm - 145);
+
 
             //generate pulse 
             pulse = 60 + (int)(0.5 * rpm);
@@ -147,28 +162,14 @@ namespace WindowsFormsApplication1
             speed = (int)(rpm / 2.5);
 
             //generate distance (meter)
-            int actualDistance = (int)(speed / 3.6) * time;  //when time == 0 distance is also 0
-            if (actualDistance > distance)
-                distance = actualDistance;
+            int actualDistance = (int)(speed / 3.6);
+                distance += actualDistance;
 
             //generate engergy (kcal)
-            energy = distance * (requested_power +1);
+            energy = distance * (requested_power + 1);
 
             //generate actual power
             actual_power = requested_power;
-
-
-
-            return pulse + "\t" + rpm + "\t" + speed + "\t" + distance + "\t" + requested_power + "\t" + energy + "\t" + timeString + "\t" + actual_power;
-        }
-
-        private void update()
-        {
-            while(true)
-            {
-                time += 1;
-                Thread.Sleep(1000);
-            }
         }
     }
 }
