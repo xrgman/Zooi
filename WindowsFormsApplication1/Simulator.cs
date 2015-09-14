@@ -9,8 +9,8 @@ namespace WindowsFormsApplication1
 {
     class Simulator
     {
-        private int pulse, rpm, speed, time, distance, requested_power, energy, actual_power;
-
+        private int pulse, rpm, speed, time, distance, requested_power, actual_power;
+        private double energy;
         private bool commandMode;
 
         public Simulator()
@@ -136,7 +136,7 @@ namespace WindowsFormsApplication1
 
         private void update()
         {
-            while(true)
+            while (true)
             {
                 time += 1;
                 UpdateValues();
@@ -146,30 +146,34 @@ namespace WindowsFormsApplication1
 
         private void UpdateValues()
         {
-            //generate rpm
-            Random r = new Random();
-            int newrpm = r.Next(rpm - 10, rpm + 20);
-            if (newrpm > 0)
-                rpm = newrpm;
-            if (rpm > 150)
-                rpm -= r.Next(rpm - 145);
+                //generate rpm
+                Random r = new Random();
+                int newrpm = r.Next(rpm - 10, rpm + 20);
+                if (newrpm > 0)
+                    rpm = newrpm;
+                if (rpm > 125)
+                    rpm -= r.Next(rpm - 120);
 
 
-            //generate pulse 
-            pulse = 60 + (int)(0.5 * rpm);
+                //generate pulse 
+                pulse = 60 + (int)(0.5 * rpm);
 
-            //generate speed (km/uur)
-            speed = (int)(rpm / 2.5);
+                //generate speed (km/uur)
+                speed = (int)(rpm / 2.5);
 
-            //generate distance (meter)
-            int actualDistance = (int)(speed / 3.6);
-                distance += actualDistance;
+                //generate distance (meter)
+                int actualDistance = (int)(speed / 3.6) * time;  //when time == 0 distance is also 0
+                if (actualDistance > distance)
+                    distance = actualDistance;
 
-            //generate engergy (kcal)
-            energy = distance * (requested_power + 1);
+                //generate engergy (kjoule)
+                //formula: energy = weight(75 kg) * hours * (watt / 6) * rpm /100
+                energy += 75 * ((double)1.0 / 3600) * ((requested_power / 6) + 1) * ((rpm / 100) + 1);
 
-            //generate actual power
-            actual_power = requested_power;
+                //generate actual power
+                actual_power = requested_power;
+                Thread.Sleep(1000);
+            }
         }
     }
 }
