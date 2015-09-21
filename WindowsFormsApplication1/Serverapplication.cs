@@ -34,26 +34,23 @@ namespace WindowsFormsApplication1
         static void HandleClientThread(object obj)
         {
             TcpClient client = obj as TcpClient;
-
             bool done = false;
             while (!done)
             {
-                StreamReader stream = new StreamReader(client.GetStream(), Encoding.ASCII);
-                string line = stream.ReadLine();
-                Console.WriteLine("Received: {0}", line);
-                var streamwriter = new StreamWriter(client.GetStream(), Encoding.ASCII);
-                done = line.Equals("bye");
-                if (done)
+                //data inlezen van client
+                byte[] buffer = new byte[1024];
+                int totalRead = 0;
+                do
                 {
-                    streamwriter.WriteLine("Bye");
-                    streamwriter.Flush();
-                }
-                else
-                {
-                    streamwriter.WriteLine("ok");
-                    streamwriter.Flush();
-                }
+                    int read = client.GetStream().Read(buffer, totalRead, buffer.Length - totalRead);
+                    totalRead += read;
+                } while (client.GetStream().DataAvailable);
 
+                string received = Encoding.ASCII.GetString(buffer, 0, totalRead);
+                Console.WriteLine("\nResponse from client: {0}", received);
+
+                //iets doen met data
+                byte[] bytes = Encoding.ASCII.GetBytes(received);
             }
             client.Close();
             Console.WriteLine("Connection closed");

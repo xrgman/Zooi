@@ -9,13 +9,13 @@ namespace WindowsFormsApplication1
     class UserClient
     {
         public string UserName;
-        public bool Admin;
+        public bool admin;
         public string UserPassword;
 
         public UserClient(string fullNam, bool admin, string pass)
         {
             fullName = fullNam;
-            this.Admin = admin;
+            admini = admin;
             userPass = pass;
         }
         public string fullName
@@ -23,10 +23,10 @@ namespace WindowsFormsApplication1
             get { return UserName; }
             set { UserName = value; }
         }
-        public bool accLevel
+        public bool admini
         {
-            get { return Admin; }
-            set { Admin = value;  }
+            get { return admin; }
+            set { admin = value;  }
         }
         public string userPass
         {
