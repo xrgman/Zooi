@@ -1,0 +1,11 @@
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csprojResolveAssemblyReference.cache
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\rkeet\Documents\CycleMasterPro2000\Server aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache
