@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
                 simulator = new Simulator();
                 status = "Simulator";
             }
-        }
+        }   
 
         public void SetStatus(string status)
         {

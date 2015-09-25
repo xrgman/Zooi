@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WindowsFormsApplication1 
 {
     [Serializable]
-    class Measurement : IComparable<Measurement>
+    public class Measurement : IComparable<Measurement>
     {
         public int pulse { get; }
         public int rpm { get; }

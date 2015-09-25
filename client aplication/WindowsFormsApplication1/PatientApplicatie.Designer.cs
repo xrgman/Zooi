@@ -69,6 +69,13 @@
             this.energyLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.requestedPowerLabel = new System.Windows.Forms.Label();
+            this.pwrTxtBox = new System.Windows.Forms.TextBox();
+            this.timeTxtBox = new System.Windows.Forms.TextBox();
+            this.distanceTxtBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.sendButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -438,6 +445,70 @@
             this.requestedPowerLabel.Size = new System.Drawing.Size(0, 18);
             this.requestedPowerLabel.TabIndex = 29;
             // 
+            // pwrTxtBox
+            // 
+            this.pwrTxtBox.Location = new System.Drawing.Point(350, 36);
+            this.pwrTxtBox.Name = "pwrTxtBox";
+            this.pwrTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.pwrTxtBox.TabIndex = 35;
+            // 
+            // timeTxtBox
+            // 
+            this.timeTxtBox.Location = new System.Drawing.Point(350, 65);
+            this.timeTxtBox.Name = "timeTxtBox";
+            this.timeTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.timeTxtBox.TabIndex = 34;
+            // 
+            // distanceTxtBox
+            // 
+            this.distanceTxtBox.Location = new System.Drawing.Point(350, 92);
+            this.distanceTxtBox.Name = "distanceTxtBox";
+            this.distanceTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.distanceTxtBox.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(259, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 18);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Set distance:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(259, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 18);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Set time:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(259, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 18);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Set power:";
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(375, 118);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.TabIndex = 36;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +517,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1019, 790);
+            this.Controls.Add(this.sendButton);
+            this.Controls.Add(this.pwrTxtBox);
+            this.Controls.Add(this.timeTxtBox);
+            this.Controls.Add(this.distanceTxtBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.requestedPowerLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.energyLabel);
@@ -526,6 +604,13 @@
         private System.Windows.Forms.Label energyLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label requestedPowerLabel;
+        private System.Windows.Forms.TextBox pwrTxtBox;
+        private System.Windows.Forms.TextBox timeTxtBox;
+        private System.Windows.Forms.TextBox distanceTxtBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button sendButton;
     }
 }
 

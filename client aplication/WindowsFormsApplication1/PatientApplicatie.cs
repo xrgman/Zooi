@@ -17,11 +17,22 @@ namespace WindowsFormsApplication1
 
         private Bike bike;
         private Network network;
+        private bool isSpecialist = true;
 
         public FormClient(Network network)
         {
             InitializeComponent();
             this.network = network;
+            if(!isSpecialist)
+            {
+                pwrTxtBox.Hide();
+                distanceTxtBox.Hide();
+                timeTxtBox.Hide();
+                label5.Hide();
+                label6.Hide();
+                label7.Hide();
+                sendButton.Hide();
+            }
         }
 
         private void BComConnect_Click(object sender, EventArgs e)
@@ -175,6 +186,32 @@ namespace WindowsFormsApplication1
         {
             //terminating threads, not done yet!
             statusLabel.Text = "Error: connection lost";
+        }
+
+        /// <summary>
+        /// For client only! this gets send to bike;
+        /// </summary>
+        /// <param name="power"></param>
+        /// <param name="time"></param>
+        /// <param name="distance"></param>
+        public void setBikeValues(string power, string time, string distance)
+        {
+            int powerNumber;
+            int distanceNumber;
+            if (pwrTxtBox.Text != "")
+                if (Int32.TryParse(pwrTxtBox.Text, out powerNumber))
+                    bike.SetPower(powerNumber);
+            if (timeTxtBox.Text != "")
+                bike.setTime(Int32.Parse(timeTxtBox.Text));
+            if (distanceTxtBox.Text != "")
+                if (Int32.TryParse(distanceTxtBox.Text, out distanceNumber))
+                    bike.SetDistance(distanceNumber);
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            //stuur naar server en die stuurt naar client;
+            network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text); 
         }
     }
 }
