@@ -58,5 +58,10 @@ namespace server_application
             return false;
         }
 
+        public bool checkPassword(string passwordTry)
+        {
+            return userPassword.Equals(passwordTry);
+        }
+
     }
 }
