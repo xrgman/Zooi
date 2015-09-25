@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
 
         public void sendMeasurement(Measurement measurement)
         {
-
+            //Send object;
         }
     }
 }
