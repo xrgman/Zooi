@@ -178,6 +178,12 @@ namespace WindowsFormsApplication1
                 SetDistanceLabel(measurement.distance.ToString());
                 SetEnergyLabel(measurement.energy.ToString());
                 SetRequestedPowerLabel(measurement.requested_power.ToString());
+                //Set values from doctor:
+
+
+                //Send measurement to the server
+
+
                 Thread.Sleep(1000);
             }
         }
