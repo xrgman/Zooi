@@ -1,2 +1,7 @@
 C:\Users\rkeet\Documents\CycleMasterPro2000\server application\bin\Debug\server application.exe.config
 C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\bin\Debug\server application.exe.config
+C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
+C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\bin\Debug\server application.exe
+C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\bin\Debug\server application.pdb
+C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\obj\Debug\server application.exe
+C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\obj\Debug\server application.pdb

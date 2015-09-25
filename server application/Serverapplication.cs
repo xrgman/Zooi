@@ -6,12 +6,15 @@ using System.Net.Sockets;
 using System.Net;
 using System.IO;
 using System.Threading;
+using WindowsFormsApplication1;
+using server_application;
+using System.Net.Security;
 
 namespace WindowsFormsApplication1
 {
     class Serverapplication
     {
-        ArrayList<Measurement> data = new ArrayList<Measurement>();
+        //ArrayList<Measurement> data = new ArrayList<Measurement>();
         public Serverapplication()
         {
             IPAddress ip = IPAddress.Parse("145.48.118.136");
@@ -30,49 +33,21 @@ namespace WindowsFormsApplication1
         public static void HandleClientThread(object obj)
         {
             TcpClient client = obj as TcpClient;
+            SslStream sslStream;
+            sslStream = new SslStream(client.GetStream());
             bool done = false;
-            int totalReceived = 0;
             while (!done)
             {
                 //data inlezen van client
-                    string received = ReadTextMessage(client);
+                    string received = Network.ReadTextMessage(sslStream);
                     Console.WriteLine("recieved");
-                ReadMessage(client);
+                    Network.ReadMessage(sslStream, client);
             }
             client.Close();
             Console.WriteLine("Connection closed");
 
         }
 
-        public static string ReadTextMessage(TcpClient client)
-        {
-
-            StreamReader stream = new StreamReader(client.GetStream(), Encoding.ASCII);
-            string line = stream.ReadLine();
-            return line;
-        }
-
-        public static void WriteTextMessage(TcpClient client, string message)
-        {
-            var stream = new StreamWriter(client.GetStream(), Encoding.ASCII);
-            stream.WriteLine(message);
-            stream.Flush();
-        }
-        public static string ReadMessage(TcpClient client)
-        {
-
-            byte[] buffer = new byte[256];
-            int totalRead = 0;
-
-            //read bytes until stream indicates there are no more
-            do
-            {
-                int read = client.GetStream().Read(buffer, totalRead, buffer.Length - totalRead);
-                totalRead += read;
-                Console.WriteLine("ReadMessage: " + read);
-            } while (client.GetStream().DataAvailable);
-
-            return Encoding.Unicode.GetString(buffer, 0, totalRead);
-        }
+     
     }
 }

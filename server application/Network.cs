@@ -6,26 +6,28 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Net.Security;
 
 namespace server_application
 {
     class Network
     {
-        public static string ReadTextMessage(TcpClient client)
+
+        public static string ReadTextMessage(SslStream sslStream)
         {
 
-            StreamReader stream = new StreamReader(client.GetStream(), Encoding.ASCII);
+            StreamReader stream = new StreamReader(sslStream, Encoding.ASCII);
             string line = stream.ReadLine();
             return line;
         }
 
-        public static void WriteTextMessage(TcpClient client, string message)
+        public static void WriteTextMessage(SslStream sslStream, string message)
         {
-            var stream = new StreamWriter(client.GetStream(), Encoding.ASCII);
+            var stream = new StreamWriter(sslStream, Encoding.ASCII);
             stream.WriteLine(message);
             stream.Flush();
         }
-        public static string ReadMessage(TcpClient client)
+        public static string ReadMessage(SslStream sslStream, TcpClient client)
         {
 
             byte[] buffer = new byte[256];
@@ -34,7 +36,7 @@ namespace server_application
             //read bytes until stream indicates there are no more
             do
             {
-                int read = client.GetStream().Read(buffer, totalRead, buffer.Length - totalRead);
+                int read = sslStream.Read(buffer, totalRead, buffer.Length - totalRead);
                 totalRead += read;
                 Console.WriteLine("ReadMessage: " + read);
             } while (client.GetStream().DataAvailable);
