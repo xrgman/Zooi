@@ -14,15 +14,11 @@ namespace WindowsFormsApplication1
 
         public Serverapplication()
         {
-            IPAddress localhost;
-
-            bool ipIsOk = IPAddress.TryParse("127.0.0.1", out localhost);
-            if (!ipIsOk) { Console.WriteLine("ip adres kan niet geparsed worden."); Environment.Exit(1); }
-
-            TcpListener listener = new System.Net.Sockets.TcpListener(localhost, 8600);
+            IPAddress ip = IPAddress.Parse("145.48.118.136");
+            TcpListener listener = new System.Net.Sockets.TcpListener(ip, 8600);
             listener.Start();
 
-            while(true)
+            while (true)
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
@@ -31,30 +27,34 @@ namespace WindowsFormsApplication1
             }
         }
 
-        static void HandleClientThread(object obj)
+        public static void HandleClientThread(object obj)
         {
             TcpClient client = obj as TcpClient;
             bool done = false;
             while (!done)
             {
                 //data inlezen van client
-                byte[] buffer = new byte[1024];
-                int totalRead = 0;
-                do
-                {
-                    int read = client.GetStream().Read(buffer, totalRead, buffer.Length - totalRead);
-                    totalRead += read;
-                } while (client.GetStream().DataAvailable);
-
-                string received = Encoding.ASCII.GetString(buffer, 0, totalRead);
-                Console.WriteLine("\nResponse from client: {0}", received);
-
-                //iets doen met data
-                byte[] bytes = Encoding.ASCII.GetBytes(received);
+                string received = ReadTextMessage(client);
+                Console.WriteLine("recieved");
             }
             client.Close();
             Console.WriteLine("Connection closed");
 
+        }
+
+        public static string ReadTextMessage(TcpClient client)
+        {
+
+            StreamReader stream = new StreamReader(client.GetStream(), Encoding.ASCII);
+            string line = stream.ReadLine();
+            return line;
+        }
+
+        public static void WriteTextMessage(TcpClient client, string message)
+        {
+            var stream = new StreamWriter(client.GetStream(), Encoding.ASCII);
+            stream.WriteLine(message);
+            stream.Flush();
         }
 
     }
