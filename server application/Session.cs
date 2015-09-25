@@ -8,8 +8,7 @@ namespace server_application
 {
     class Session
     {
-        public DateTime startedDate
-        { get; private set; }
+        public DateTime startedDate { get; private set; }
 
         public List<Measurement> measurements = new List<Measurement>();
 

@@ -49,3 +49,4 @@ Temporary Items
 .suo
 server application/obj/Debug/server application.csproj.FileListAbsolute.txt
 server application/obj/Debug/server application.csproj.FileListAbsolute.txt
+*.suo

@@ -4,41 +4,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApplication1
+namespace server_application
 {
     class UserClient
     {
-        public string UserName;
-        public bool admin;
-        public string UserPassword;
+        private List<Session> sessions = new List<Session>();
 
-        public UserClient(string fullNam, bool admin, string pass)
+        public string username{ get; private set; }
+        public bool isAdmin { get; private set; }
+        private string userPassword;
+
+        public UserClient(string username, bool isAdmin, string userPassword)
         {
-            fullName = fullNam;
-            admini = admin;
-            userPass = pass;
+            this.username = username;
+            this.isAdmin = isAdmin;
+            this.userPassword = userPassword;
         }
-        public string fullName
+
+        public void addSession(DateTime startedDate)
         {
-            get { return UserName; }
-            set { UserName = value; }
+            Session s = new Session(startedDate);
         }
-        public bool admini
+
+        public void addMeasurement(Measurement measurement)
         {
-            get { return admin; }
-            set { admin = value;  }
+            Session s = sessions.Last();
+            addMeasurement(s, measurement);
         }
-        public string userPass
+
+
+        public void addMeasurement(Session session, Measurement measurement)
         {
-            get { return UserPassword; }
-            set { UserPassword = value; }
+            session.AddMeasurement(measurement);
         }
+
+        public List<Session> getSessions()
+        {
+            return sessions;
+        }
+
+        public Session getLastSession()
+        {
+            return sessions.Last();
+        }
+
         public override bool Equals(object obj)
         {
             UserClient temp = obj as UserClient;
             if(temp != null)
             {
-                return (userPass == temp.userPass);
+                return (userPassword == temp.userPassword);
             }
             return false;
         }
