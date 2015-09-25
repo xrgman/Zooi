@@ -17,8 +17,8 @@ namespace server_application
         List<Measurement> data = new List<Measurement>();
         public Serverapplication()
         {
-            IPAddress ip = IPAddress.Parse("145.48.118.136");
-            TcpListener listener = new System.Net.Sockets.TcpListener(ip, 8600);
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            TcpListener listener = new System.Net.Sockets.TcpListener(ip, 130);
             listener.Start();
 
             while (true)
