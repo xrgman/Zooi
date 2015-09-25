@@ -10,11 +10,11 @@ using WindowsFormsApplication1;
 using server_application;
 using System.Net.Security;
 
-namespace WindowsFormsApplication1
+namespace server_application
 {
     class Serverapplication
     {
-        //ArrayList<Measurement> data = new ArrayList<Measurement>();
+        List<Measurement> data = new List<Measurement>();
         public Serverapplication()
         {
             IPAddress ip = IPAddress.Parse("145.48.118.136");
