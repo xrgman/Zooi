@@ -10,6 +10,7 @@ namespace server_application
     {
         static void Main(string[] args)
         {
+            Serverapplication server = new Serverapplication();
         }
     }
 }
