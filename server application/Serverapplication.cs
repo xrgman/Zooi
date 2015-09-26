@@ -9,7 +9,8 @@ namespace server_application
 {
     class Serverapplication
     {
-        List<UserClient> data = new List<UserClient>();
+        List<UserClient> clients = new List<UserClient>();
+        List<Physician> physicians = new List<Physician>();
 
         public Serverapplication()
         {

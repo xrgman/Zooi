@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApplication1;
 
 namespace server_application
 {
-    class UserClient
+    class UserClient : User
     {
         private List<Session> sessions = new List<Session>();
+        
 
-        public string username{ get; private set; }
-        public bool isAdmin { get; private set; }
-        private string userPassword;
-
-        public UserClient(string username, bool isAdmin, string userPassword)
+        public UserClient(string username, bool isAdmin, string userPassword): base(username,userPassword)
         {
-            this.username = username;
-            this.isAdmin = isAdmin;
-            this.userPassword = userPassword;
         }
 
         public void addSession(DateTime startedDate)
@@ -48,7 +43,7 @@ namespace server_application
             return sessions.Last();
         }
 
-        public override bool Equals(object obj)
+ /*       public override bool Equals(object obj)
         {
             UserClient temp = obj as UserClient;
             if(temp != null)
@@ -56,12 +51,9 @@ namespace server_application
                 return (userPassword == temp.userPassword);
             }
             return false;
-        }
+        }*/
 
-        public bool checkPassword(string passwordTry)
-        {
-            return userPassword.Equals(passwordTry);
-        }
+        
 
     }
 }
