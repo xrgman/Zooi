@@ -7,3 +7,6 @@ C:\Users\kees2125\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1
 C:\Users\kees2125\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\kees2125\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\kees2125\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
