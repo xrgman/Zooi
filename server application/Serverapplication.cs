@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net.Sockets;
 using System.Net;
-using System.IO;
 using System.Threading;
-using WindowsFormsApplication1;
-using server_application;
 using System.Net.Security;
 
 namespace server_application
 {
     class Serverapplication
     {
-        List<Measurement> data = new List<Measurement>();
+        List<UserClient> clients = new List<UserClient>();
+        List<Physician> physicians = new List<Physician>();
+
         public Serverapplication()
         {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
@@ -46,6 +43,27 @@ namespace server_application
             client.Close();
             Console.WriteLine("Connection closed");
 
+        }
+
+        public void AddUser(String username, string password, bool isMedical)
+        {
+            UserClient user = new UserClient(username, isMedical, password);
+        }
+
+        public string checkLogin(string username, string password)
+        {
+            foreach(UserClient user in data){
+                if (user.username.Equals(username))
+                {
+                    if (u.checkPassword(password))
+                    {
+                        //TODO: send user object to client
+                        return "succesfull logged in";
+                    }
+                    return "wrong password!";
+                }
+            }
+            return "wrong username!";
         }
 
      

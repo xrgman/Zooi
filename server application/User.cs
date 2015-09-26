@@ -6,45 +6,21 @@ using System.Threading.Tasks;
 
 namespace server_application
 {
+
     class User
     {
-        private List<Session> Sessions = new List<Session>();
-        public string userName
-        { get; private set; }
+        public string username { get; private set; }
         private string password;
 
-        public User(string username, string password)
+        public User (string username, string password)
         {
-            this.userName = userName;
+            this.username = username;
             this.password = password;
         }
 
-        public void addSession(DateTime startedDate)
+        public bool checkPassword(string passwordTry)
         {
-            Session s = new Session(startedDate);
+            return password.Equals(passwordTry);
         }
-
-        public void addMeasurement(Measurement measurement)
-        {
-            Session s = Sessions.Last();
-            addMeasurement(s, measurement);
-        }
-
-
-        public void addMeasurement(Session session, Measurement measurement)
-        {
-            session.AddMeasurement(measurement);
-        }
-
-        public List<Session> getSessions()
-        {
-            return Sessions;
-        }
-
-        public Session getLastSession()
-        {
-            return Sessions.Last();
-        }
-       
     }
 }
