@@ -20,14 +20,3 @@ D:\Dropbox\school\periode 1\project\week 5\client aplication\WindowsFormsApplica
 D:\Dropbox\school\periode 1\project\week 5\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
 D:\Dropbox\school\periode 1\project\week 5\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 D:\Dropbox\school\periode 1\project\week 5\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csprojResolveAssemblyReference.cache
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache

@@ -11,6 +11,3 @@ C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\obj\Deb
 C:\Users\rene\Documents\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
 C:\Users\rene\Documents\CycleMasterPro2000\server application\obj\Debug\server application.exe
 C:\Users\rene\Documents\CycleMasterPro2000\server application\obj\Debug\server application.pdb
-C:\Users\rene\Documents\CycleMasterPro2000\server application\bin\Debug\server application.exe.config
-C:\Users\rene\Documents\CycleMasterPro2000\server application\bin\Debug\server application.exe
-C:\Users\rene\Documents\CycleMasterPro2000\server application\bin\Debug\server application.pdb
