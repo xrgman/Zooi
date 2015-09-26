@@ -56,7 +56,6 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Measurement.cs" />
     <Compile Include="Network.cs" />
     <Compile Include="NetworkCommunication.cs" />
     <Compile Include="PatientApplicatie.cs">

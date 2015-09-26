@@ -51,3 +51,6 @@ server application/obj/Debug/server application.csproj.FileListAbsolute.txt
 server application/obj/Debug/server application.csproj.FileListAbsolute.txt
 *.suo
 .vs/WindowsFormsApplication1/v14/.suo
+*.suo
+*.cache
+*.sln

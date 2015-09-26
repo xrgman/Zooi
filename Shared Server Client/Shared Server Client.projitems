@@ -9,5 +9,6 @@
     <Import_RootNamespace>Shared_Server_Client</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Measurement.cs" />
   </ItemGroup>
 </Project>

@@ -47,9 +47,11 @@
       <Link>Measurement.cs</Link>
     </Compile>
     <Compile Include="Network.cs" />
+    <Compile Include="Physician.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serverapplication.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="UserClient.cs" />
     <Compile Include="Session.cs" />
   </ItemGroup>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApplication1;
 
 namespace WindowsFormsApplication1
 {
@@ -33,6 +34,7 @@ namespace WindowsFormsApplication1
 
         public void sendMeasurement(Measurement measurement)
         {
+            
             //Send object;
         }
     }
