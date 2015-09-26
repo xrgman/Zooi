@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Shared Server Client\Measurement.cs">
+      <Link>Measurement.cs</Link>
+    </Compile>
     <Compile Include="Bike.cs" />
     <Compile Include="BikeCommunication.cs" />
     <Compile Include="Controller.cs" />

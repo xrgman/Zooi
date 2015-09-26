@@ -52,10 +52,10 @@ namespace server_application
 
         public string checkLogin(string username, string password)
         {
-            foreach(UserClient user in data){
+            foreach(UserClient user in clients){
                 if (user.username.Equals(username))
                 {
-                    if (u.checkPassword(password))
+                    if (user.checkPassword(password))
                     {
                         //TODO: send user object to client
                         return "succesfull logged in";
