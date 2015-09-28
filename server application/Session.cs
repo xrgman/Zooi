@@ -7,6 +7,7 @@ using WindowsFormsApplication1;
 
 namespace server_application
 {
+    [Serializable]
     class Session
     {
         public DateTime startedDate { get; private set; }

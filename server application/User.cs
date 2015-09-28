@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace server_application
 {
-
+    [Serializable]
     class User
     {
         public string username { get; private set; }
