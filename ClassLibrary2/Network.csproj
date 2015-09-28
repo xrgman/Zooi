@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CBEAD147-EE17-4A6D-96EE-3144601AA57E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{E44FB9F6-D0DA-4519-A149-745987C931C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>server_application</RootNamespace>
-    <AssemblyName>server application</AssemblyName>
+    <RootNamespace>Network</RootNamespace>
+    <AssemblyName>Network</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,27 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Shared Server Client\Measurement.cs">
-      <Link>Measurement.cs</Link>
-    </Compile>
-    <Compile Include="Network.cs" />
-    <Compile Include="Physician.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ClientInterface.cs" />
+    <Compile Include="PacketLogin.cs" />
+    <Compile Include="PacketLoginResponse.cs" />
+    <Compile Include="ServerInterface.cs" />
+    <Compile Include="Packet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serverapplication.cs" />
-    <Compile Include="ServerClient.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserClient.cs" />
-    <Compile Include="Session.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary2\Network.csproj">
-      <Project>{e44fb9f6-d0da-4519-a149-745987c931c5}</Project>
-      <Name>Network</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

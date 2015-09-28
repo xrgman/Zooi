@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using System.Net.Security;
+using Network;
 
 namespace server_application
 {
@@ -22,49 +23,31 @@ namespace server_application
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
-                Thread thread = new Thread(HandleClientThread);
-                thread.Start(client);
+                clients.Add(new ServerClient(client, this));
             }
         }
 
-        public static void HandleClientThread(object obj)
-        {
-            TcpClient client = obj as TcpClient;
-            SslStream sslStream;
-            sslStream = new SslStream(client.GetStream());
-            bool done = false;
-            while (!done)
-            {
-                //data inlezen van client
-                    string received = Network.ReadTextMessage(sslStream);
-                    Console.WriteLine("recieved");
-                    Network.ReadMessage(sslStream, client);
-            }
-            client.Close();
-            Console.WriteLine("Connection closed");
 
-        }
-
-        public void AddUser(String username, string password, bool isMedical)
-        {
-            UserClient user = new UserClient(username, isMedical, password);
-        }
-
-        public string checkLogin(string username, string password)
-        {
-            foreach(UserClient user in clients){
-                if (user.username.Equals(username))
-                {
-                    if (user.checkPassword(password))
-                    {
-                        //TODO: send user object to client
-                        return "succesfull logged in";
-                    }
-                    return "wrong password!";
-                }
-            }
-            return "wrong username!";
-        }
+//        public void AddUser(String username, string password, bool isMedical)
+//       {
+//            UserClient user = new UserClient(username, isMedical, password);
+//        }
+//
+//        public string checkLogin(string username, string password)
+//        {
+//            foreach(UserClient user in clients){
+//                if (user.username.Equals(username))
+//                {
+//                    if (user.checkPassword(password))
+//                    {
+//                        //TODO: send user object to client
+//                        return "succesfull logged in";
+//                    }
+//                   return "wrong password!";
+//                }
+//            }
+//            return "wrong username!";
+//        }
 
      
     }
