@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             this.network = network;
-            if(!isSpecialist)
+            if(!isSpecialist) //Client:
             {
                 pwrTxtBox.Hide();
                 distanceTxtBox.Hide();
@@ -32,6 +32,11 @@ namespace WindowsFormsApplication1
                 label6.Hide();
                 label7.Hide();
                 sendButton.Hide();
+            }
+            else //Specialist:
+            {
+                BComConnect.Hide();
+                resetButton.Hide();
             }
         }
 
@@ -43,7 +48,11 @@ namespace WindowsFormsApplication1
             {
                 bike = new Bike(commForm.getCommport);
                 modelLabel.Text = bike.GetModel();
+                if (modelLabel.Text.Equals("ERROR"))
+                    modelLabel.Text = bike.GetModel();
                 versionLabel.Text = bike.GetVersionNumber();
+                if (versionLabel.Text.Equals("ERROR"))
+                    versionLabel.Text = bike.GetVersionNumber();
                 statusLabel.Text = bike.GetStatus();
                 Thread refreshThread = new Thread(new ThreadStart(RefreshThread));
                 refreshThread.Start();
@@ -166,18 +175,21 @@ namespace WindowsFormsApplication1
 
         private void RefreshThread()
         {
-            while(statusLabel.Text != "Error: connection lost")
+            do
             {
                 statusLabel.Text = bike.GetStatus();
                 Measurement measurement = bike.getMeasurement();
-                SetActualPowerLabel(measurement.actual_power.ToString());
-                SetTimeLabel(measurement.time);
-                SetHeartBeatLabel(measurement.pulse.ToString());
-                SetRpmLabel(measurement.rpm.ToString());
-                SetSpeedLabel(measurement.speed.ToString());
-                SetDistanceLabel(measurement.distance.ToString());
-                SetEnergyLabel(measurement.energy.ToString());
-                SetRequestedPowerLabel(measurement.requested_power.ToString());
+                if (measurement != null)
+                {
+                    SetActualPowerLabel(measurement.actual_power.ToString());
+                    SetTimeLabel(measurement.time);
+                    SetHeartBeatLabel(measurement.pulse.ToString());
+                    SetRpmLabel(measurement.rpm.ToString());
+                    SetSpeedLabel(measurement.speed.ToString());
+                    SetDistanceLabel(measurement.distance.ToString());
+                    SetEnergyLabel(measurement.energy.ToString());
+                    SetRequestedPowerLabel(measurement.requested_power.ToString());
+                }
                 //Set values from doctor:
 
 
@@ -186,16 +198,17 @@ namespace WindowsFormsApplication1
 
                 Thread.Sleep(1000);
             }
+            while (statusLabel.Text != "Error: connection lost");
         }
 
         private void FormClient_FormClosed(object sender, FormClosedEventArgs e)
         {
             //terminating threads, not done yet!
-            statusLabel.Text = "Error: connection lost";
+           
         }
 
         /// <summary>
-        /// For client only! this gets send to bike;
+        /// For client only! this gets send to rhbike;
         /// </summary>
         /// <param name="power"></param>
         /// <param name="time"></param>
@@ -217,7 +230,45 @@ namespace WindowsFormsApplication1
         private void sendButton_Click(object sender, EventArgs e)
         {
             //stuur naar server en die stuurt naar client;
-            network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text); 
+            if(pwrTxtBox.BackColor != Color.Red && timeTxtBox.BackColor != Color.Red && distanceTxtBox.BackColor != Color.Red)
+                network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text); 
+        }
+
+        /// <summary>
+        /// Checks if entered value is correct.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pwrTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (!Int32.TryParse(pwrTxtBox.Text, out value) && pwrTxtBox.Text != "")
+                pwrTxtBox.BackColor = Color.Red;
+            else
+            {
+                if(value >= 0 && value <= 400)
+                    pwrTxtBox.BackColor = Color.White;
+                else
+                    pwrTxtBox.BackColor = Color.Red;
+            }     
+        }
+
+        private void timeTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (!Int32.TryParse(timeTxtBox.Text, out value) && timeTxtBox.Text != "")
+                timeTxtBox.BackColor = Color.Red;
+            else
+                timeTxtBox.BackColor = Color.White;
+        }
+
+        private void distanceTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            int value;
+            if (!Int32.TryParse(distanceTxtBox.Text, out value) && distanceTxtBox.Text != "")
+                distanceTxtBox.BackColor = Color.Red;
+            else
+                distanceTxtBox.BackColor = Color.White;
         }
     }
 }

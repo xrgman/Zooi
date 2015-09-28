@@ -451,6 +451,7 @@
             this.pwrTxtBox.Name = "pwrTxtBox";
             this.pwrTxtBox.Size = new System.Drawing.Size(100, 20);
             this.pwrTxtBox.TabIndex = 35;
+            this.pwrTxtBox.TextChanged += new System.EventHandler(this.pwrTxtBox_TextChanged);
             // 
             // timeTxtBox
             // 
@@ -458,6 +459,7 @@
             this.timeTxtBox.Name = "timeTxtBox";
             this.timeTxtBox.Size = new System.Drawing.Size(100, 20);
             this.timeTxtBox.TabIndex = 34;
+            this.timeTxtBox.TextChanged += new System.EventHandler(this.timeTxtBox_TextChanged);
             // 
             // distanceTxtBox
             // 
@@ -465,6 +467,7 @@
             this.distanceTxtBox.Name = "distanceTxtBox";
             this.distanceTxtBox.Size = new System.Drawing.Size(100, 20);
             this.distanceTxtBox.TabIndex = 33;
+            this.distanceTxtBox.TextChanged += new System.EventHandler(this.distanceTxtBox_TextChanged);
             // 
             // label5
             // 

@@ -74,6 +74,7 @@ namespace WindowsFormsApplication1
                     stillConnected = false;
                     parent.SetStatus("Error: connection lost");
                     serialPort.Close();
+                    Thread.CurrentThread.Abort();
                 }
                 
                 //Handling incomming messages: 

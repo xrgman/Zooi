@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
             if (bikeCommunication.ConnectToCom(commportNumber))
             {
                 usingComm = true;
-                status = "Conncted to " + commportNumber;
+                status = "Connected to " + commportNumber;
             }
             else //When there is nothing connected to the commport;
             {
@@ -92,9 +92,13 @@ namespace WindowsFormsApplication1
                 measurement = simulator.SendMessage("ST");
             Thread.Sleep(40);
             //Splitting the values:
-            String[] values = measurement.Split('\t');
-            Measurement m = new Measurement(Int32.Parse(values[0]), Int32.Parse(values[1]), Int32.Parse(values[2]), Int32.Parse(values[3]), Int32.Parse(values[4]), Int32.Parse(values[5]), values[6], Int32.Parse(values[7]));
-            return m;
+            if(measurement != null)
+            {
+                String[] values = measurement.Split('\t');
+                Measurement m = new Measurement(Int32.Parse(values[0]), Int32.Parse(values[1]), Int32.Parse(values[2]), Int32.Parse(values[3]), Int32.Parse(values[4]), Int32.Parse(values[5]), values[6], Int32.Parse(values[7]));
+                return m;
+            }
+            return null;
         }
 
         public void SetPower(int watt)
