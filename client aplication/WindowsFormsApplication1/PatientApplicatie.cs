@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
 
         private Bike bike;
         private Network network;
-        private bool isSpecialist = true;
+        private bool isSpecialist = false;
 
         public FormClient(Network network)
         {
@@ -47,11 +47,11 @@ namespace WindowsFormsApplication1
             if(dialogResult == DialogResult.OK)
             {
                 bike = new Bike(commForm.getCommport);
-                modelLabel.Text = bike.GetModel();
-                if (modelLabel.Text.Equals("ERROR"))
+               // modelLabel.Text = bike.GetModel();
+                while(modelLabel.Text.Equals("ERROR") || modelLabel.Text.Equals(""))
                     modelLabel.Text = bike.GetModel();
-                versionLabel.Text = bike.GetVersionNumber();
-                if (versionLabel.Text.Equals("ERROR"))
+                //versionLabel.Text = bike.GetVersionNumber();
+                while(versionLabel.Text.Equals("ERROR") || versionLabel.Text.Equals(""))
                     versionLabel.Text = bike.GetVersionNumber();
                 statusLabel.Text = bike.GetStatus();
                 Thread refreshThread = new Thread(new ThreadStart(RefreshThread));
@@ -173,11 +173,24 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void SetStatusLabel(string status)
+        {
+            if (this.statusLabel.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetStatusLabel);
+                this.Invoke(d, new object[] { status });
+            }
+            else
+            {
+                this.statusLabel.Text = status;
+            }
+        }
+
         private void RefreshThread()
         {
             do
             {
-                statusLabel.Text = bike.GetStatus();
+                SetStatusLabel(bike.GetStatus());
                 Measurement measurement = bike.getMeasurement();
                 if (measurement != null)
                 {
@@ -195,7 +208,7 @@ namespace WindowsFormsApplication1
 
                 //Send measurement to the server
 
-
+                
                 Thread.Sleep(1000);
             }
             while (statusLabel.Text != "Error: connection lost");
@@ -204,7 +217,7 @@ namespace WindowsFormsApplication1
         private void FormClient_FormClosed(object sender, FormClosedEventArgs e)
         {
             //terminating threads, not done yet!
-           
+            
         }
 
         /// <summary>

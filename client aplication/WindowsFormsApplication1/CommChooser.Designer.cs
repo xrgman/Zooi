@@ -43,7 +43,6 @@
             this.connectButton.TabIndex = 0;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
-            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
             // cancelButton
             // 
@@ -72,7 +71,7 @@
             this.commportTxtBox.Name = "commportTxtBox";
             this.commportTxtBox.Size = new System.Drawing.Size(100, 20);
             this.commportTxtBox.TabIndex = 3;
-            this.commportTxtBox.Text = "COM4";
+            this.commportTxtBox.Text = "COM3";
             // 
             // CommForm
             // 
@@ -85,7 +84,6 @@
             this.Controls.Add(this.connectButton);
             this.Name = "CommForm";
             this.Text = "Select your commport";
-            this.Load += new System.EventHandler(this.ComForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

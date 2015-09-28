@@ -17,16 +17,6 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        private void ComForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void connectButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public string getCommport
         {
             get { return commportTxtBox.Text; }

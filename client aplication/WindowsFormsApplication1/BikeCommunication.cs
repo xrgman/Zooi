@@ -12,7 +12,7 @@ namespace WindowsFormsApplication1
     {
         private SerialPort serialPort;
         private Bike parent;
-        private bool stillConnected;
+        public bool stillConnected { get; set; }
 
         /// <summary>
         /// Constructor of the bikeCommunication class.
@@ -43,6 +43,7 @@ namespace WindowsFormsApplication1
             }
             Thread incommingMessageThread = new Thread(new ThreadStart(ReadMessage));
             incommingMessageThread.Start();
+            incommingMessageThread.IsBackground = true;
             return true;
         }
 
@@ -72,11 +73,9 @@ namespace WindowsFormsApplication1
                 catch(Exception e)
                 {
                     stillConnected = false;
-                    parent.SetStatus("Error: connection lost");
                     serialPort.Close();
                     Thread.CurrentThread.Abort();
                 }
-                
                 //Handling incomming messages: 
                 if(message != "")
                 {

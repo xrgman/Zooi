@@ -38,6 +38,8 @@ namespace WindowsFormsApplication1
 
         public string GetStatus()
         {
+            if(!bikeCommunication.stillConnected)
+                status = "Error: connection lost";
             return status;
         }
 
