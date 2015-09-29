@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
         {
             pulse = 50;
             Thread updateThread = new Thread(new ThreadStart(update));
+            updateThread.IsBackground = true;
             updateThread.Start();
         }
 

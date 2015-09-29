@@ -55,6 +55,7 @@ namespace WindowsFormsApplication1
                     versionLabel.Text = bike.GetVersionNumber();
                 statusLabel.Text = bike.GetStatus();
                 Thread refreshThread = new Thread(new ThreadStart(RefreshThread));
+                refreshThread.IsBackground = true;
                 refreshThread.Start();
             }
             commForm.Dispose();
@@ -191,7 +192,7 @@ namespace WindowsFormsApplication1
             do
             {
                 SetStatusLabel(bike.GetStatus());
-                Measurement measurement = bike.getMeasurement();
+                Measurement measurement = bike.GetMeasurement();
                 if (measurement != null)
                 {
                     SetActualPowerLabel(measurement.actual_power.ToString());

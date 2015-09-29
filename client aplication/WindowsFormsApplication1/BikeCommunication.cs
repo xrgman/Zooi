@@ -42,8 +42,8 @@ namespace WindowsFormsApplication1
                 return false;
             }
             Thread incommingMessageThread = new Thread(new ThreadStart(ReadMessage));
-            incommingMessageThread.Start();
             incommingMessageThread.IsBackground = true;
+            incommingMessageThread.Start();
             return true;
         }
 
@@ -93,7 +93,7 @@ namespace WindowsFormsApplication1
                     }
                     //Status:
                     else
-                        parent.setMeasurement(message);
+                        parent.SetMeasurement(message);
                 }
             }
         }
