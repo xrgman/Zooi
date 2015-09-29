@@ -14,8 +14,6 @@ namespace WindowsFormsApplication1
         [MTAThread]
         static void Main()
         {
-
-            System.Threading.Thread cliend = new System.Threading.Thread(Controller.StartClient);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

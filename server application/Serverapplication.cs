@@ -10,7 +10,7 @@ namespace server_application
 {
     class Serverapplication
     {
-        List<UserClient> clients = new List<UserClient>();
+        List<ServerClient> clients = new List<ServerClient>();
         List<Physician> physicians = new List<Physician>();
 
         public Serverapplication()
@@ -25,30 +25,31 @@ namespace server_application
                 TcpClient client = listener.AcceptTcpClient();
                 clients.Add(new ServerClient(client, this));
             }
+
+
+
+            //        public void AddUser(String username, string password, bool isMedical)
+            //       {
+            //            UserClient user = new UserClient(username, isMedical, password);
+            //        }
+            //
+            //        public string checkLogin(string username, string password)
+            //        {
+            //            foreach(UserClient user in clients){
+            //                if (user.username.Equals(username))
+            //                {
+            //                    if (user.checkPassword(password))
+            //                    {
+            //                        //TODO: send user object to client
+            //                        return "succesfull logged in";
+            //                    }
+            //                   return "wrong password!";
+            //                }
+            //            }
+            //            return "wrong username!";
+            //        }
+
+
         }
-
-
-//        public void AddUser(String username, string password, bool isMedical)
-//       {
-//            UserClient user = new UserClient(username, isMedical, password);
-//        }
-//
-//        public string checkLogin(string username, string password)
-//        {
-//            foreach(UserClient user in clients){
-//                if (user.username.Equals(username))
-//                {
-//                    if (user.checkPassword(password))
-//                    {
-//                        //TODO: send user object to client
-//                        return "succesfull logged in";
-//                    }
-//                   return "wrong password!";
-//                }
-//            }
-//            return "wrong username!";
-//        }
-
-     
     }
 }
