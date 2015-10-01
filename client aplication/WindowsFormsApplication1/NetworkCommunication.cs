@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 using System.Threading;
+using System.Net.Security;
 
 namespace WindowsFormsApplication1
 {
@@ -15,9 +16,10 @@ namespace WindowsFormsApplication1
         private string ipAdress;
         private int port;
         private TcpClient client;
-        private Network parent;
+        private Networkconnect parent;
+        private SslStream stream;
 
-        public NetworkCommunication(string ipAdress, int port, Network parent)
+        public NetworkCommunication(string ipAdress, int port, Networkconnect parent)
         {
             this.ipAdress = ipAdress;
             this.port = port;
@@ -29,6 +31,7 @@ namespace WindowsFormsApplication1
             try
             {
                 client = new TcpClient(ipAdress, port);
+                stream = new SslStream(client.GetStream());
             }
             catch(Exception e)
             {
@@ -39,16 +42,21 @@ namespace WindowsFormsApplication1
             return true;
         }
 
+        public SslStream getStream()
+        {
+            return stream;
+        }
+
         public void SendMessage(string message)
         {
-            StreamWriter writer = new StreamWriter(client.GetStream(), Encoding.Unicode);
+            StreamWriter writer = new StreamWriter(stream, Encoding.Unicode);
             writer.WriteLine(message);
             writer.Flush();
         }
 
         private void RecieveThread()
         {
-            StreamReader reader = new StreamReader(client.GetStream(), Encoding.Unicode);
+            StreamReader reader = new StreamReader(stream, Encoding.Unicode);
             string message;
             while(parent.status != "Error, lost connection to the server")
             {
