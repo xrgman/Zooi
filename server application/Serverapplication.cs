@@ -5,13 +5,21 @@ using System.Net;
 using System.Threading;
 using System.Net.Security;
 using Network;
+using System.IO;
+using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml;
+using System.Runtime.Serialization;
 
 namespace server_application
 {
-    class Serverapplication
+    [Serializable]
+    public class Serverapplication
     {
         List<ServerClient> clients = new List<ServerClient>();
-        List<Physician> physicians = new List<Physician>();
+
+        public List<UserClient> userClients = new List<UserClient>();
+        public List<Physician> physicians = new List<Physician>();
 
         public Serverapplication()
         {
@@ -19,7 +27,8 @@ namespace server_application
             TcpListener listener = new System.Net.Sockets.TcpListener(ip, 130);
             listener.Start();
 
-            while (true)
+            //make true but was necessary to test!
+            while (false)
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
@@ -50,6 +59,52 @@ namespace server_application
             //        }
 
 
+        }
+        
+        public void SaveAllData()
+        {
+            //save files
+            Stream stream = File.Open("clients.osl", FileMode.Create);
+            BinaryFormatter bformatter = new BinaryFormatter();
+
+            Console.WriteLine("Writing clients Information");
+            foreach(UserClient u in userClients)
+                bformatter.Serialize(stream, u);
+            stream.Close();
+
+        }
+
+        public void LoadAllData()
+        {
+            BinaryFormatter bformatter = new BinaryFormatter();
+
+            //Open the file and read values from it.
+            Stream stream = File.Open("clients.osl", FileMode.Open);
+            bformatter = new BinaryFormatter();
+
+            Console.WriteLine("Reading Employee Information");
+
+            bool printing = true;
+            while(printing)
+            {
+                try
+                {
+                    UserClient u1 = (UserClient)bformatter.Deserialize(stream);
+                    Console.WriteLine(u1.username);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("finished");
+                    stream.Close();
+                    printing = false;
+                }
+                
+            }
+            
+           // UserClient u2 = (UserClient)bformatter.Deserialize(stream);
+            
+            //Console.WriteLine(u2.username);
+            
         }
     }
 }

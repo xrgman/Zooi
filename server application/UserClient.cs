@@ -1,20 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApplication1;
 
 namespace server_application
 {
-    class UserClient : User
+    [Serializable]
+    public class UserClient : User, ISerializable
     {
         private List<Session> sessions = new List<Session>();
         
 
-        public UserClient(string username, bool isAdmin, string userPassword): base(username,userPassword)
+        public UserClient(string username, string userPassword): base(username,userPassword)
         {
         }
+
+        //deserialize method
+        public UserClient(SerializationInfo info, StreamingContext ctxt)
+        {
+            username = (string)info.GetValue("username", typeof(string));
+            password = (string)info.GetValue("password", typeof(string));
+            //sessions = (List<Session>)info.GetValue("sessions", typeof(List<>));
+
+        }
+
 
         public void addSession(DateTime startedDate)
         {
@@ -42,18 +54,16 @@ namespace server_application
         {
             return sessions.Last();
         }
-
- /*       public override bool Equals(object obj)
+         
+        //serialize method
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            UserClient temp = obj as UserClient;
-            if(temp != null)
-            {
-                return (userPassword == temp.userPassword);
-            }
-            return false;
-        }*/
+            info.AddValue("username", username);
+            info.AddValue("password", password);
+            //info.AddValue("sessions", sessions);
+        }
 
-        
+
 
     }
 }

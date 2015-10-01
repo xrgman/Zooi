@@ -11,7 +11,8 @@ using Network;
 
 namespace server_application
 {
-    class ServerClient : ServerInterface
+    [Serializable]
+    public class ServerClient : ServerInterface
     {
         public SslStream stream { get; set; }
         public TcpClient tcpClient { get; set; }

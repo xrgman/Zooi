@@ -8,7 +8,7 @@ using WindowsFormsApplication1;
 namespace server_application
 {
     [Serializable]
-    class Session
+    public class Session 
     {
         public DateTime startedDate { get; private set; }
 
@@ -31,7 +31,6 @@ namespace server_application
         {
             return measurements;
         }
-
 
     }
 }

@@ -1,0 +1,5 @@
+C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.dll
+C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
+C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
+C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
+C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
