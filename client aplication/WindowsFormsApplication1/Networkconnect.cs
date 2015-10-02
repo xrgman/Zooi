@@ -38,6 +38,7 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketLogin(username,password));
             Thread.Sleep(1000);
             return new Tuple<bool, bool>(loginOk,isPhysician);
+        }
 
         public void sendBikeValues(string power, string time, string distance)
         {
