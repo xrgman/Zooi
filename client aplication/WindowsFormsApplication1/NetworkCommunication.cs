@@ -36,8 +36,8 @@ namespace WindowsFormsApplication1
             {
                 return false; //failed to connect.
             }
-            Thread recieveThread = new Thread(new ThreadStart(RecieveThread));
-            recieveThread.Start();
+            Thread receiveThread = new Thread(new ThreadStart(ReceiveThread));
+            receiveThread.Start();
             return true; //succesfully connected to server.
         }
 
@@ -46,7 +46,7 @@ namespace WindowsFormsApplication1
             NetworkFlow.SendPacket(packet, server);
         }
 
-        private void RecieveThread()
+        private void ReceiveThread()
         {
             Packet packet = NetworkFlow.ReadPacket(server);
             packet.handleClientSide(parent);

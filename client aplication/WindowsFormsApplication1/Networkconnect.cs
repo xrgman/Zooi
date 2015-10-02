@@ -26,13 +26,12 @@ namespace WindowsFormsApplication1
                 status = "Can't connect to: " + ipAdress + ":" + port;
         }
 
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="username">The username</param>
         /// <param name="password">The password</param>
-        /// <returns>Wether or not the login was succesful</returns>
+        /// <returns>Whether or not the login was succesful</returns>
         public Tuple<bool,bool> login(string username, string password)
         {
             networkCommunication.sendPacket(new PacketLogin(username,password));
@@ -42,12 +41,13 @@ namespace WindowsFormsApplication1
 
         public void sendBikeValues(string power, string time, string distance)
         {
-            
+            //Do something here or delete this method, otherwise it's wasting space!
         }
 
         public void sendMeasurement(Measurement measurement)
         {
             //Send object;
+            //Do something here or delete this method, otherwise it's wasting space!
         }
 
         public void loginResponse(bool loginOk, bool isPhysician)

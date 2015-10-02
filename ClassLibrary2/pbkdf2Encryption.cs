@@ -10,7 +10,7 @@ namespace WindowsFormsApplication1
     public class PasswordHash
     {
         public const int SaltByteSize = 24;
-        public const int HashByteSize = 20; // to match the size of the PBKDF2-HMAC-SHA-1 hash 
+        public const int HashByteSize = 20;
         public const int Pbkdf2Iterations = 1000;
         public const int IterationIndex = 0;
         public const int SaltIndex = 1;

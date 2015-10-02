@@ -13,3 +13,8 @@ D:\Dropbox\school\periode 1\project\week 6\build 4\ClassLibrary2\bin\Debug\Netwo
 D:\Dropbox\school\periode 1\project\week 6\build 4\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
 D:\Dropbox\school\periode 1\project\week 6\build 4\ClassLibrary2\obj\Debug\Network.dll
 D:\Dropbox\school\periode 1\project\week 6\build 4\ClassLibrary2\obj\Debug\Network.pdb
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.dll
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb

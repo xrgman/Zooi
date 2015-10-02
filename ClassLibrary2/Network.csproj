@@ -46,6 +46,7 @@
     <Compile Include="ClientInterface.cs" />
     <Compile Include="PacketLogin.cs" />
     <Compile Include="PacketLoginResponse.cs" />
+    <Compile Include="pbkdf2Encryption.cs" />
     <Compile Include="ServerInterface.cs" />
     <Compile Include="Packet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

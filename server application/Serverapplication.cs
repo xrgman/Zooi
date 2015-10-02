@@ -10,6 +10,7 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using System.Runtime.Serialization;
+using WindowsFormsApplication1;
 
 namespace server_application
 {
@@ -20,24 +21,19 @@ namespace server_application
 
         public List<User> users = new List<User>();
 
-        //public List<UserClient> userClients { get; set; }
-        //public List<Physician> physicians { get; set; }
-
         public Serverapplication()
         {
             ConnectedClients = new List<ServerClient>();
 
-            //test user:
-            users.Add(new UserClient("Henk", "banaan"));
-            //test Physician:
-            users.Add(new Physician("Jaap", "appel"));
+            //add test users obviously for testing
+            users.Add(new UserClient("Henk", PasswordHash.HashPassword("banaan")));
+            users.Add(new Physician("Jaap", PasswordHash.HashPassword("appel")));
 
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             TcpListener listener = new TcpListener(ip, 130);
             listener.Start();
 
-            //make true but was necessary to test!
-            while (false)
+            while (true)
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
