@@ -8,6 +8,6 @@ namespace Network
 {
     public interface ClientInterface
     {
-        void loginResponse(bool loginOk);
+        void loginResponse(bool loginOk, bool isPhysician);
     }
 }

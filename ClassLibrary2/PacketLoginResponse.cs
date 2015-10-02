@@ -9,16 +9,18 @@ namespace Network
     [Serializable]
     public class PacketLoginResponse : Packet
     {
-        public bool loginOk { get; set; }
+        public bool loginOk { get; }
+        public bool isPhysician { get; }
+
+        public PacketLoginResponse(bool loginOK, bool isPhysician)
+        {
+            this.loginOk = loginOk;
+            this.isPhysician = isPhysician;
+        }
 
         public override void handleClientSide(ClientInterface clientInterface)
         {
-            clientInterface.loginResponse(loginOk);
-        }
-
-        public override string checkContent()
-        {
-            return "loginOk: " + loginOk;
+            clientInterface.loginResponse(loginOk,isPhysician);
         }
     }
 }

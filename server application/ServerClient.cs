@@ -14,43 +14,59 @@ namespace server_application
     [Serializable]
     public class ServerClient : ServerInterface
     {
-        public NetworkStream stream { get; set; }
-        public TcpClient tcpClient { get; set; }
+        public TcpClient client { get; set; }
         private Serverapplication server;
-        private string username;
+        private User user;
 
-        public ServerClient(TcpClient tcpClient, Serverapplication server)
+
+        public ServerClient(TcpClient client, Serverapplication server)
         {
             this.server = server;
-            this.tcpClient = tcpClient;
-            stream = tcpClient.GetStream();
+            this.client = client;
             new Thread(() =>
             { 
                 BinaryFormatter formatter = new BinaryFormatter();
-                while (tcpClient.Connected)
+                while (client.Connected)
                 {
-                    Packet packet = (Packet)formatter.Deserialize(stream);
-                    packet.handleServerSide(this);
-                Console.WriteLine(packet.checkContent());
+                    Packet packet = NetworkFlow.ReadPacket(client);
+                    if(packet != null)
+                    {
+                        Console.WriteLine("recieved packet");
+                        packet.handleServerSide(this);
+                    }
                 }
+                server.getConnectedClients().Remove(this);
+                Console.WriteLine("Client disconnected");
             }).Start();
         }
+
         public void login(string username, string password)
         {
             Console.WriteLine("Iemand probeert in te loggen met " + username + ", " + password);
-            this.username = username;
-            if (username == password)
+            //Combining lists: 
+            List<User> users = new List<User>();
+            users.AddRange(server.userClients);
+            users.AddRange(server.physicians);
+            //Actual login checking:
+            foreach (User user in users)
             {
-                sendPacket(new PacketLoginResponse() { loginOk = true });
+                if (user.username.Equals(username))
+                {
+                    if (user.password.Equals(password)) //succesfull login
+                    { 
+                        NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), client);
+                        Console.WriteLine("{0} succesfully logged in.",username);
+                        this.user = user;
+                        break;
+                    }
+                    else //wrong password
+                    {
+                        Console.WriteLine("wrong passadbjlas;kfh");
+                        NetworkFlow.SendPacket(new PacketLoginResponse(false, false), client);
+                        break;
+                    }
+                }
             }
-            //server.broadCast(new Packet....);
-
-        }
-
-        public void sendPacket(Packet packet)
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(stream, packet);
         }
     }
 }

@@ -15,14 +15,21 @@ namespace server_application
 {
     [Serializable]
     public class Serverapplication
-    {
-        List<ServerClient> clients = new List<ServerClient>();
+    { 
+        private List<ServerClient> ConnectedClients { get; }
 
-        public List<UserClient> userClients = new List<UserClient>();
-        public List<Physician> physicians = new List<Physician>();
+        public List<UserClient> userClients { get; set; }
+        public List<Physician> physicians { get; set; }
 
         public Serverapplication()
         {
+            ConnectedClients = new List<ServerClient>();
+            userClients = new List<UserClient>();
+            physicians = new List<Physician>();
+            //test user:
+            userClients.Add(new UserClient("Henk", "banaan"));
+            //test Physician:
+            physicians.Add(new Physician("Jaap", "appel"));
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             TcpListener listener = new TcpListener(ip, 130);
             listener.Start();
@@ -32,35 +39,17 @@ namespace server_application
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
-                clients.Add(new ServerClient(client, this));
+                string ipAddress = "" + IPAddress.Parse(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                Console.WriteLine("Client connected from: {0}", ipAddress);
+                ConnectedClients.Add(new ServerClient(client, this));
             }
+        }
 
+        public List<ServerClient> getConnectedClients()
+        {
+            return ConnectedClients;
+        }
 
-
-            //        public void AddUser(String username, string password, bool isMedical)
-            //       {
-            //            UserClient user = new UserClient(username, isMedical, password);
-            //        }
-            //
-            //        public string checkLogin(string username, string password)
-            //        {
-            //            foreach(UserClient user in clients){
-            //                if (user.username.Equals(username))
-            //                {
-            //                    if (user.checkPassword(password))
-            //                    {
-            //                        //TODO: send user object to client
-            //                        return "succesfull logged in";
-            //                    }
-            //                   return "wrong password!";
-            //                }
-            //            }
-            //            return "wrong username!";
-            //        }
-
-
-        } 
-        
         public void SaveAllData()
         {
             //save clientfiles
@@ -69,7 +58,7 @@ namespace server_application
             BinaryFormatter bformatter = new BinaryFormatter();
 
             Console.WriteLine("Writing clients Information");
-            foreach(UserClient u in userClients)
+            foreach (UserClient u in userClients)
                 bformatter.Serialize(streamClient, u);
             streamClient.Close();
 
@@ -93,16 +82,17 @@ namespace server_application
             Console.WriteLine("Reading client Information");
 
             userClients = new List<UserClient>();
-            
+
             while (streamClient.Position < streamClient.Length - 1)
-            try
-            {
-                userClients.Add((UserClient)bformatter.Deserialize(streamClient));
-            }catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                //TODO show error
-            }
+                try
+                {
+                    userClients.Add((UserClient)bformatter.Deserialize(streamClient));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                    //TODO show error
+                }
 
             //Open the file and read values from physician.
             Stream streamPhysician = File.Open("physicians.a3", FileMode.Open);

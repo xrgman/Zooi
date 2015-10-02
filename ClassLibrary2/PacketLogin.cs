@@ -9,17 +9,18 @@ namespace Network
     [Serializable]
     public class PacketLogin : Packet
     {
-        public String username { get; set; }
-        public String password { get; set; }
+        public String username { get; }
+        public String password { get; }
+
+        public PacketLogin(string username, string password)
+        {
+            this.username = username;
+            this.password = password;
+        }
 
         public override void handleServerSide(ServerInterface serverInterface)
         {
             serverInterface.login(username, password);
-            Console.WriteLine(username+password);
-        }
-        public override string checkContent()
-        {
-            return "username: " + username + " password: " + password;
         }
     }
 }

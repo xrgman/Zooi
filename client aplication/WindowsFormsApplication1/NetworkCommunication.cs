@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 using System.Net.Security;
+using Network;
 
 namespace WindowsFormsApplication1
 {
@@ -15,7 +16,7 @@ namespace WindowsFormsApplication1
     {
         private string ipAdress;
         private int port;
-        private TcpClient client;
+        private TcpClient server;
         private Networkconnect parent;
 
         public NetworkCommunication(string ipAdress, int port, Networkconnect parent)
@@ -29,45 +30,25 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                client = new TcpClient(ipAdress, port);
+                server = new TcpClient(ipAdress, port);
             }
             catch(Exception e)
             {
-                return false;
+                return false; //failed to connect.
             }
             Thread recieveThread = new Thread(new ThreadStart(RecieveThread));
             recieveThread.Start();
-            return true;
+            return true; //succesfully connected to server.
         }
 
-        public NetworkStream getStream()
+        public void sendPacket(Packet packet)
         {
-                return client.GetStream();
-        }
-
-        public void SendMessage(string message)
-        {
-            StreamWriter writer = new StreamWriter(client.GetStream(), Encoding.Unicode);
-            writer.WriteLine(message);
-            writer.Flush();
+            NetworkFlow.SendPacket(packet, server);
         }
 
         private void RecieveThread()
         {
-            StreamReader reader = new StreamReader(client.GetStream(), Encoding.Unicode);
-            string message;
-            while(parent.status != "Error, lost connection to the server")
-            {
-                try
-                {
-                     message = reader.ReadLine();
-                    //Do stuff:
-                }
-                catch(Exception)
-                {
-                    parent.status = "Error, lost connection to the server";
-                }
-            }
+           
         }
     }
 }
