@@ -16,10 +16,10 @@ namespace WindowsFormsApplication1
         //statusLabel, modelLabel, versionLabel, timeLabel, actualPowerLabel, heartBeatLabel, rpmLabel, speedLabel, distanceLabel, energyLabel, requestedPowerLabel
 
         private Bike bike;
-        private Network network;
+        private Networkconnect network;
         private bool isSpecialist = false;
 
-        public FormClient(Network network)
+        public FormClient(Networkconnect network)
         {
             InitializeComponent();
             this.network = network;

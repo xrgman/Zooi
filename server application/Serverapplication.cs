@@ -24,7 +24,7 @@ namespace server_application
         public Serverapplication()
         {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
-            TcpListener listener = new System.Net.Sockets.TcpListener(ip, 130);
+            TcpListener listener = new TcpListener(ip, 130);
             listener.Start();
 
             //make true but was necessary to test!
