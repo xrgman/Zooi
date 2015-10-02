@@ -16,5 +16,9 @@ namespace Network
         {
             serverInterface.login(username, password);
         }
+        public override string checkContent()
+        {
+            return "username: " + username + " password: " + password;
+        }
     }
 }

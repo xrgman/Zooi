@@ -69,5 +69,10 @@ namespace Network
                    "\nactual power: \t" + actual_power +
                    "\ntime: \t" + time;
         }
+
+        public override string checkContent()
+        {
+            return ToString();
+        }
     }
 }

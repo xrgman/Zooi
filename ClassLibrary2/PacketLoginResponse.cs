@@ -15,5 +15,10 @@ namespace Network
         {
             clientInterface.loginResponse(loginOk);
         }
+
+        public override string checkContent()
+        {
+            return "loginOk: " + loginOk;
+        }
     }
 }

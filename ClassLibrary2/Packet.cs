@@ -13,5 +13,7 @@ namespace Network
         { }
         public virtual void handleServerSide(ServerInterface serverInterface)
         { }
+        public virtual string checkContent()
+        { return ""; }
     }
 }
