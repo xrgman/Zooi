@@ -64,7 +64,8 @@ namespace server_application
         public void SaveAllData()
         {
             //save clientfiles
-            Stream streamClient = File.Open("clients.osl", FileMode.Create);
+            FileStream streamClient = File.Open("clients.a3", FileMode.Create);
+            Console.WriteLine(streamClient.Name);
             BinaryFormatter bformatter = new BinaryFormatter();
 
             Console.WriteLine("Writing clients Information");
@@ -73,7 +74,7 @@ namespace server_application
             streamClient.Close();
 
             //save physicianfiles
-            Stream streamPhysician = File.Open("physicians.osl", FileMode.Create);
+            Stream streamPhysician = File.Open("physicians.a3", FileMode.Create);
             BinaryFormatter bformatter1 = new BinaryFormatter();
             Console.WriteLine("Writing physicians Information");
             foreach (Physician p in physicians)
@@ -86,14 +87,17 @@ namespace server_application
             BinaryFormatter bformatter = new BinaryFormatter();
 
             //Open the file and read values from client.
-            Stream streamClient = File.Open("clients.osl", FileMode.Open);
+            Stream streamClient = File.Open("clients.a3", FileMode.Open);
             bformatter = new BinaryFormatter();
 
             Console.WriteLine("Reading client Information");
+
+            userClients = new List<UserClient>();
+            
+            while (streamClient.Position < streamClient.Length - 1)
             try
             {
-                userClients = (List<UserClient>)bformatter.Deserialize(streamClient);
-                Console.WriteLine(userClients.Count);
+                userClients.Add((UserClient)bformatter.Deserialize(streamClient));
             }catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
@@ -101,18 +105,22 @@ namespace server_application
             }
 
             //Open the file and read values from physician.
-            Stream streamPhysician = File.Open("physicians.osl", FileMode.Open);
+            Stream streamPhysician = File.Open("physicians.a3", FileMode.Open);
             bformatter = new BinaryFormatter();
 
+            physicians = new List<Physician>();
             Console.WriteLine("Reading physicians Information");
-            try
+            while (streamPhysician.Position < streamPhysician.Length - 1)
             {
-                physicians = (List<Physician>)bformatter.Deserialize(streamPhysician);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                //TODO show error
+                try
+                {
+                    physicians.Add((Physician)bformatter.Deserialize(streamPhysician));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                    //TODO show error
+                }
             }
         }
     }
