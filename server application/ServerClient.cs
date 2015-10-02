@@ -14,7 +14,7 @@ namespace server_application
     [Serializable]
     public class ServerClient : ServerInterface
     {
-        public SslStream stream { get; set; }
+        public NetworkStream stream { get; set; }
         public TcpClient tcpClient { get; set; }
         private Serverapplication server;
         private string username;
@@ -23,7 +23,7 @@ namespace server_application
         {
             this.server = server;
             this.tcpClient = tcpClient;
-            stream = new SslStream(tcpClient.GetStream());
+            stream = tcpClient.GetStream();
             new Thread(() =>
             { 
                 BinaryFormatter formatter = new BinaryFormatter();
