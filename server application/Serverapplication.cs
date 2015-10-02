@@ -93,8 +93,10 @@ namespace server_application
             try
             {
                 userClients = (List<UserClient>)bformatter.Deserialize(streamClient);
-            }catch (Exception)
+                Console.WriteLine(userClients.Count);
+            }catch (Exception e)
             {
+                Console.WriteLine(e.ToString());
                 //TODO show error
             }
 
@@ -107,8 +109,9 @@ namespace server_application
             {
                 physicians = (List<Physician>)bformatter.Deserialize(streamPhysician);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.ToString());
                 //TODO show error
             }
         }
