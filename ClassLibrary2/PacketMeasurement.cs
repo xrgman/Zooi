@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Network
 {
+    [Serializable]
     class PacketMeasurement:Packet, IComparable<PacketMeasurement>
     {
         public int pulse { get; }
