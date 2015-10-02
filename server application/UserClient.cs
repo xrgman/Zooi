@@ -30,12 +30,19 @@ namespace server_application
 
         public void addSession(DateTime startedDate)
         {
-            Session s = new Session(startedDate);
+            Session s = new Session(startedDate, this);
         }
 
         public void addMeasurement(Measurement measurement)
         {
-            Session s = sessions.Last();
+            Session s;
+            if (sessions.Count > 0)
+                s = sessions.Last();
+            else
+            {
+                s = new Session(DateTime.Now, this);
+                sessions.Add(s);
+            }
             addMeasurement(s, measurement);
         }
 

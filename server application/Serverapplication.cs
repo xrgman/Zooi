@@ -59,52 +59,58 @@ namespace server_application
             //        }
 
 
-        }
+        } 
         
         public void SaveAllData()
         {
-            //save files
-            Stream stream = File.Open("clients.osl", FileMode.Create);
+            //save clientfiles
+            Stream streamClient = File.Open("clients.osl", FileMode.Create);
             BinaryFormatter bformatter = new BinaryFormatter();
 
             Console.WriteLine("Writing clients Information");
             foreach(UserClient u in userClients)
-                bformatter.Serialize(stream, u);
-            stream.Close();
+                bformatter.Serialize(streamClient, u);
+            streamClient.Close();
 
+            //save physicianfiles
+            Stream streamPhysician = File.Open("physicians.osl", FileMode.Create);
+            BinaryFormatter bformatter1 = new BinaryFormatter();
+            Console.WriteLine("Writing physicians Information");
+            foreach (Physician p in physicians)
+                bformatter1.Serialize(streamPhysician, p);
+            streamPhysician.Close();
         }
 
         public void LoadAllData()
         {
             BinaryFormatter bformatter = new BinaryFormatter();
 
-            //Open the file and read values from it.
-            Stream stream = File.Open("clients.osl", FileMode.Open);
+            //Open the file and read values from client.
+            Stream streamClient = File.Open("clients.osl", FileMode.Open);
             bformatter = new BinaryFormatter();
 
-            Console.WriteLine("Reading Employee Information");
-
-            bool printing = true;
-            while(printing)
+            Console.WriteLine("Reading client Information");
+            try
             {
-                try
-                {
-                    UserClient u1 = (UserClient)bformatter.Deserialize(stream);
-                    Console.WriteLine(u1.username);
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("finished");
-                    stream.Close();
-                    printing = false;
-                }
-                
+                userClients = (List<UserClient>)bformatter.Deserialize(streamClient);
+            }catch (Exception)
+            {
+                //TODO show error
             }
-            
-           // UserClient u2 = (UserClient)bformatter.Deserialize(stream);
-            
-            //Console.WriteLine(u2.username);
-            
+
+            //Open the file and read values from physician.
+            Stream streamPhysician = File.Open("physicians.osl", FileMode.Open);
+            bformatter = new BinaryFormatter();
+
+            Console.WriteLine("Reading physicians Information");
+            try
+            {
+                physicians = (List<Physician>)bformatter.Deserialize(streamPhysician);
+            }
+            catch (Exception)
+            {
+                //TODO show error
+            }
         }
     }
 }

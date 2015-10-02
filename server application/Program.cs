@@ -13,16 +13,6 @@ namespace server_application
         static void Main(string[] args)
         {
             Serverapplication server = new Serverapplication();
-            
-
-            server.userClients.Add(new UserClient("ab", "bc"));
-            server.userClients.Add(new UserClient("bc", "bc"));
-            server.userClients.Add(new UserClient("cd", "bc"));
-            server.userClients.Add(new UserClient("de", "bc"));
-            server.SaveAllData();
-            server.LoadAllData();
-            
-
             Console.Read();
         }
     }

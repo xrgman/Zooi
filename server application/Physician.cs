@@ -7,9 +7,10 @@ using System.Runtime.Serialization;
 
 namespace server_application
 {
+    [Serializable]
     public class Physician : User, ISerializable
     {
-        private List<UserClient> clients = new List<UserClient>();
+        public List<UserClient> clients = new List<UserClient>();
         public Physician(String username, string password): base(username, password)
         {
         }
@@ -19,7 +20,7 @@ namespace server_application
         {
             username = (string)info.GetValue("username", typeof(string));
             password = (string)info.GetValue("password", typeof(string));
-            //clients = (List<clients>)info.GetValue("clients", typeof(List<>));
+            clients = (List<UserClient>)info.GetValue("clients", typeof(List<UserClient>));
 
         }
 
@@ -33,7 +34,7 @@ namespace server_application
         {
             info.AddValue("username", username);
             info.AddValue("password", password);
-            //info.AddValue("clients", clients);
+            info.AddValue("clients", clients);
         }
     }
 }
