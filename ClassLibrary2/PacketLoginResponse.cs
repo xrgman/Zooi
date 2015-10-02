@@ -12,7 +12,7 @@ namespace Network
         public bool loginOk { get; }
         public bool isPhysician { get; }
 
-        public PacketLoginResponse(bool loginOK, bool isPhysician)
+        public PacketLoginResponse(bool loginOk, bool isPhysician)
         {
             this.loginOk = loginOk;
             this.isPhysician = isPhysician;

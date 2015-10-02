@@ -62,7 +62,7 @@ namespace server_application
                     else //wrong password
                     {
                         Console.WriteLine("wrong passadbjlas;kfh");
-                        NetworkFlow.SendPacket(new PacketLoginResponse(false, false), client);
+                        NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), client);
                         break;
                     }
                 }

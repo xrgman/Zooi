@@ -34,11 +34,17 @@ namespace WindowsFormsApplication1
         {
             if (usernameTextBox.Text != "" && passwordTextBox.Text != "")
             {
-                network.login(usernameTextBox.Text, passwordTextBox.Text);
-                Form form = new FormClient(network);
-                this.Hide();
-                if (form.ShowDialog() == DialogResult.Cancel)
-                    this.Dispose();
+                Tuple<bool,bool> login =  network.login(usernameTextBox.Text, passwordTextBox.Text);
+                if (login.Item1)
+                {
+                    Form form = new FormClient(network,login.Item2);
+                    this.Hide();
+                    if (form.ShowDialog() == DialogResult.Cancel)
+                        this.Dispose();
+                }
+                else
+                    MessageBox.Show("Wrong username or password");
+                
             }
             else
                 MessageBox.Show("Please enter a username and a password!");

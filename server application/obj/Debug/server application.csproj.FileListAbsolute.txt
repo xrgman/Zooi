@@ -27,3 +27,8 @@ D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\server app
 D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\server application\bin\Debug\Network.dll
 D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\server application\bin\Debug\Network.pdb
 D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.exe
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.dll
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache

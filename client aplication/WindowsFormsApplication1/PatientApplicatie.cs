@@ -17,13 +17,14 @@ namespace WindowsFormsApplication1
 
         private Bike bike;
         private Networkconnect network;
-        private bool isSpecialist = false;
+        private bool isPhysician = false;
 
-        public FormClient(Networkconnect network)
+        public FormClient(Networkconnect network, bool isPhysician)
         {
             InitializeComponent();
+            this.isPhysician = isPhysician;
             this.network = network;
-            if(!isSpecialist) //Client:
+            if(!isPhysician) //Client:
             {
                 pwrTxtBox.Hide();
                 distanceTxtBox.Hide();

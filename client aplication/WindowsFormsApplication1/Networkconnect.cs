@@ -6,14 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApplication1;
 using Network;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
-    public class Networkconnect
+    public class Networkconnect : ClientInterface
     {
         private NetworkCommunication networkCommunication;
         public string status { get; set; }
         public string power, time, distance;
+        private bool loginOk, isPhysician;
 
         public Networkconnect(string ipAdress, int port)
         {
@@ -31,10 +33,11 @@ namespace WindowsFormsApplication1
         /// <param name="username">The username</param>
         /// <param name="password">The password</param>
         /// <returns>Wether or not the login was succesful</returns>
-        public bool login(string username, string password)
+        public Tuple<bool,bool> login(string username, string password)
         {
             networkCommunication.sendPacket(new PacketLogin(username,password));
-            return true;
+            Thread.Sleep(1000);
+            return new Tuple<bool, bool>(loginOk,isPhysician);
         }
 
         public void sendBikeValues(string power, string time, string distance)
@@ -45,6 +48,12 @@ namespace WindowsFormsApplication1
         public void sendMeasurement(Measurement measurement)
         {
             //Send object;
+        }
+
+        public void loginResponse(bool loginOk, bool isPhysician)
+        {
+            this.loginOk = loginOk;
+            this.isPhysician = isPhysician;
         }
     }
 }

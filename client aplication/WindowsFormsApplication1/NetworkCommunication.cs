@@ -12,7 +12,7 @@ using Network;
 
 namespace WindowsFormsApplication1
 {
-    class NetworkCommunication
+    class NetworkCommunication 
     {
         private string ipAdress;
         private int port;
@@ -48,7 +48,8 @@ namespace WindowsFormsApplication1
 
         private void RecieveThread()
         {
-           
+            Packet packet = NetworkFlow.ReadPacket(server);
+            packet.handleClientSide(parent);
         }
     }
 }
