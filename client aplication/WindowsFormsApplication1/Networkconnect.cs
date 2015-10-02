@@ -33,11 +33,18 @@ namespace WindowsFormsApplication1
         /// <param name="username">The username</param>
         /// <param name="password">The password</param>
         /// <returns>Wether or not the login was succesful</returns>
+<<<<<<< HEAD
         public Tuple<bool,bool> login(string username, string password)
         {
             networkCommunication.sendPacket(new PacketLogin(username,password));
             Thread.Sleep(1000);
             return new Tuple<bool, bool>(loginOk,isPhysician);
+=======
+        public bool login(string username, string password)
+        {   
+            networkCommunication.sendPacket(new PacketLogin(username, password));
+            return true;
+>>>>>>> origin/master
         }
 
         public void sendBikeValues(string power, string time, string distance)
