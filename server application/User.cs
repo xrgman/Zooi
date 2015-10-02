@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace server_application
 {
     [Serializable]
-    class User
+    public class User 
     {
-        public string username { get; private set; }
-        private string password;
+        public string username { get; set; }
+        public string password { get; set; }
 
         public User (string username, string password)
         {
@@ -18,9 +19,23 @@ namespace server_application
             this.password = password;
         }
 
+        //deserialization function
+        public User(SerializationInfo info, StreamingContext ctxt)
+        {
+            username = (string)info.GetValue("username", typeof(string));
+            password = (String)info.GetValue("password", typeof(string));
+        }
+
+        public User()
+        {
+
+        }
+
         public bool checkPassword(string passwordTry)
         {
             return password.Equals(passwordTry);
         }
+
+
     }
 }
