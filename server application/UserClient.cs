@@ -30,19 +30,12 @@ namespace server_application
 
         public void addSession(DateTime startedDate)
         {
-            Session s = new Session(startedDate, this);
+            Session s = new Session(startedDate);
         }
 
-        public void AddMeasurement(Measurement measurement)
+        public void addMeasurement(Measurement measurement)
         {
-            Session s;
-            if (sessions.Count > 0)
-                s = sessions.Last();
-            else
-            {
-                s = new Session(DateTime.Now, this);
-                sessions.Add(s);
-            }
+            Session s = sessions.Last();
             addMeasurement(s, measurement);
         }
 
@@ -59,10 +52,7 @@ namespace server_application
 
         public Session getLastSession()
         {
-            if (sessions.Count > 0)
-                return sessions.Last();
-            else
-                return null;
+            return sessions.Last();
         }
          
         //serialize method

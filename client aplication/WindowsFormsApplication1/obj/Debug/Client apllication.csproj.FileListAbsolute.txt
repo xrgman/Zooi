@@ -31,16 +31,29 @@ C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplica
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csprojResolveAssemblyReference.cache
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csprojResolveAssemblyReference.cache
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csprojResolveAssemblyReference.cache
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache

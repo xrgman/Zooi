@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NetworkFlow.cs" />
+    <Compile Include="PacketChatMessage.cs" />
     <Compile Include="PacketMeasurement.cs" />
     <Compile Include="ClientInterface.cs" />
     <Compile Include="PacketLogin.cs" />

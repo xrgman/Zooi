@@ -3,13 +3,8 @@ C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
 C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
 C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
 C:\Users\rene\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
-C:\Users\rkeet\Documents\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.dll
-C:\Users\rkeet\Documents\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
-C:\Users\rkeet\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
-C:\Users\rkeet\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
-C:\Users\rkeet\Documents\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.dll
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.dll
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
+D:\Dropbox\school\periode 1\project\week 6\build 3\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
