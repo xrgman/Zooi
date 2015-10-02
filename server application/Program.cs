@@ -13,6 +13,9 @@ namespace server_application
         static void Main(string[] args)
         {
             Serverapplication server = new Serverapplication();
+            server.LoadAllData();
+            Console.WriteLine(server.users.Count);
+            Console.Read();
         }
     }
 }

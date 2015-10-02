@@ -19,6 +19,8 @@ namespace server_application
             this.password = password;
         }
 
+
+
         //deserialization function
         public User(SerializationInfo info, StreamingContext ctxt)
         {
@@ -35,7 +37,14 @@ namespace server_application
         {
             return password.Equals(passwordTry);
         }
-
+        
+        //serialize method
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("username", username);
+            info.AddValue("password", password);
+            //info.AddValue("clients", clients);
+        }
 
     }
 }

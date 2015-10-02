@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 
 namespace server_application
 {
+    [Serializable]
     public class Physician : User, ISerializable
     {
         private List<UserClient> clients = new List<UserClient>();

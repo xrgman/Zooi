@@ -18,24 +18,26 @@ namespace server_application
     { 
         private List<ServerClient> ConnectedClients { get; }
 
-        public List<UserClient> userClients { get; set; }
-        public List<Physician> physicians { get; set; }
+        public List<User> users = new List<User>();
+
+        //public List<UserClient> userClients { get; set; }
+        //public List<Physician> physicians { get; set; }
 
         public Serverapplication()
         {
             ConnectedClients = new List<ServerClient>();
-            userClients = new List<UserClient>();
-            physicians = new List<Physician>();
+
             //test user:
-            userClients.Add(new UserClient("Henk", "banaan"));
+            users.Add(new UserClient("Henk", "banaan"));
             //test Physician:
-            physicians.Add(new Physician("Jaap", "appel"));
+            users.Add(new Physician("Jaap", "appel"));
+
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             TcpListener listener = new TcpListener(ip, 130);
             listener.Start();
 
             //make true but was necessary to test!
-            while (true)
+            while (false)
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
@@ -58,17 +60,10 @@ namespace server_application
             BinaryFormatter bformatter = new BinaryFormatter();
 
             Console.WriteLine("Writing clients Information");
-            foreach (UserClient u in userClients)
+            foreach (User u in users) 
                 bformatter.Serialize(streamClient, u);
-            streamClient.Close();
 
-            //save physicianfiles
-            Stream streamPhysician = File.Open("physicians.a3", FileMode.Create);
-            BinaryFormatter bformatter1 = new BinaryFormatter();
-            Console.WriteLine("Writing physicians Information");
-            foreach (Physician p in physicians)
-                bformatter1.Serialize(streamPhysician, p);
-            streamPhysician.Close();
+            streamClient.Close();
         }
 
         public void LoadAllData()
@@ -81,37 +76,22 @@ namespace server_application
 
             Console.WriteLine("Reading client Information");
 
-            userClients = new List<UserClient>();
+            users = new List<User>();
 
             while (streamClient.Position < streamClient.Length - 1)
                 try
                 {
-                    userClients.Add((UserClient)bformatter.Deserialize(streamClient));
+                    User u = (User)bformatter.Deserialize(streamClient);
+                    if (u is UserClient)
+                        users.Add((UserClient)u);
+                    else if (u is Physician)
+                        users.Add((Physician)u);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
                     //TODO show error
                 }
-
-            //Open the file and read values from physician.
-            Stream streamPhysician = File.Open("physicians.a3", FileMode.Open);
-            bformatter = new BinaryFormatter();
-
-            physicians = new List<Physician>();
-            Console.WriteLine("Reading physicians Information");
-            while (streamPhysician.Position < streamPhysician.Length - 1)
-            {
-                try
-                {
-                    physicians.Add((Physician)bformatter.Deserialize(streamPhysician));
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.ToString());
-                    //TODO show error
-                }
-            }
         }
     }
 }

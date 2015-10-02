@@ -45,8 +45,7 @@ namespace server_application
             Console.WriteLine("Iemand probeert in te loggen met " + username + ", " + password);
             //Combining lists: 
             List<User> users = new List<User>();
-            users.AddRange(server.userClients);
-            users.AddRange(server.physicians);
+            users.AddRange(server.users);
             //Actual login checking:
             foreach (User user in users)
             {
