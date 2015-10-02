@@ -32,8 +32,8 @@ namespace WindowsFormsApplication1
         /// <param name="password">The password</param>
         /// <returns>Wether or not the login was succesful</returns>
         public bool login(string username, string password)
-        {
-            networkCommunication.sendPacket(new PacketLogin(username,password));
+        {   
+            networkCommunication.sendPacket(new PacketLogin(username, password));
             return true;
         }
 
