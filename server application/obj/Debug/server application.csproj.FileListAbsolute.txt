@@ -16,3 +16,6 @@ C:\Users\rene\Documents\CycleMasterPro2000\server application\bin\Debug\server a
 C:\Users\rene\Documents\CycleMasterPro2000\server application\bin\Debug\server application.pdb
 C:\Users\rene\Documents\CycleMasterPro2000\server application\bin\Debug\Network.dll
 C:\Users\rene\Documents\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.exe.config
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\obj\Debug\server application.exe
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\obj\Debug\server application.pdb
