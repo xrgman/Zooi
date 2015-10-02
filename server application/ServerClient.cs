@@ -31,6 +31,7 @@ namespace server_application
                 {
                     Packet packet = (Packet)formatter.Deserialize(stream);
                     packet.handleServerSide(this);
+                Console.WriteLine(packet.checkContent());
                 }
             }).Start();
         }

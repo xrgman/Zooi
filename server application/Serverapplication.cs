@@ -28,7 +28,7 @@ namespace server_application
             listener.Start();
 
             //make true but was necessary to test!
-            while (false)
+            while (true)
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();

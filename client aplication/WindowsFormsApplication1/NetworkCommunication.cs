@@ -17,7 +17,6 @@ namespace WindowsFormsApplication1
         private int port;
         private TcpClient client;
         private Networkconnect parent;
-        private SslStream stream;
 
         public NetworkCommunication(string ipAdress, int port, Networkconnect parent)
         {
@@ -31,7 +30,6 @@ namespace WindowsFormsApplication1
             try
             {
                 client = new TcpClient(ipAdress, port);
-                stream = new SslStream(client.GetStream());
             }
             catch(Exception e)
             {
@@ -42,21 +40,21 @@ namespace WindowsFormsApplication1
             return true;
         }
 
-        public SslStream getStream()
+        public NetworkStream getStream()
         {
-            return stream;
+                return client.GetStream();
         }
 
         public void SendMessage(string message)
         {
-            StreamWriter writer = new StreamWriter(stream, Encoding.Unicode);
+            StreamWriter writer = new StreamWriter(client.GetStream(), Encoding.Unicode);
             writer.WriteLine(message);
             writer.Flush();
         }
 
         private void RecieveThread()
         {
-            StreamReader reader = new StreamReader(stream, Encoding.Unicode);
+            StreamReader reader = new StreamReader(client.GetStream(), Encoding.Unicode);
             string message;
             while(parent.status != "Error, lost connection to the server")
             {

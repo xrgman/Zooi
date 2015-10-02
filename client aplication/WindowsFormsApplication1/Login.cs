@@ -16,15 +16,13 @@ namespace WindowsFormsApplication1
 {
     public partial class Login : Form, ClientInterface
     {
-        private SslStream stream;
         private Networkconnect network;
+        private NetworkStream stream;
 
         public Login()
         {
             InitializeComponent();
             network = new Networkconnect("127.0.0.1", 130);
-
-            stream = network.getStream();
             statusLabel.Text = network.status;
         }
 
@@ -36,10 +34,11 @@ namespace WindowsFormsApplication1
         private void loginButton_Click(object sender, EventArgs e)
         {
             //Sending to server here: 
+            stream = network.stream;
             Packet loginPacket = new PacketLogin() { username = usernameTextBox.Text, password = passwordTextBox.Text };
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, loginPacket);
-
+            
             Form form = new FormClient(network);
             this.Hide();
             if(form.ShowDialog() == DialogResult.Cancel)

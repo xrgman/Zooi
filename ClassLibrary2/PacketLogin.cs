@@ -15,6 +15,7 @@ namespace Network
         public override void handleServerSide(ServerInterface serverInterface)
         {
             serverInterface.login(username, password);
+            Console.WriteLine(username+password);
         }
         public override string checkContent()
         {
