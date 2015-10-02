@@ -23,7 +23,7 @@ namespace server_application
         public User(SerializationInfo info, StreamingContext ctxt)
         {
             username = (string)info.GetValue("username", typeof(string));
-            password = (String)info.GetValue("password", typeof(string));
+            password = (string)info.GetValue("password", typeof(string));
         }
 
         public User()
