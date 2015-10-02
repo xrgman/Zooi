@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using Network;
-
+using WindowsFormsApplication1;
 
 namespace server_application
 {
@@ -42,13 +42,13 @@ namespace server_application
 
         public void login(string username, string password)
         {
-            Console.WriteLine("Iemand probeert in te loggen met " + username + ", " + password);
+            Console.WriteLine("Iemand probeert in te loggen als " + username + ", wachtwoord: " + password);
             //Actual login checking:
             foreach (User user in server.users)
             {
                 if (user.username.Equals(username))
                 {
-                    if (user.password.Equals(password)) //succesfull login
+                    if (PasswordHash.ValidatePassword(password, user.password)) //succesfull login
                     { 
                         NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), client);
                         Console.WriteLine("{0} succesfully logged in.",username);
@@ -57,7 +57,7 @@ namespace server_application
                     }
                     else //wrong password
                     {
-                        Console.WriteLine("wrong passadbjlas;kfh");
+                        Console.WriteLine("wrong password");
                         NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), client);
                         break;
                     }
