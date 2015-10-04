@@ -18,3 +18,8 @@ D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\bin\Debug\Netw
 D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
 D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
 D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.dll
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb

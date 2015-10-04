@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading;
 using Network;
 using WindowsFormsApplication1;
+using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
 
 namespace server_application
 {
@@ -17,6 +19,7 @@ namespace server_application
         public TcpClient client { get; set; }
         private Serverapplication server;
         private User user;
+
 
 
         public ServerClient(TcpClient client, Serverapplication server)

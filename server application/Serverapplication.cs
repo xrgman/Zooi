@@ -11,12 +11,19 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using System.Runtime.Serialization;
 using WindowsFormsApplication1;
+using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
+
 
 namespace server_application
 {
     [Serializable]
     public class Serverapplication
-    { 
+    {
+        // Certificaat
+        private X509Certificate2 cert = new X509Certificate2(@"C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Shared Server Client\cyclemaster.pfx",
+                                                              "admin", X509KeyStorageFlags.MachineKeySet);
+
         private List<ServerClient> ConnectedClients { get; }
 
         public List<User> users = new List<User>();
@@ -29,14 +36,17 @@ namespace server_application
             users.Add(new UserClient("Henk", PasswordHash.HashPassword("banaan")));
             users.Add(new Physician("Jaap", PasswordHash.HashPassword("appel")));
 
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            TcpListener listener = new TcpListener(ip, 130);
+            TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
             listener.Start();
 
             while (true)
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
+                // Authenticate cert
+                SslStream ssl = new SslStream(client.GetStream());
+                ssl.AuthenticateAsServer(cert, true, SslProtocols.Tls12, true);
+
                 string ipAddress = "" + IPAddress.Parse(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
                 Console.WriteLine("Client connected from: {0}", ipAddress);
                 ConnectedClients.Add(new ServerClient(client, this));
