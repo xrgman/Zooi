@@ -55,5 +55,10 @@ namespace WindowsFormsApplication1
             this.loginOk = loginOk;
             this.isPhysician = isPhysician;
         }
+
+        public void sendPacket()
+        {
+
+        }
     }
 }

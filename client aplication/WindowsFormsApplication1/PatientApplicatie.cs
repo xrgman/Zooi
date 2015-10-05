@@ -33,6 +33,8 @@ namespace WindowsFormsApplication1
                 label6.Hide();
                 label7.Hide();
                 sendButton.Hide();
+                broadCastButton.Hide();
+                broadCastTxtBox.Hide();
             }
             else //Specialist:
             {
@@ -65,6 +67,11 @@ namespace WindowsFormsApplication1
         private void resetButton_Click(object sender, EventArgs e)
         {
             bike.Reset();
+        }
+
+        private void  broadCastButton_Click(object sender, EventArgs e)
+        {
+            
         }
 
 
@@ -284,6 +291,16 @@ namespace WindowsFormsApplication1
                 distanceTxtBox.BackColor = Color.Red;
             else
                 distanceTxtBox.BackColor = Color.White;
+        }
+
+        private void TChatSend_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+       
+        private void broadCastTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

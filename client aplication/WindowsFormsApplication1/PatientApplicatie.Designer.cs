@@ -72,10 +72,12 @@
             this.pwrTxtBox = new System.Windows.Forms.TextBox();
             this.timeTxtBox = new System.Windows.Forms.TextBox();
             this.distanceTxtBox = new System.Windows.Forms.TextBox();
+            this.broadCastTxtBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.sendButton = new System.Windows.Forms.Button();
+            this.broadCastButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -164,6 +166,7 @@
             this.TChatSend.Name = "TChatSend";
             this.TChatSend.Size = new System.Drawing.Size(897, 20);
             this.TChatSend.TabIndex = 2;
+            this.TChatSend.TextChanged += new System.EventHandler(this.TChatSend_TextChanged);
             // 
             // BSend
             // 
@@ -469,6 +472,14 @@
             this.distanceTxtBox.TabIndex = 33;
             this.distanceTxtBox.TextChanged += new System.EventHandler(this.distanceTxtBox_TextChanged);
             // 
+            // broadCastTxtBox
+            // 
+            this.broadCastTxtBox.Location = new System.Drawing.Point(247, 264);
+            this.broadCastTxtBox.Name = "broadCastTxtBox";
+            this.broadCastTxtBox.Size = new System.Drawing.Size(200, 40);
+            this.broadCastTxtBox.TabIndex = 33;
+            this.broadCastTxtBox.TextChanged += new System.EventHandler(this.broadCastTxtBox_TextChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -512,6 +523,16 @@
             this.sendButton.UseVisualStyleBackColor = true;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
+            // broadCastButton
+            // 
+            this.broadCastButton.Location = new System.Drawing.Point(247, 298);
+            this.broadCastButton.Name = "broadCastButton";
+            this.broadCastButton.Size = new System.Drawing.Size(105, 38);
+            this.broadCastButton.TabIndex = 14;
+            this.broadCastButton.Text = "Broadcast";
+            this.broadCastButton.UseVisualStyleBackColor = true;
+            this.broadCastButton.Click += new System.EventHandler(this.broadCastButton_Click);
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -551,11 +572,13 @@
             this.Controls.Add(this.LEnergy);
             this.Controls.Add(this.Chart);
             this.Controls.Add(this.LDistance);
+            this.Controls.Add(this.broadCastTxtBox);
             this.Controls.Add(this.LCurrentPower);
             this.Controls.Add(this.LSpeed);
             this.Controls.Add(this.LTime);
             this.Controls.Add(this.LRoundPerMin);
             this.Controls.Add(this.LHeartBeat);
+            this.Controls.Add(this.broadCastButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormClient";
@@ -610,10 +633,12 @@
         private System.Windows.Forms.TextBox pwrTxtBox;
         private System.Windows.Forms.TextBox timeTxtBox;
         private System.Windows.Forms.TextBox distanceTxtBox;
+        private System.Windows.Forms.TextBox broadCastTxtBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.Button broadCastButton;
     }
 }
 
