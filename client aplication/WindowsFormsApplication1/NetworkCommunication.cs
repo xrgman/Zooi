@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
             this.parent = parent;
 
             // Certificaat toevoegen
-            certs.Add(new X509Certificate2(@"C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Shared Server Client\cyclemaster.pfx",
+            certs.Add(new X509Certificate2(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\Shared Server Client\cyclemaster.pfx",
                                                               "admin", X509KeyStorageFlags.MachineKeySet));
 
         }
