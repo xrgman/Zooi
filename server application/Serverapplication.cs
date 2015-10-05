@@ -99,5 +99,10 @@ namespace server_application
                     //TODO show error
                 }
         }
+        public void broadCast(Packet packet)
+        {
+            foreach (ServerClient serverClient in ConnectedClients)
+                serverClient.sendPacket(packet);
+        }
     }
 }

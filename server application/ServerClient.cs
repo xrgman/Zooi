@@ -66,6 +66,12 @@ namespace server_application
                     }
                 }
             }
+            server.broadCast(new PacketChatMessage("Login is wel mooi hoor"));
+        }
+        public void sendPacket(Packet packet)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(client.GetStream(), packet);
         }
     }
 }
