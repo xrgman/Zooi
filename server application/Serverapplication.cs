@@ -64,8 +64,7 @@ namespace server_application
         public void SaveAllData()
         {
             //save clientfiles
-            FileStream streamClient = File.Open("clients.a3", FileMode.Create);
-            Console.WriteLine(streamClient.Name);
+            SslStream streamClient = new SslStream(File.Open("clients.a3", FileMode.Create));
             BinaryFormatter bformatter = new BinaryFormatter();
 
             Console.WriteLine("Writing clients Information");

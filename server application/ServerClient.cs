@@ -20,8 +20,6 @@ namespace server_application
         private Serverapplication server;
         private User user;
 
-
-
         public ServerClient(TcpClient client, Serverapplication server)
         {
             this.server = server;
@@ -74,7 +72,7 @@ namespace server_application
         public void sendPacket(Packet packet)
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(client.GetStream(), packet);
+            formatter.Serialize(server.SSL, packet);
         }
     }
 }
