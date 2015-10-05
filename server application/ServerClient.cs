@@ -31,11 +31,14 @@ namespace server_application
                 BinaryFormatter formatter = new BinaryFormatter();
                 while (client.Connected)
                 {
-                    Packet packet = NetworkFlow.ReadPacket(client);
+                Packet packet = NetworkFlow.ReadPacket(server.SSL);
                     if(packet != null)
                     {
                         Console.WriteLine("recieved packet");
                         packet.handleServerSide(this);
+                    } else
+                    {
+                        //Console.WriteLine("Null PAcket ");
                     }
                 }
                 server.getConnectedClients().Remove(this);
@@ -53,7 +56,7 @@ namespace server_application
                 {
                     if (PasswordHash.ValidatePassword(password, user.password)) //succesfull login
                     { 
-                        NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), client);
+                        NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), server.SSL);
                         Console.WriteLine("{0} succesfully logged in.",username);
                         this.user = user;
                         break;
@@ -61,7 +64,7 @@ namespace server_application
                     else //wrong password
                     {
                         Console.WriteLine("wrong password");
-                        NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), client);
+                        NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), server.SSL);
                         break;
                     }
                 }

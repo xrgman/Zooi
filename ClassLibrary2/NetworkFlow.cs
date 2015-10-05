@@ -11,13 +11,13 @@ namespace Network
 {
     public class NetworkFlow
     {
-        public static bool SendPacket(Packet packet, TcpClient destination)
+        public static bool SendPacket(Packet packet, SslStream ssl)
         {
             BinaryFormatter binairyFormatter = new BinaryFormatter();
-            NetworkStream stream = destination.GetStream();
+
             try
             {
-                binairyFormatter.Serialize(stream, packet);
+                binairyFormatter.Serialize(ssl, packet);
             }
             catch(Exception e)
             {
@@ -26,15 +26,13 @@ namespace Network
             return true;
         }
 
-        public static Packet ReadPacket(TcpClient source)
+        public static Packet ReadPacket(SslStream ssl)
         {
             BinaryFormatter binairyFormatter = new BinaryFormatter();
-            NetworkStream stream = source.GetStream();
             Packet packet;
             try
-            { 
-                packet = (Packet) binairyFormatter.Deserialize(stream);
-
+            {
+                packet = (Packet) binairyFormatter.Deserialize(ssl);
             }
             catch (Exception e)
             {

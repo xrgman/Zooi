@@ -28,9 +28,12 @@ namespace server_application
 
         public List<User> users = new List<User>();
 
+        private   SslStream ssl;
+        public    SslStream SSL { get { return ssl; }}
+
         public Serverapplication()
         {
-            ConnectedClients = new List<ServerClient>();
+           ConnectedClients = new List<ServerClient>();
 
             //add test users obviously for testing
             users.Add(new UserClient("Henk", PasswordHash.HashPassword("banaan")));
@@ -44,11 +47,11 @@ namespace server_application
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
                 // Authenticate cert
-                SslStream ssl = new SslStream(client.GetStream());
-                ssl.AuthenticateAsServer(cert, true, SslProtocols.Tls12, true);
+                ssl = new SslStream(client.GetStream());
+                SSL.AuthenticateAsServer(cert, true, SslProtocols.Tls12, true);
 
                 string ipAddress = "" + IPAddress.Parse(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
-                Console.WriteLine("Client connected from: {0}", ipAddress);
+                Console.WriteLine("Connected by {0} ({1}) on {2} ", ssl.CipherAlgorithm, ssl.CipherStrength, ipAddress.ToString());
                 ConnectedClients.Add(new ServerClient(client, this));
             }
         }
@@ -77,7 +80,7 @@ namespace server_application
             BinaryFormatter bformatter = new BinaryFormatter();
 
             //Open the file and read values from client.
-            Stream streamClient = File.Open("clients.a3", FileMode.Open);
+            SslStream streamClient = new SslStream(File.Open("clients.a3", FileMode.Open));
             bformatter = new BinaryFormatter();
 
             Console.WriteLine("Reading client Information");

@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
         private string ipAdress;
         private int port;
         private TcpClient server;
+        private SslStream ssl;
         private Networkconnect parent;
 
         public NetworkCommunication(string ipAdress, int port, Networkconnect parent)
@@ -43,8 +44,9 @@ namespace WindowsFormsApplication1
             try
             {
                 server = new TcpClient(ipAdress, port);
-                SslStream ssl = new SslStream(server.GetStream(), true, new RemoteCertificateValidationCallback(ValidateCertificate));
+                ssl = new SslStream(server.GetStream(), true, new RemoteCertificateValidationCallback(ValidateCertificate));
                 ssl.AuthenticateAsClient("cyclemaster", certs, SslProtocols.Tls12, true);
+                
             }
             catch(Exception e)
             {
@@ -57,13 +59,18 @@ namespace WindowsFormsApplication1
 
         public void sendPacket(Packet packet)
         {
-            NetworkFlow.SendPacket(packet, server);
+            NetworkFlow.SendPacket(packet, ssl);
         }
 
         private void ReceiveThread()
         {
-            Packet packet = NetworkFlow.ReadPacket(server);
+            Packet packet = NetworkFlow.ReadPacket(ssl);
+
+            if (packet is PacketLogin)
+                System.Diagnostics.Debug.WriteLine(((PacketLogin)packet).username);
+
             packet.handleClientSide(parent);
+            
         }
 
         private bool ValidateCertificate(object sender, X509Certificate certificate, X509Chain certChain, SslPolicyErrors errors)

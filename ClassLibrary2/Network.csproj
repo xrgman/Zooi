@@ -41,14 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NetworkFlow.cs" />
-    <Compile Include="PacketChatMessage.cs" />
-    <Compile Include="PacketMeasurement.cs" />
+    <Compile Include="Packets\PacketChatMessage.cs" />
+    <Compile Include="Packets\PacketMeasurement.cs" />
     <Compile Include="ClientInterface.cs" />
-    <Compile Include="PacketLogin.cs" />
-    <Compile Include="PacketLoginResponse.cs" />
+    <Compile Include="Packets\PacketLogin.cs" />
+    <Compile Include="Packets\PacketLoginResponse.cs" />
     <Compile Include="pbkdf2Encryption.cs" />
     <Compile Include="ServerInterface.cs" />
-    <Compile Include="Packet.cs" />
+    <Compile Include="Packets\Packet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
