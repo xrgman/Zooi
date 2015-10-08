@@ -52,6 +52,7 @@ namespace WindowsFormsApplication1
 
         public void loginResponse(bool loginOk, bool isPhysician)
         {
+            System.Diagnostics.Debug.WriteLine("Settingggg");
             this.loginOk = loginOk;
             this.isPhysician = isPhysician;
         }

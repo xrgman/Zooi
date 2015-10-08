@@ -18,6 +18,7 @@ namespace Network
             try
             {
                 binairyFormatter.Serialize(ssl, packet);
+                ssl.Flush();
             }
             catch(Exception e)
             {
@@ -33,6 +34,7 @@ namespace Network
             try
             {
                 packet = (Packet) binairyFormatter.Deserialize(ssl);
+                ssl.Flush();
             }
             catch (Exception e)
             {

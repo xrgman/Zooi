@@ -64,13 +64,15 @@ namespace WindowsFormsApplication1
 
         private void ReceiveThread()
         {
-            Packet packet = NetworkFlow.ReadPacket(ssl);
+            while (true)
+            {
+                Packet packet = NetworkFlow.ReadPacket(ssl);
 
-            if (packet is PacketLogin)
-                System.Diagnostics.Debug.WriteLine(((PacketLogin)packet).username);
+                if (packet is PacketLogin)
+                    System.Diagnostics.Debug.WriteLine(((PacketLogin)packet).username);
 
-            packet.handleClientSide(parent);
-            
+                packet.handleClientSide(parent);
+            }   
         }
 
         private bool ValidateCertificate(object sender, X509Certificate certificate, X509Chain certChain, SslPolicyErrors errors)

@@ -50,7 +50,7 @@ namespace server_application
             //Actual login checking:
             foreach (User user in server.users)
             {
-                if (user.username.Equals(username))
+                if (user.username.ToLower().Equals(username.ToLower()))
                 {
                     if (PasswordHash.ValidatePassword(password, user.password)) //succesfull login
                     { 
@@ -67,8 +67,8 @@ namespace server_application
                     }
                 }
             }
-            server.broadCast(new PacketChatMessage("Login is wel mooi hoor"));
         }
+
         public void sendPacket(Packet packet)
         {
             BinaryFormatter formatter = new BinaryFormatter();
