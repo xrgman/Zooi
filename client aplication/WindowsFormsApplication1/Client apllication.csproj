@@ -57,6 +57,12 @@
     </Compile>
     <Compile Include="Networkconnect.cs" />
     <Compile Include="NetworkCommunication.cs" />
+    <Compile Include="NewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewClient.Designer.cs">
+      <DependentUpon>NewClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientApplicatie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Simulator.cs" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewClient.resx">
+      <DependentUpon>NewClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientApplicatie.resx">
       <DependentUpon>PatientApplicatie.cs</DependentUpon>
