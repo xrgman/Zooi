@@ -79,6 +79,7 @@
             this.RTBChatText = new System.Windows.Forms.RichTextBox();
             this.broadCastButton = new System.Windows.Forms.Button();
             this.connectedUsers = new System.Windows.Forms.ComboBox();
+            this.newClient = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -526,7 +527,7 @@
             this.RTBChatText.Size = new System.Drawing.Size(953, 346);
             this.RTBChatText.TabIndex = 37;
             this.RTBChatText.Text = "";
-			//
+            // 
             // broadCastButton
             // 
             this.broadCastButton.Location = new System.Drawing.Point(914, 759);
@@ -546,6 +547,16 @@
             this.connectedUsers.TabIndex = 37;
             this.connectedUsers.SelectedIndexChanged += new System.EventHandler(this.connectedUsers_SelectedIndexChanged);
             // 
+            // newClient
+            // 
+            this.newClient.Location = new System.Drawing.Point(13, 336);
+            this.newClient.Name = "newClient";
+            this.newClient.Size = new System.Drawing.Size(113, 38);
+            this.newClient.TabIndex = 38;
+            this.newClient.Text = "New client";
+            this.newClient.UseVisualStyleBackColor = true;
+            this.newClient.Click += new System.EventHandler(this.newClient_Click);
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,6 +565,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1019, 790);
+            this.Controls.Add(this.newClient);
             this.Controls.Add(this.RTBChatText);
             this.Controls.Add(this.connectedUsers);
             this.Controls.Add(this.sendButton);
@@ -654,6 +666,7 @@
         private System.Windows.Forms.RichTextBox RTBChatText;
         private System.Windows.Forms.Button broadCastButton;
         private System.Windows.Forms.ComboBox connectedUsers;
+        private System.Windows.Forms.Button newClient;
     }
 }
 

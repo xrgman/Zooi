@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
         public NewClient(Networkconnect network)
         {
             InitializeComponent();
+            this.ActiveControl = gebruikersNaam;
             this.network = network;
         }
 
@@ -39,13 +40,18 @@ namespace WindowsFormsApplication1
         {
             if(gebruikersNaam.Text!=""&&password.Text!="")
             {
-               // network.GetAllUsers().Contains
-                if (true)
+                if(network.GetAllUsers().FindIndex(user => user.username == gebruikersNaam.Text) == 0)
                 {
+                    //maak nieuw account
 
+                    MessageBox.Show("Gebruiker: "+ gebruikersNaam.Text + " met wachtwoord "+ password.Text + " aangemaakt.");
+                    this.Hide();
+                    this.Dispose();
                 }
                 else
                 {
+                    MessageBox.Show(network.GetAllUsers().Count().ToString());
+                    MessageBox.Show(network.GetAllUsers().FindIndex(user => user.username == gebruikersNaam.Text).ToString());
                     MessageBox.Show("Username already in use, please choose another one.");
                 }
             }

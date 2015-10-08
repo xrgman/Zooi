@@ -41,6 +41,7 @@ namespace WindowsFormsApplication1
                 sendButton.Hide();
                 broadCastButton.Hide();
                 connectedUsers.Hide();
+                newClient.Hide();
             }
             else //Specialist:
             {
@@ -367,6 +368,9 @@ namespace WindowsFormsApplication1
             }
         }
 
-
+        private void newClient_Click(object sender, EventArgs e)
+        {
+            new NewClient(network).ShowDialog();
+        }
     } 
 }
