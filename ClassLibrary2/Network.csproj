@@ -40,16 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Shared Server Client\Measurement.cs">
+      <Link>Measurement.cs</Link>
+    </Compile>
     <Compile Include="NetworkFlow.cs" />
-    <Compile Include="PacketChatMessage.cs" />
-    <Compile Include="PacketMeasurement.cs" />
+    <Compile Include="Packets\PacketChatMessage.cs" />
+    <Compile Include="Packets\PacketGiveUser.cs" />
+    <Compile Include="Packets\PacketGiveUserResponse.cs" />
+    <Compile Include="Packets\PacketMeasurement.cs" />
     <Compile Include="ClientInterface.cs" />
-    <Compile Include="PacketLogin.cs" />
-    <Compile Include="PacketLoginResponse.cs" />
+    <Compile Include="Packets\PacketLogin.cs" />
+    <Compile Include="Packets\PacketLoginResponse.cs" />
     <Compile Include="pbkdf2Encryption.cs" />
+    <Compile Include="Physician.cs" />
     <Compile Include="ServerInterface.cs" />
-    <Compile Include="Packet.cs" />
+    <Compile Include="Packets\Packet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserClient.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

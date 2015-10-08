@@ -14,6 +14,7 @@ namespace server_application
         {
             Serverapplication server = new Serverapplication();
             //server.LoadAllData();
+            System.Diagnostics.Debug.WriteLine("Tries");
         }
     }
 }

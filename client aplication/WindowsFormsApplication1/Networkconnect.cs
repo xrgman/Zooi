@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
-using WindowsFormsApplication1;
 using Network;
 using System.Threading;
 
@@ -16,6 +11,8 @@ namespace WindowsFormsApplication1
         public string status { get; set; }
         public string power, time, distance;
         private bool loginOk, isPhysician;
+        private List<User> users;
+        private User user;
 
         public Networkconnect(string ipAdress, int port)
         {
@@ -49,7 +46,7 @@ namespace WindowsFormsApplication1
             //Send object;
             //Do something here or delete this method, otherwise it's wasting space!
         }
-
+        
         public void sendChatMessage(string message, string sender, string receiver)
         {
             networkCommunication.sendPacket(new PacketChatMessage(message, sender, receiver));
@@ -59,6 +56,42 @@ namespace WindowsFormsApplication1
         {
             this.loginOk = loginOk;
             this.isPhysician = isPhysician;
+        }
+
+        //Get all users that are currently online.
+        public List<User> GetAllConnectedUsers()
+        {
+            networkCommunication.sendPacket(new PacketGiveUser("*",false));
+            Thread.Sleep(1000);
+            return users;
+        }
+
+        //Get all users in the database.
+        public List<User> GetAllUsers()
+        {
+            networkCommunication.sendPacket(new PacketGiveUser("*", true));
+            Thread.Sleep(1000);
+            return users;
+        }
+
+        public User getUser(string username)
+        {
+            return null;
+        }
+
+        public void GiveUserResponse(User user)
+        {
+            this.user = user;
+        }
+
+        public void GiveUserResponse(List<User> users)
+        {
+            this.users = users;
+        }
+
+        public void LoginResponse(bool loginOk, bool isPhysician)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading;
 using Network;
 using WindowsFormsApplication1;
+using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
 
 namespace server_application
 {
@@ -16,41 +18,47 @@ namespace server_application
     {
         public TcpClient client { get; set; }
         private Serverapplication server;
-        private User user;
-
+        public User user { get; set; }
 
         public ServerClient(TcpClient client, Serverapplication server)
         {
             this.server = server;
             this.client = client;
-            new Thread(() =>
-            { 
-                BinaryFormatter formatter = new BinaryFormatter();
-                while (client.Connected)
+            if (client != null)
+            {
+                new Thread(() =>
                 {
-                    Packet packet = NetworkFlow.ReadPacket(client);
-                    if(packet != null)
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    while (client.Connected)
                     {
-                        Console.WriteLine("recieved packet");
-                        packet.handleServerSide(this);
+                        Packet packet = NetworkFlow.ReadPacket(server.SSL);
+                        if (packet != null)
+                        {
+                            Console.WriteLine("recieved packet");
+                            packet.handleServerSide(this);
+                        }
+                        else
+                        {
+                        //Console.WriteLine("Null PAcket ");
                     }
-                }
-                server.getConnectedClients().Remove(this);
-                Console.WriteLine("Client disconnected");
-            }).Start();
+                    }
+                    server.getConnectedClients().Remove(this);
+                    Console.WriteLine("Client disconnected");
+                }).Start();
+            }
         }
 
-        public void login(string username, string password)
+        public void Login(string username, string password)
         {
             Console.WriteLine("Iemand probeert in te loggen als " + username + ", wachtwoord: " + password);
             //Actual login checking:
             foreach (User user in server.users)
             {
-                if (user.username.Equals(username))
+                if (user.username.ToLower().Equals(username.ToLower()))
                 {
                     if (PasswordHash.ValidatePassword(password, user.password)) //succesfull login
                     { 
-                        NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), client);
+                        NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), server.SSL);
                         Console.WriteLine("{0} succesfully logged in.",username);
                         this.user = user;
                         break;
@@ -58,10 +66,27 @@ namespace server_application
                     else //wrong password
                     {
                         Console.WriteLine("wrong password");
-                        NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), client);
+                        NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), server.SSL);
                         break;
                     }
                 }
+            }
+        }
+
+        public void GiveUser(string username, bool allUsers)
+        {
+            Console.WriteLine("Someone is requesting the user: " + username);
+            if(username.Equals("*"))
+            {
+                if (allUsers)
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.users), server.SSL);
+                else
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers()),server.SSL);
+                Console.WriteLine("Sending all users " + allUsers );
+            }
+            else
+            {
+                Console.WriteLine("Sending user: " + username);
             }
         }
     }

@@ -44,7 +44,6 @@ namespace WindowsFormsApplication1
                 }
                 else
                     MessageBox.Show("Wrong username or password");
-                
             }
             else
                 MessageBox.Show("Please enter a username and a password!");

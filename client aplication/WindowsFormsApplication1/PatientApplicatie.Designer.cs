@@ -77,6 +77,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.sendButton = new System.Windows.Forms.Button();
             this.RTBChatText = new System.Windows.Forms.RichTextBox();
+            this.broadCastButton = new System.Windows.Forms.Button();
+            this.connectedUsers = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -161,14 +163,14 @@
             // 
             // TChatSend
             // 
-            this.TChatSend.Location = new System.Drawing.Point(15, 759);
+            this.TChatSend.Location = new System.Drawing.Point(16, 759);
             this.TChatSend.Name = "TChatSend";
-            this.TChatSend.Size = new System.Drawing.Size(897, 20);
+            this.TChatSend.Size = new System.Drawing.Size(811, 20);
             this.TChatSend.TabIndex = 2;
             // 
             // BSend
             // 
-            this.BSend.Location = new System.Drawing.Point(918, 759);
+            this.BSend.Location = new System.Drawing.Point(833, 759);
             this.BSend.Name = "BSend";
             this.BSend.Size = new System.Drawing.Size(75, 23);
             this.BSend.TabIndex = 3;
@@ -524,6 +526,25 @@
             this.RTBChatText.Size = new System.Drawing.Size(953, 346);
             this.RTBChatText.TabIndex = 37;
             this.RTBChatText.Text = "";
+			//
+            // broadCastButton
+            // 
+            this.broadCastButton.Location = new System.Drawing.Point(914, 759);
+            this.broadCastButton.Name = "broadCastButton";
+            this.broadCastButton.Size = new System.Drawing.Size(78, 23);
+            this.broadCastButton.TabIndex = 14;
+            this.broadCastButton.Text = "Broadcast";
+            this.broadCastButton.UseVisualStyleBackColor = true;
+            this.broadCastButton.Click += new System.EventHandler(this.broadCastButton_Click);
+            // 
+            // connectedUsers
+            // 
+            this.connectedUsers.FormattingEnabled = true;
+            this.connectedUsers.Location = new System.Drawing.Point(329, 147);
+            this.connectedUsers.Name = "connectedUsers";
+            this.connectedUsers.Size = new System.Drawing.Size(121, 21);
+            this.connectedUsers.TabIndex = 37;
+            this.connectedUsers.SelectedIndexChanged += new System.EventHandler(this.connectedUsers_SelectedIndexChanged);
             // 
             // FormClient
             // 
@@ -534,6 +555,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1019, 790);
             this.Controls.Add(this.RTBChatText);
+            this.Controls.Add(this.connectedUsers);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.pwrTxtBox);
             this.Controls.Add(this.timeTxtBox);
@@ -570,6 +592,7 @@
             this.Controls.Add(this.LTime);
             this.Controls.Add(this.LRoundPerMin);
             this.Controls.Add(this.LHeartBeat);
+            this.Controls.Add(this.broadCastButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormClient";
@@ -629,6 +652,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.RichTextBox RTBChatText;
+        private System.Windows.Forms.Button broadCastButton;
+        private System.Windows.Forms.ComboBox connectedUsers;
     }
 }
 

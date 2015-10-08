@@ -21,6 +21,8 @@ namespace WindowsFormsApplication1
         private Networkconnect network;
         private bool isPhysician = false;
         private string username;
+        private List<User> users;
+        private User currentUser;
 
         public FormClient(Networkconnect network, bool isPhysician, string username)
         {
@@ -37,11 +39,21 @@ namespace WindowsFormsApplication1
                 label6.Hide();
                 label7.Hide();
                 sendButton.Hide();
+                broadCastButton.Hide();
+                connectedUsers.Hide();
             }
             else //Specialist:
             {
                 BComConnect.Hide();
                 resetButton.Hide();
+                //Getting all connected users:
+                users = network.GetAllConnectedUsers();
+                if(users.Count > 0)
+                    currentUser = users.First();
+                FillUserComboBox();
+                Thread physicianThread = new Thread(new ThreadStart(ResfreshThreadPhysician));
+                physicianThread.IsBackground = true;
+                physicianThread.Start();
             }
         }
 
@@ -69,6 +81,20 @@ namespace WindowsFormsApplication1
         private void resetButton_Click(object sender, EventArgs e)
         {
             bike.Reset();
+        }
+
+        private void  broadCastButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void FillUserComboBox()
+        {
+            foreach(User user in users)
+            {
+                connectedUsers.Items.Add(user);
+            }
+            connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
         }
 
 
@@ -295,5 +321,52 @@ namespace WindowsFormsApplication1
             network.sendChatMessage(TChatSend.Text, username, "Jaap");
             RTBChatText.Text += username + ": " +  TChatSend.Text + System.Environment.NewLine;
         }
-    }
+    
+
+        private void connectedUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentUser = (User) connectedUsers.SelectedItem;
+            RefreshFields();
+            TChatView.Text = "current user: " + currentUser;
+        }
+
+        private void RefreshFields()
+        {
+            //Set model en version fields
+        }
+
+        private void ResfreshThreadPhysician()
+        {
+            while(true)
+            {
+                if(currentUser != null)
+                {
+                    Measurement measurement = null;
+                    try
+                    {
+                        measurement = ((UserClient)currentUser).getLastSession().GetLastMeasurement();
+                    }
+                    catch(NullReferenceException e)
+                    {
+
+                    }
+                    if (measurement != null)
+                    {
+                        SetActualPowerLabel(measurement.actual_power.ToString());
+                        SetTimeLabel(measurement.time);
+                        SetHeartBeatLabel(measurement.pulse.ToString());
+                        SetRpmLabel(measurement.rpm.ToString());
+                        SetSpeedLabel(measurement.speed.ToString());
+                        SetDistanceLabel(measurement.distance.ToString());
+                        SetEnergyLabel(measurement.energy.ToString());
+                        SetRequestedPowerLabel(measurement.requested_power.ToString());
+                    }
+                    //get new user data;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+
+    } 
 }
