@@ -36,14 +36,14 @@ namespace server_application
            ConnectedClients = new List<ServerClient>();
 
             //add test users obviously for testing
-            users.Add(new UserClient("Henk", PasswordHash.HashPassword("banaan")));
-            users.Add(new Physician("Jaap", PasswordHash.HashPassword("appel")));
+            users.Add(new UserClient("Henk", "banaan"));
+            users.Add(new Physician("Jaap", "appel"));
             //Test online users:
             ServerClient boefje = new ServerClient(null, this);
-            boefje.user = new UserClient("Boef", PasswordHash.HashPassword("lol"));
+            boefje.user = new UserClient("Boef", "lol");
             ConnectedClients.Add(boefje);
             ServerClient boefje2 = new ServerClient(null, this);
-            boefje2.user = new UserClient("Boef2", PasswordHash.HashPassword("lol"));
+            boefje2.user = new UserClient("Boef2", "lol");
             ConnectedClients.Add(boefje2);
 
             TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
@@ -79,7 +79,7 @@ namespace server_application
             return users;
         }
 
-        public void MakeNewUser(User newUser)
+        public void AddNewUser(User newUser)
         {
             users.Add(newUser);
             SaveAllData();

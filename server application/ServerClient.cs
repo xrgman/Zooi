@@ -39,8 +39,8 @@ namespace server_application
                         }
                         else
                         {
-                        //Console.WriteLine("Null PAcket ");
-                    }
+                            //Console.WriteLine("Null Packet ");
+                        }
                     }
                     server.getConnectedClients().Remove(this);
                     Console.WriteLine("Client disconnected");
@@ -88,6 +88,27 @@ namespace server_application
             {
                 Console.WriteLine("Sending user: " + username);
             }
+        }
+
+        public void AddUser(User newUser)
+        {
+            Boolean addUser = true;
+
+            //Last check to prevent creating an user that already excists
+            foreach (User user in server.users)
+            {
+                if (user.username.ToLower().Equals(newUser.username.ToLower()))
+                {
+                    addUser = false;
+                    break;
+                }
+            }
+            //if no duplicate has been found, newUser can be added to the userlist
+            if (addUser)
+                server.AddNewUser(newUser);
+
+            Console.WriteLine("Succesfully created new user {0} with password {1}.", newUser.username, newUser.password);
+
         }
     }
 }

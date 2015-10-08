@@ -40,18 +40,16 @@ namespace WindowsFormsApplication1
         {
             if(gebruikersNaam.Text!=""&&password.Text!="")
             {
-                if(network.GetAllUsers().FindIndex(user => user.username == gebruikersNaam.Text) == 0)
+                if(network.GetAllUsers().FindIndex(user => user.username.ToLower() == gebruikersNaam.Text.ToLower()) == -1)
                 {
-                    //maak nieuw account
+                    network.addNewClient(new Network.User(gebruikersNaam.Text, password.Text));
 
-                    MessageBox.Show("Gebruiker: "+ gebruikersNaam.Text + " met wachtwoord "+ password.Text + " aangemaakt.");
+                    MessageBox.Show("Gebruiker '"+ gebruikersNaam.Text + "' met wachtwoord '"+ password.Text + "' aangemaakt.");
                     this.Hide();
                     this.Dispose();
                 }
                 else
                 {
-                    MessageBox.Show(network.GetAllUsers().Count().ToString());
-                    MessageBox.Show(network.GetAllUsers().FindIndex(user => user.username == gebruikersNaam.Text).ToString());
                     MessageBox.Show("Username already in use, please choose another one.");
                 }
             }

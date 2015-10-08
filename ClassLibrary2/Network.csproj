@@ -44,6 +44,7 @@
       <Link>Measurement.cs</Link>
     </Compile>
     <Compile Include="NetworkFlow.cs" />
+    <Compile Include="Packets\PacketAddClient.cs" />
     <Compile Include="Packets\PacketChatMessage.cs" />
     <Compile Include="Packets\PacketGiveUser.cs" />
     <Compile Include="Packets\PacketGiveUserResponse.cs" />

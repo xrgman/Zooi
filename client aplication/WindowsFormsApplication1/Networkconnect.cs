@@ -36,6 +36,11 @@ namespace WindowsFormsApplication1
             return new Tuple<bool, bool>(loginOk,isPhysician);
         }
 
+        public void addNewClient(User user)
+        {
+            networkCommunication.sendPacket(new PacketAddClient(user));
+        }
+
         public void sendBikeValues(string power, string time, string distance)
         {
             //Do something here or delete this method, otherwise it's wasting space!
