@@ -79,6 +79,12 @@ namespace server_application
             return users;
         }
 
+        public void MakeNewUser(User newUser)
+        {
+            users.Add(newUser);
+            SaveAllData();
+        }
+
         public void SaveAllData()
         {
             //save clientfiles
