@@ -66,6 +66,8 @@ namespace server_application
                         break;
                     }
                 }
+                else
+                    Console.WriteLine();
             }
         }
 

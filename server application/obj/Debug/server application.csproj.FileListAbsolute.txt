@@ -53,3 +53,8 @@ C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\Netw
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
 C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\bin\Debug\Network.dll
 C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.exe
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.dll
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
