@@ -8,14 +8,17 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Network
 {
     [Serializable]
-    class PacketChatMessage:Packet
+    public class PacketChatMessage:Packet
     {
-        public string message { get; }
-        //public Bitmap picture { get; }
+        public string message { get; set; }
+        public string sender { get; set; }
+        public string receiver { get; set; }
 
-        public PacketChatMessage(string Message)
+        public PacketChatMessage(string message,string sender, string receiver)
         {
-            message = Message;
+            this.message = message;
+            this.sender = sender;
+            this.receiver = receiver;
         }
     }
 }

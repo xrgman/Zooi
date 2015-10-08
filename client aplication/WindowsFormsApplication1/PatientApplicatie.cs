@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Network;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsFormsApplication1
 {
@@ -18,12 +20,14 @@ namespace WindowsFormsApplication1
         private Bike bike;
         private Networkconnect network;
         private bool isPhysician = false;
+        private string username;
 
-        public FormClient(Networkconnect network, bool isPhysician)
+        public FormClient(Networkconnect network, bool isPhysician, string username)
         {
             InitializeComponent();
             this.isPhysician = isPhysician;
             this.network = network;
+            this.username = username;
             if(!isPhysician) //Client:
             {
                 pwrTxtBox.Hide();
@@ -284,6 +288,12 @@ namespace WindowsFormsApplication1
                 distanceTxtBox.BackColor = Color.Red;
             else
                 distanceTxtBox.BackColor = Color.White;
+        }
+
+        private void BSend_Click(object sender, EventArgs e)
+        {
+            network.sendChatMessage(TChatSend.Text, username, "Jaap");
+            RTBChatText.Text += username + ": " +  TChatSend.Text + System.Environment.NewLine;
         }
     }
 }

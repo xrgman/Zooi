@@ -76,6 +76,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.sendButton = new System.Windows.Forms.Button();
+            this.RTBChatText = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -173,6 +174,7 @@
             this.BSend.TabIndex = 3;
             this.BSend.Text = "send";
             this.BSend.UseVisualStyleBackColor = true;
+            this.BSend.Click += new System.EventHandler(this.BSend_Click);
             // 
             // Chart
             // 
@@ -512,6 +514,17 @@
             this.sendButton.UseVisualStyleBackColor = true;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
+            // RTBChatText
+            // 
+            this.RTBChatText.BackColor = System.Drawing.Color.White;
+            this.RTBChatText.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.RTBChatText.Location = new System.Drawing.Point(28, 391);
+            this.RTBChatText.Name = "RTBChatText";
+            this.RTBChatText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.RTBChatText.Size = new System.Drawing.Size(953, 346);
+            this.RTBChatText.TabIndex = 37;
+            this.RTBChatText.Text = "";
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,6 +533,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1019, 790);
+            this.Controls.Add(this.RTBChatText);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.pwrTxtBox);
             this.Controls.Add(this.timeTxtBox);
@@ -614,6 +628,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button sendButton;
+        private System.Windows.Forms.RichTextBox RTBChatText;
     }
 }
 

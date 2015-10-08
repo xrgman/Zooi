@@ -50,6 +50,11 @@ namespace WindowsFormsApplication1
             //Do something here or delete this method, otherwise it's wasting space!
         }
 
+        public void sendChatMessage(string message, string sender, string receiver)
+        {
+            networkCommunication.sendPacket(new PacketChatMessage(message, sender, receiver));
+        }
+
         public void loginResponse(bool loginOk, bool isPhysician)
         {
             this.loginOk = loginOk;
