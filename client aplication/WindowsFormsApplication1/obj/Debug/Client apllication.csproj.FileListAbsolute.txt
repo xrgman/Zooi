@@ -122,3 +122,16 @@ D:\Dropbox\school\periode 1\project\week 6\build 9\client aplication\WindowsForm
 D:\Dropbox\school\periode 1\project\week 6\build 9\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 D:\Dropbox\school\periode 1\project\week 6\build 9\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
 D:\Dropbox\school\periode 1\project\week 6\build 9\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csprojResolveAssemblyReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache

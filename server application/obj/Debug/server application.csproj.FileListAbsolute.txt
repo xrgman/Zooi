@@ -66,3 +66,11 @@ D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\
 D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\server application.pdb
 D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\Network.dll
 D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\Network.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\bin\Debug\server application.exe.config
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\obj\Debug\server application.exe
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\obj\Debug\server application.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\bin\Debug\server application.exe
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\bin\Debug\server application.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\bin\Debug\Network.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\bin\Debug\Network.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache

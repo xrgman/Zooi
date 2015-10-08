@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
         private Networkconnect network;
         private bool isPhysician = false;
         private List<User> users;
+        private User currentUser;
 
         public FormClient(Networkconnect network, bool isPhysician)
         {
@@ -42,8 +43,14 @@ namespace WindowsFormsApplication1
             {
                 BComConnect.Hide();
                 resetButton.Hide();
+                //Getting all connected users:
                 users = network.GetAllConnectedUsers();
+                if(users.Count > 0)
+                    currentUser = users.First();
                 FillUserComboBox();
+                Thread physicianThread = new Thread(new ThreadStart(ResfreshThreadPhysician));
+                physicianThread.IsBackground = true;
+                physicianThread.Start();
             }
         }
 
@@ -84,6 +91,7 @@ namespace WindowsFormsApplication1
             {
                 connectedUsers.Items.Add(user);
             }
+            connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
         }
 
 
@@ -304,5 +312,51 @@ namespace WindowsFormsApplication1
             else
                 distanceTxtBox.BackColor = Color.White;
         }
-    }
+
+        private void connectedUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentUser = (User) connectedUsers.SelectedItem;
+            RefreshFields();
+            TChatView.Text = "current user: " + currentUser;
+        }
+
+        private void RefreshFields()
+        {
+            //Set model en version fields
+        }
+
+        private void ResfreshThreadPhysician()
+        {
+            while(true)
+            {
+                if(currentUser != null)
+                {
+                    Measurement measurement = null;
+                    try
+                    {
+                        measurement = ((UserClient)currentUser).getLastSession().GetLastMeasurement();
+                    }
+                    catch(NullReferenceException e)
+                    {
+
+                    }
+                    if (measurement != null)
+                    {
+                        SetActualPowerLabel(measurement.actual_power.ToString());
+                        SetTimeLabel(measurement.time);
+                        SetHeartBeatLabel(measurement.pulse.ToString());
+                        SetRpmLabel(measurement.rpm.ToString());
+                        SetSpeedLabel(measurement.speed.ToString());
+                        SetDistanceLabel(measurement.distance.ToString());
+                        SetEnergyLabel(measurement.energy.ToString());
+                        SetRequestedPowerLabel(measurement.requested_power.ToString());
+                    }
+                    //get new user data;
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+
+    } 
 }

@@ -531,6 +531,7 @@
             this.connectedUsers.Name = "connectedUsers";
             this.connectedUsers.Size = new System.Drawing.Size(121, 21);
             this.connectedUsers.TabIndex = 37;
+            this.connectedUsers.SelectedIndexChanged += new System.EventHandler(this.connectedUsers_SelectedIndexChanged);
             // 
             // FormClient
             // 

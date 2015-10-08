@@ -68,6 +68,12 @@ namespace WindowsFormsApplication1
             Thread.Sleep(1000);
             return users;
         }
+
+        public User getUser(string username)
+        {
+            return null;
+        }
+
         public void GiveUserResponse(User user)
         {
             this.user = user;

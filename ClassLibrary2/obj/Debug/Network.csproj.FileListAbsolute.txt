@@ -32,3 +32,8 @@ D:\Dropbox\school\periode 1\project\week 6\build 9\ClassLibrary2\obj\Debug\Netwo
 D:\Dropbox\school\periode 1\project\week 6\build 9\ClassLibrary2\bin\Debug\Network.dll
 D:\Dropbox\school\periode 1\project\week 6\build 9\ClassLibrary2\bin\Debug\Network.pdb
 D:\Dropbox\school\periode 1\project\week 6\build 9\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\ClassLibrary2\bin\Debug\Network.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\ClassLibrary2\bin\Debug\Network.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\ClassLibrary2\obj\Debug\Network.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\ClassLibrary2\obj\Debug\Network.pdb

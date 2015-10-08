@@ -52,7 +52,10 @@ namespace Network
 
         public Session getLastSession()
         {
-            return sessions.Last();
+            if (sessions.Count > 0)
+                return sessions.Last();
+            else
+                return null;
         }
          
         //serialize method

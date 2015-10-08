@@ -32,5 +32,13 @@ namespace Network
             return measurements;
         }
 
+        public Measurement GetLastMeasurement()
+        {
+            if (measurements.Count > 0)
+                return measurements.Last();
+            else
+                return null;
+        }
+
     }
 }

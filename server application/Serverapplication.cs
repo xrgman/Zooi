@@ -38,9 +38,13 @@ namespace server_application
             //add test users obviously for testing
             users.Add(new UserClient("Henk", PasswordHash.HashPassword("banaan")));
             users.Add(new Physician("Jaap", PasswordHash.HashPassword("appel")));
+            //Test online users:
             ServerClient boefje = new ServerClient(null, this);
             boefje.user = new UserClient("Boef", PasswordHash.HashPassword("lol"));
             ConnectedClients.Add(boefje);
+            ServerClient boefje2 = new ServerClient(null, this);
+            boefje2.user = new UserClient("Boef2", PasswordHash.HashPassword("lol"));
+            ConnectedClients.Add(boefje2);
 
             TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
             listener.Start();
