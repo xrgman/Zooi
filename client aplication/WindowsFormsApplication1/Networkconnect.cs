@@ -91,7 +91,8 @@ namespace WindowsFormsApplication1
 
         public void LoginResponse(bool loginOk, bool isPhysician)
         {
-            throw new NotImplementedException();
+            this.loginOk = loginOk;
+            this.isPhysician = isPhysician;
         }
     }
 }
