@@ -20,7 +20,7 @@ namespace Network
 
         public override void handleClientSide(ClientInterface clientInterface)
         {
-            clientInterface.loginResponse(loginOk,isPhysician);
+            clientInterface.LoginResponse(loginOk,isPhysician);
         }
     }
 }

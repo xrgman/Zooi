@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace WindowsFormsApplication1
+namespace Network
 {
     public class PasswordHash
     {

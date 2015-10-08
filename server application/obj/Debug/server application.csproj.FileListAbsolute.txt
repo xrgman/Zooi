@@ -58,3 +58,11 @@ C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Deb
 C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.dll
 C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.pdb
 C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\server application.exe.config
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\obj\Debug\server application.exe
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\obj\Debug\server application.pdb
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\server application.exe
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\server application.pdb
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\Network.dll
+D:\Dropbox\school\periode 1\project\week 6\build 9\server application\bin\Debug\Network.pdb

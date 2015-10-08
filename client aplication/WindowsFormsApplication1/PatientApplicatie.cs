@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Network;
 
 namespace WindowsFormsApplication1
 {
@@ -18,6 +19,7 @@ namespace WindowsFormsApplication1
         private Bike bike;
         private Networkconnect network;
         private bool isPhysician = false;
+        private List<User> users;
 
         public FormClient(Networkconnect network, bool isPhysician)
         {
@@ -34,12 +36,14 @@ namespace WindowsFormsApplication1
                 label7.Hide();
                 sendButton.Hide();
                 broadCastButton.Hide();
-                broadCastTxtBox.Hide();
+                connectedUsers.Hide();
             }
             else //Specialist:
             {
                 BComConnect.Hide();
                 resetButton.Hide();
+                users = network.GetAllConnectedUsers();
+                FillUserComboBox();
             }
         }
 
@@ -72,6 +76,14 @@ namespace WindowsFormsApplication1
         private void  broadCastButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void FillUserComboBox()
+        {
+            foreach(User user in users)
+            {
+                connectedUsers.Items.Add(user);
+            }
         }
 
 
@@ -291,16 +303,6 @@ namespace WindowsFormsApplication1
                 distanceTxtBox.BackColor = Color.Red;
             else
                 distanceTxtBox.BackColor = Color.White;
-        }
-
-        private void TChatSend_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-       
-        private void broadCastTxtBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

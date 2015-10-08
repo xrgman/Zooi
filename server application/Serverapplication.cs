@@ -38,6 +38,9 @@ namespace server_application
             //add test users obviously for testing
             users.Add(new UserClient("Henk", PasswordHash.HashPassword("banaan")));
             users.Add(new Physician("Jaap", PasswordHash.HashPassword("appel")));
+            ServerClient boefje = new ServerClient(null, this);
+            boefje.user = new UserClient("Boef", PasswordHash.HashPassword("lol"));
+            ConnectedClients.Add(boefje);
 
             TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
             listener.Start();
@@ -59,6 +62,17 @@ namespace server_application
         public List<ServerClient> getConnectedClients()
         {
             return ConnectedClients;
+        }
+
+        public List<User> GetConnectedUsers()
+        {
+            List<User> users = new List<User>();
+            foreach(ServerClient client in ConnectedClients)
+            {
+                if(!(client.user is Physician))
+                    users.Add(client.user);
+            }
+            return users;
         }
 
         public void SaveAllData()
@@ -100,11 +114,6 @@ namespace server_application
                     Console.WriteLine(e.ToString());
                     //TODO show error
                 }
-        }
-        public void broadCast(Packet packet)
-        {
-            foreach (ServerClient serverClient in ConnectedClients)
-                serverClient.sendPacket(packet);
         }
     }
 }

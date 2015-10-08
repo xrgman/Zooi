@@ -8,6 +8,7 @@ namespace Network
 {
     public interface ServerInterface
     {
-        void login(string username, string password);
+        void Login(string username, string password);
+        void GiveUser(string username, bool allUsers);
     }
 }

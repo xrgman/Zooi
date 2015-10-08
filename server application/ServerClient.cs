@@ -18,33 +18,37 @@ namespace server_application
     {
         public TcpClient client { get; set; }
         private Serverapplication server;
-        private User user;
+        public User user { get; set; }
 
         public ServerClient(TcpClient client, Serverapplication server)
         {
             this.server = server;
             this.client = client;
-            new Thread(() =>
-            { 
-                BinaryFormatter formatter = new BinaryFormatter();
-                while (client.Connected)
+            if (client != null)
+            {
+                new Thread(() =>
                 {
-                Packet packet = NetworkFlow.ReadPacket(server.SSL);
-                    if(packet != null)
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    while (client.Connected)
                     {
-                        Console.WriteLine("recieved packet");
-                        packet.handleServerSide(this);
-                    } else
-                    {
+                        Packet packet = NetworkFlow.ReadPacket(server.SSL);
+                        if (packet != null)
+                        {
+                            Console.WriteLine("recieved packet");
+                            packet.handleServerSide(this);
+                        }
+                        else
+                        {
                         //Console.WriteLine("Null PAcket ");
                     }
-                }
-                server.getConnectedClients().Remove(this);
-                Console.WriteLine("Client disconnected");
-            }).Start();
+                    }
+                    server.getConnectedClients().Remove(this);
+                    Console.WriteLine("Client disconnected");
+                }).Start();
+            }
         }
 
-        public void login(string username, string password)
+        public void Login(string username, string password)
         {
             Console.WriteLine("Iemand probeert in te loggen als " + username + ", wachtwoord: " + password);
             //Actual login checking:
@@ -66,15 +70,24 @@ namespace server_application
                         break;
                     }
                 }
-                else
-                    Console.WriteLine();
             }
         }
 
-        public void sendPacket(Packet packet)
+        public void GiveUser(string username, bool allUsers)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(server.SSL, packet);
+            Console.WriteLine("Someone is requesting the user: " + username);
+            if(username.Equals("*"))
+            {
+                if (allUsers)
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.users), server.SSL);
+                else
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers()),server.SSL);
+                Console.WriteLine("Sending all users " + allUsers );
+            }
+            else
+            {
+                Console.WriteLine("Sending user: " + username);
+            }
         }
     }
 }

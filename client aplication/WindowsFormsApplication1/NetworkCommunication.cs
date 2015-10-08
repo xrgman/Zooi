@@ -53,6 +53,7 @@ namespace WindowsFormsApplication1
                 return false; //failed to connect.
             }
             Thread receiveThread = new Thread(new ThreadStart(ReceiveThread));
+            receiveThread.IsBackground = true;
             receiveThread.Start();
             return true; //succesfully connected to server.
         }
@@ -67,11 +68,8 @@ namespace WindowsFormsApplication1
             while (true)
             {
                 Packet packet = NetworkFlow.ReadPacket(ssl);
-
-                if (packet is PacketLogin)
-                    System.Diagnostics.Debug.WriteLine(((PacketLogin)packet).username);
-
-                packet.handleClientSide(parent);
+                if(packet != null)
+                     packet.handleClientSide(parent);
             }   
         }
 

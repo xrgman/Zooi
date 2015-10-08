@@ -20,7 +20,7 @@ namespace Network
 
         public override void handleServerSide(ServerInterface serverInterface)
         {
-            serverInterface.login(username, password);
+            serverInterface.Login(username, password);
         }
     }
 }
