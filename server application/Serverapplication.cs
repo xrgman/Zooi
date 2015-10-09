@@ -38,7 +38,7 @@ namespace server_application
             LoadAllData();
 
             //add test users obviously for testing
-            //users.Add(new UserClient("Henk", "banaan"));
+            users.Add(new UserClient("Henk", "banaan"));
             
             //Test online users:
             ServerClient boefjeeee = new ServerClient(null, this);
@@ -48,11 +48,13 @@ namespace server_application
             ServerClient boefje2 = new ServerClient(null, this);
             boefje2.user = new UserClient("Boef2", "lol");
             ConnectedClients.Add(boefje2);
-            Physician jaap4 = new Physician("Jaap4", "appel");
-            jaap4.addClient(boefje);
+            Physician jaap = new Physician("Jaap", "appel");
+            jaap.addClient(boefje);
             
 
-            users.Add(jaap4);
+            users.Add(jaap);
+
+            SaveAllData();
 
             TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
             listener.Start();
@@ -77,7 +79,7 @@ namespace server_application
             return ConnectedClients;
         }
 
-        public List<User> GetConnectedUsers(string physicianName)
+        public List<UserClient> GetConnectedUsers(string physicianName)
         {
             List<User> users = new List<User>();
             Physician physician = null;
@@ -100,11 +102,14 @@ namespace server_application
 
             try
             {
-                List<User> connectedUsers = users.Intersect(physician.clients).ToList();
-                return connectedUsers;
+                Console.WriteLine("usersss: " + users.Count + "  specia: " + physician.clients.Count );
+                List<UserClient> connectedUsers = physician.clients;
+                Console.WriteLine("size: " + connectedUsers.Count);
+                return physician.clients;
             }
             catch(Exception e)
             {
+                Console.WriteLine("FATAL ERROR");
                 return null;
             }
         }
@@ -126,7 +131,7 @@ namespace server_application
                 }
                    
             }
-            physician.addClient(newUser);
+            physician.addClient((UserClient)newUser);
             users.Add(newUser);
             SaveAllData();
         }

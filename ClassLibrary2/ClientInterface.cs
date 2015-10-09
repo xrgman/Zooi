@@ -11,5 +11,6 @@ namespace Network
         void LoginResponse(bool loginOk, bool isPhysician);
         void GiveUserResponse(User user);
         void GiveUserResponse(List<User> users);
+        void GiveUserResponse(List<UserClient> users);
     }
 }

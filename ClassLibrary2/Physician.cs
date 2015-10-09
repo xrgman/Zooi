@@ -10,10 +10,7 @@ namespace Network
     [Serializable]
     public class Physician : User, ISerializable
     {
-        public List<UserClient> clients
-        {
-            get;
-        }
+        public List<UserClient> clients = new List<UserClient>();
             
         public Physician(String username, string password): base(username, password)
         {
@@ -23,10 +20,9 @@ namespace Network
         //deserialize method (constructor)
         public Physician(SerializationInfo info, StreamingContext ctxt)
         {
-            clients = new List<User>();
             username = (string)info.GetValue("username", typeof(string));
             password = (string)info.GetValue("password", typeof(string));
-            clients = (List<User>)info.GetValue("clients", typeof(List<>));
+            clients = (List<UserClient>)info.GetValue("clients", typeof(List<UserClient>));
 
         }
 

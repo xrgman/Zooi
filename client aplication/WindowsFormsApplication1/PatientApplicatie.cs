@@ -98,7 +98,8 @@ namespace WindowsFormsApplication1
             {
                 connectedUsers.Items.Add(user);
             }
-            connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
+            if(currentUser != null)
+                connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
         }
 
 

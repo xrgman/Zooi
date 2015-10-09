@@ -99,5 +99,12 @@ namespace WindowsFormsApplication1
             this.loginOk = loginOk;
             this.isPhysician = isPhysician;
         }
+
+        public void GiveUserResponse(List<UserClient> users)
+        {
+            List<User> tempusers = users.ConvertAll(user => (User)user);
+            
+            this.users = tempusers;
+        }
     }
 }
