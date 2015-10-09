@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             {
                 if(network.GetAllUsers().FindIndex(user => user.username.ToLower() == gebruikersNaam.Text.ToLower()) == -1)
                 {
-                    network.addNewClient(new Network.User(gebruikersNaam.Text, password.Text));
+                    network.addNewClient(new Network.UserClient(gebruikersNaam.Text, password.Text));
 
                     MessageBox.Show("Gebruiker '"+ gebruikersNaam.Text + "' met wachtwoord '"+ password.Text + "' aangemaakt.");
                     this.Hide();

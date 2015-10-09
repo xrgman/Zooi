@@ -28,16 +28,17 @@ namespace server_application
 
         public List<User> users = new List<User>();
 
-        private   SslStream ssl;
-        public    SslStream SSL { get { return ssl; }}
+        private SslStream ssl;
+        public SslStream SSL { get { return ssl; } }
 
         public Serverapplication()
         {
-           ConnectedClients = new List<ServerClient>();
+            ConnectedClients = new List<ServerClient>();
+            LoadAllData();
 
             //add test users obviously for testing
-            users.Add(new UserClient("Henk", "banaan"));
-            users.Add(new Physician("Jaap", "appel"));
+            //users.Add(new UserClient("Henk", "banaan"));
+            //users.Add(new Physician("Jaap", "appel"));
             //Test online users:
             ServerClient boefje = new ServerClient(null, this);
             boefje.user = new UserClient("Boef", "lol");
@@ -48,6 +49,7 @@ namespace server_application
 
             TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
             listener.Start();
+            
 
             while (true)
             {
@@ -70,30 +72,36 @@ namespace server_application
 
         public List<User> GetConnectedUsers()
         {
-            List<User> users = new List<User>();
-            foreach(ServerClient client in ConnectedClients)
+            List<User> connectedUsers = new List<User>();
+            foreach (ServerClient client in ConnectedClients)
             {
-                if(!(client.user is Physician))
-                    users.Add(client.user);
+                if (!(client.user is Physician))
+                    connectedUsers.Add(client.user);
             }
-            return users;
+            return connectedUsers;
         }
 
         public void AddNewUser(User newUser)
         {
             users.Add(newUser);
+            
             SaveAllData();
         }
 
         public void SaveAllData()
         {
+            Console.WriteLine(users.Count);
             //save clientfiles
-            SslStream streamClient = new SslStream(File.Open("clients.a3", FileMode.Create));
+            FileStream streamClient = new FileStream("clients.a3", FileMode.Create);
             BinaryFormatter bformatter = new BinaryFormatter();
 
             Console.WriteLine("Writing clients Information");
-            foreach (User u in users) 
+            foreach (User u in users)
+            {
+                Console.WriteLine(u.username);
                 bformatter.Serialize(streamClient, u);
+            }
+                
 
             streamClient.Close();
         }
@@ -103,27 +111,30 @@ namespace server_application
             BinaryFormatter bformatter = new BinaryFormatter();
 
             //Open the file and read values from client.
-            SslStream streamClient = new SslStream(File.Open("clients.a3", FileMode.Open));
+            FileStream streamClient = new FileStream("clients.a3", FileMode.Open);
             bformatter = new BinaryFormatter();
 
             Console.WriteLine("Reading client Information");
-
-            users = new List<User>();
-
-            while (streamClient.Position < streamClient.Length - 1)
+            
+            while (streamClient.Position < streamClient.Length)
                 try
                 {
                     User u = (User)bformatter.Deserialize(streamClient);
+                    Console.WriteLine(u.username);
                     if (u is UserClient)
                         users.Add((UserClient)u);
                     else if (u is Physician)
                         users.Add((Physician)u);
+                    else
+                        Console.WriteLine("error loading client" + u.username);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
                     //TODO show error
                 }
+            Console.WriteLine(users.Count);
+            streamClient.Close();
         }
     }
 }
