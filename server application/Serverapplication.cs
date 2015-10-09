@@ -91,6 +91,7 @@ namespace server_application
                 else
                     users.Add(client.user);
             }
+            
             try
             {
                 List<User> connectedUsers = users.Intersect(physician.clients).ToList();
@@ -102,10 +103,25 @@ namespace server_application
             }
         }
 
-        public void AddNewUser(User newUser)
+        public void AddNewUser(User newUser, string physicianName)
         {
+            Console.WriteLine("naam2: " + physicianName);
+            Physician physician = null;
+            foreach (ServerClient client in ConnectedClients)
+            {
+                if (client.user is Physician)
+                {
+                    Console.WriteLine("found one");
+                    if (client.user.username.Equals(physicianName))
+                    {
+                        Console.WriteLine("sameee");
+                        physician = (Physician)client.user;
+                    }
+                }
+                   
+            }
+            //physician.addClient(newUser);
             users.Add(newUser);
-            
             SaveAllData();
         }
 

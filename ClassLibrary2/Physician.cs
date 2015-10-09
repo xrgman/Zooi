@@ -26,7 +26,7 @@ namespace Network
 
         }
 
-        public void addClient(UserClient client)
+        public void addClient(User client)
         {
             clients.Add(client);
         }
@@ -34,7 +34,7 @@ namespace Network
         //serialize method
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("username", username);
+            info.AddValue("username", username.ToLower());
             info.AddValue("password", password);
             //info.AddValue("clients", clients);
         }

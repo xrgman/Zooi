@@ -12,13 +12,15 @@ namespace WindowsFormsApplication1
 {
     public partial class NewClient : Form
     {
-        Networkconnect network;
+        private Networkconnect network;
+        private string physicianName;
 
-        public NewClient(Networkconnect network)
+        public NewClient(Networkconnect network, string physicianName)
         {
             InitializeComponent();
             this.ActiveControl = gebruikersNaam;
             this.network = network;
+            this.physicianName = physicianName;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace WindowsFormsApplication1
             {
                 if(network.GetAllUsers().FindIndex(user => user.username.ToLower() == gebruikersNaam.Text.ToLower()) == -1)
                 {
-                    network.addNewClient(new Network.UserClient(gebruikersNaam.Text, password.Text));
+                    network.addNewClient(new Network.UserClient(gebruikersNaam.Text, password.Text), physicianName);
 
                     MessageBox.Show("Gebruiker '"+ gebruikersNaam.Text + "' met wachtwoord '"+ password.Text + "' aangemaakt.");
                     this.Hide();

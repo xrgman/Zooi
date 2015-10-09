@@ -10,6 +10,6 @@ namespace Network
     {
         void Login(string username, string password);
         void GiveUser(string username, bool allUsers, string physicianName);
-        void AddUser(User user);
+        void AddUser(User user, string physicianName);
     }
 }

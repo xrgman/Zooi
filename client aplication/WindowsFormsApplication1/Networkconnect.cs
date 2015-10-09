@@ -36,9 +36,9 @@ namespace WindowsFormsApplication1
             return new Tuple<bool, bool>(loginOk,isPhysician);
         }
 
-        public void addNewClient(User user)
+        public void addNewClient(User user, string physicianName)
         {
-            networkCommunication.sendPacket(new PacketAddClient(user));
+            networkCommunication.sendPacket(new PacketAddClient(user, physicianName));
         }
 
         public void sendBikeValues(string power, string time, string distance)

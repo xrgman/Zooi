@@ -51,5 +51,10 @@ namespace Network
             return username;
         }
 
+        public override bool Equals(object obj)
+        {
+            return username.ToLower().Equals(((User)obj).username.ToLower());
+        }
+
     }
 }

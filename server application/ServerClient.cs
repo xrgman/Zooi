@@ -90,7 +90,7 @@ namespace server_application
             }
         }
 
-        public void AddUser(User newUser)
+        public void AddUser(User newUser, string physicianName)
         {
             Boolean addUser = true;
 
@@ -105,7 +105,7 @@ namespace server_application
             }
             //if no duplicate has been found, newUser can be added to the userlist
             if (addUser)
-                server.AddNewUser(newUser);
+                server.AddNewUser(newUser, physicianName);
 
             Console.WriteLine("Succesfully created new user {0} with password {1}.", newUser.username, newUser.password);
 
