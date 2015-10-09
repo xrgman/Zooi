@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 namespace Network.Packets
 {
     [Serializable]
-    class PacketRequestMeasurements:Packet
+    class PacketRequestSession:Packet
     {
         string client;
-        DateTime date;
+        int SesionID;
 
-        public PacketRequestMeasurements(string client,DateTime date)
+        public PacketRequestSession(string client,int SesionID)
         {
             this.client = client;
-            this.date = date;
+            this.SesionID = SesionID;
         }
         
     }

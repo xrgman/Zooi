@@ -44,6 +44,7 @@
       <Link>Measurement.cs</Link>
     </Compile>
     <Compile Include="NetworkFlow.cs" />
+    <Compile Include="Packets\PacketRequestAllSesionsOfClient.cs" />
     <Compile Include="Packets\PacketAddClient.cs" />
     <Compile Include="Packets\PacketChatMessage.cs" />
     <Compile Include="Packets\PacketGiveUser.cs" />
@@ -52,6 +53,9 @@
     <Compile Include="ClientInterface.cs" />
     <Compile Include="Packets\PacketLogin.cs" />
     <Compile Include="Packets\PacketLoginResponse.cs" />
+    <Compile Include="Packets\PacketRequestSession.cs" />
+    <Compile Include="Packets\PacketSendAllMesurments.cs" />
+    <Compile Include="Packets\PacketSendAllSesionsOfClient.cs" />
     <Compile Include="pbkdf2Encryption.cs" />
     <Compile Include="Physician.cs" />
     <Compile Include="ServerInterface.cs" />
