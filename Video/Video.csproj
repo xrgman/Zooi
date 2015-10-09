@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26C2FD5F-F5F9-48F5-B4DA-71A275DFC151}</ProjectGuid>
+    <ProjectGuid>{4AEC8EEC-0098-44CD-9042-4274AD7434AB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsFormsApplication1</RootNamespace>
-    <AssemblyName>WindowsFormsApplication1</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>Video</RootNamespace>
+    <AssemblyName>Video</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,57 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bike.cs" />
-    <Compile Include="BikeCommunication.cs" />
-    <Compile Include="OldSesionData.cs">
+    <Compile Include="VideoPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OldSesionData.Designer.cs">
-      <DependentUpon>OldSesionData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Networkconnect.cs" />
-    <Compile Include="NetworkCommunication.cs" />
-    <Compile Include="NewClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewClient.Designer.cs">
-      <DependentUpon>NewClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PatientApplicatie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PatientApplicatie.Designer.cs">
-      <DependentUpon>PatientApplicatie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommChooser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CommChooser.Designer.cs">
-      <DependentUpon>CommChooser.cs</DependentUpon>
+    <Compile Include="VideoPlayer.Designer.cs">
+      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Simulator.cs" />
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewClient.resx">
-      <DependentUpon>NewClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OldSesionData.resx">
-      <DependentUpon>OldSesionData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PatientApplicatie.resx">
-      <DependentUpon>PatientApplicatie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommChooser.resx">
-      <DependentUpon>CommChooser.cs</DependentUpon>
+    <EmbeddedResource Include="VideoPlayer.resx">
+      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,16 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ClassLibrary2\Network.csproj">
-      <Project>{e44fb9f6-d0da-4519-a149-745987c931c5}</Project>
-      <Name>Network</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Video\Video.csproj">
-      <Project>{4aec8eec-0098-44cd-9042-4274ad7434ab}</Project>
-      <Name>Video</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">

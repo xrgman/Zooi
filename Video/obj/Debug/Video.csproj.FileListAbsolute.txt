@@ -1,0 +1,14 @@
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\bin\Debug\Video.exe.config
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\bin\Debug\Video.exe
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\bin\Debug\Video.pdb
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\bin\Debug\Interop.WMPLib.dll
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\bin\Debug\AxInterop.WMPLib.dll
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Interop.WMPLib.dll
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\AxInterop.WMPLib.dll
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.csproj.ResolveComReference.cache
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.VideoPlayer.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.Properties.Resources.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.exe
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.pdb

@@ -383,5 +383,12 @@ namespace WindowsFormsApplication1
             f.Show();
 
         }
+
+        private void startVideoTrainingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(delegate () { new Video.VideoPlayer("15MinWorkout.mp4").ShowDialog(); });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
     } 
 }

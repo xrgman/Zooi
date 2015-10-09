@@ -41,6 +41,7 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setComPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TChatView = new System.Windows.Forms.TextBox();
             this.TChatSend = new System.Windows.Forms.TextBox();
             this.BSend = new System.Windows.Forms.Button();
@@ -80,7 +81,7 @@
             this.broadCastButton = new System.Windows.Forms.Button();
             this.connectedUsers = new System.Windows.Forms.ComboBox();
             this.newClient = new System.Windows.Forms.Button();
-            this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -111,32 +112,33 @@
             // saveFileToolStripMenuItem
             // 
             this.saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.saveFileToolStripMenuItem.Text = "save file";
             // 
             // quickSaveToolStripMenuItem
             // 
             this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
-            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.quickSaveToolStripMenuItem.Text = "quick save";
             // 
             // loadFileToolStripMenuItem
             // 
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.loadFileToolStripMenuItem.Text = "load file";
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.quitToolStripMenuItem.Text = "quit";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setComPortToolStripMenuItem,
-            this.connectToServerToolStripMenuItem});
+            this.connectToServerToolStripMenuItem,
+            this.startVideoTrainingToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -144,14 +146,21 @@
             // setComPortToolStripMenuItem
             // 
             this.setComPortToolStripMenuItem.Name = "setComPortToolStripMenuItem";
-            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.setComPortToolStripMenuItem.Text = "set ComPort";
             // 
             // connectToServerToolStripMenuItem
             // 
             this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
-            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.connectToServerToolStripMenuItem.Text = "connect to Server";
+            // 
+            // viewOldDataToolStripMenuItem
+            // 
+            this.viewOldDataToolStripMenuItem.Name = "viewOldDataToolStripMenuItem";
+            this.viewOldDataToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.viewOldDataToolStripMenuItem.Text = "view old data";
+            this.viewOldDataToolStripMenuItem.Click += new System.EventHandler(this.viewOldDataToolStripMenuItem_Click);
             // 
             // TChatView
             // 
@@ -559,12 +568,12 @@
             this.newClient.UseVisualStyleBackColor = true;
             this.newClient.Click += new System.EventHandler(this.newClient_Click);
             // 
-            // viewOldDataToolStripMenuItem
+            // startVideoTrainingToolStripMenuItem
             // 
-            this.viewOldDataToolStripMenuItem.Name = "viewOldDataToolStripMenuItem";
-            this.viewOldDataToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-            this.viewOldDataToolStripMenuItem.Text = "view old data";
-            this.viewOldDataToolStripMenuItem.Click += new System.EventHandler(this.viewOldDataToolStripMenuItem_Click);
+            this.startVideoTrainingToolStripMenuItem.Name = "startVideoTrainingToolStripMenuItem";
+            this.startVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.startVideoTrainingToolStripMenuItem.Text = "Start video training";
+            this.startVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.startVideoTrainingToolStripMenuItem_Click);
             // 
             // FormClient
             // 
@@ -677,6 +686,7 @@
         private System.Windows.Forms.ComboBox connectedUsers;
         private System.Windows.Forms.Button newClient;
         private System.Windows.Forms.ToolStripMenuItem viewOldDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startVideoTrainingToolStripMenuItem;
     }
 }
 
