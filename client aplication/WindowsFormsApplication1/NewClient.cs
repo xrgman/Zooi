@@ -21,21 +21,6 @@ namespace WindowsFormsApplication1
             this.network = network;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if(gebruikersNaam.Text!=""&&password.Text!="")
@@ -72,16 +57,6 @@ namespace WindowsFormsApplication1
             //}
             //else
             //    MessageBox.Show("Please enter a username and a password!");
-        }
-
-        private void password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gebruikersNaam_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
