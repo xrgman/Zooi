@@ -1,0 +1,15 @@
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csprojResolveAssemblyReference.cache
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.NewClient.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.OldSesionData.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csproj.GenerateResource.Cache

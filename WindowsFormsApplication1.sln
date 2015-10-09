@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server application", "server application\server application.csproj", "{CBEAD147-EE17-4A6D-96EE-3144601AA57E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client apllication", "client aplication\WindowsFormsApplication1\Client apllication.csproj", "{26C2FD5F-F5F9-48F5-B4DA-71A275DFC151}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client application", "client aplication\WindowsFormsApplication1\Client application.csproj", "{26C2FD5F-F5F9-48F5-B4DA-71A275DFC151}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Network", "ClassLibrary2\Network.csproj", "{E44FB9F6-D0DA-4519-A149-745987C931C5}"
 EndProject
