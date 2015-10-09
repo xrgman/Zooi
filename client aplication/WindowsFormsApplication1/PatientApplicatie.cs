@@ -372,5 +372,12 @@ namespace WindowsFormsApplication1
         {
             new NewClient(network).ShowDialog();
         }
+
+        private void viewOldDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new OldSesionData();
+            f.Show();
+
+        }
     } 
 }

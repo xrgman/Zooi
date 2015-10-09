@@ -89,3 +89,15 @@ D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFor
 C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csprojResolveAssemblyReference.cache
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.NewClient.resources
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.OldSesionData.resources

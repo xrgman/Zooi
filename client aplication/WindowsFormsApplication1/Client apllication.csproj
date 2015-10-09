@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="Bike.cs" />
     <Compile Include="BikeCommunication.cs" />
+    <Compile Include="OldSesionData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OldSesionData.Designer.cs">
+      <DependentUpon>OldSesionData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewClient.resx">
       <DependentUpon>NewClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldSesionData.resx">
+      <DependentUpon>OldSesionData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientApplicatie.resx">
       <DependentUpon>PatientApplicatie.cs</DependentUpon>

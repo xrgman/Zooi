@@ -11,11 +11,12 @@ namespace Network
     [Serializable]
     public class UserClient : User, ISerializable
     {
-        private List<Session> sessions = new List<Session>();
+        public List<Session> sessions { get; }
         
 
         public UserClient(string username, string userPassword): base(username,userPassword)
         {
+            sessions =  new List<Session>();
         }
 
         //deserialize method
