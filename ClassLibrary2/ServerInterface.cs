@@ -9,7 +9,7 @@ namespace Network
     public interface ServerInterface
     {
         void Login(string username, string password);
-        void GiveUser(string username, bool allUsers);
-        void AddUser(User user);
+        void GiveUser(string username, bool allUsers, string physicianName);
+        void AddUser(User user, string physicianName);
     }
 }

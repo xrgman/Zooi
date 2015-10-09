@@ -15,7 +15,7 @@ namespace Network
 
         public User (string username, string password)
         {
-            this.username = username;
+            this.username = username.ToLower();
             this.password = PasswordHash.HashPassword(password);
         }
 
@@ -49,6 +49,11 @@ namespace Network
         public override string ToString()
         {
             return username;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return username.ToLower().Equals(((User)obj).username.ToLower());
         }
 
     }

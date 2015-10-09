@@ -12,28 +12,15 @@ namespace WindowsFormsApplication1
 {
     public partial class NewClient : Form
     {
-        Networkconnect network;
+        private Networkconnect network;
+        private string physicianName;
 
-        public NewClient(Networkconnect network)
+        public NewClient(Networkconnect network, string physicianName)
         {
             InitializeComponent();
             this.ActiveControl = gebruikersNaam;
             this.network = network;
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            this.physicianName = physicianName;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +29,7 @@ namespace WindowsFormsApplication1
             {
                 if(network.GetAllUsers().FindIndex(user => user.username.ToLower() == gebruikersNaam.Text.ToLower()) == -1)
                 {
-                    network.addNewClient(new Network.User(gebruikersNaam.Text, password.Text));
+                    network.addNewClient(new Network.UserClient(gebruikersNaam.Text, password.Text), physicianName);
 
                     MessageBox.Show("Gebruiker '"+ gebruikersNaam.Text + "' met wachtwoord '"+ password.Text + "' aangemaakt.");
                     this.Hide();
@@ -72,16 +59,6 @@ namespace WindowsFormsApplication1
             //}
             //else
             //    MessageBox.Show("Please enter a username and a password!");
-        }
-
-        private void password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gebruikersNaam_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

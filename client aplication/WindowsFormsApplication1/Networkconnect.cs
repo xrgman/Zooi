@@ -36,9 +36,9 @@ namespace WindowsFormsApplication1
             return new Tuple<bool, bool>(loginOk,isPhysician);
         }
 
-        public void addNewClient(User user)
+        public void addNewClient(User user, string physicianName)
         {
-            networkCommunication.sendPacket(new PacketAddClient(user));
+            networkCommunication.sendPacket(new PacketAddClient(user, physicianName));
         }
 
         public void sendBikeValues(string power, string time, string distance)
@@ -64,9 +64,9 @@ namespace WindowsFormsApplication1
         }
 
         //Get all users that are currently online.
-        public List<User> GetAllConnectedUsers()
+        public List<User> GetAllConnectedUsers(string physicianName)
         {
-            networkCommunication.sendPacket(new PacketGiveUser("*",false));
+            networkCommunication.sendPacket(new PacketGiveUser("*",false,physicianName));
             Thread.Sleep(1000);
             return users;
         }
@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
         //Get all users in the database.
         public List<User> GetAllUsers()
         {
-            networkCommunication.sendPacket(new PacketGiveUser("*", true));
+            networkCommunication.sendPacket(new PacketGiveUser("*", true,""));
             Thread.Sleep(1000);
             return users;
         }

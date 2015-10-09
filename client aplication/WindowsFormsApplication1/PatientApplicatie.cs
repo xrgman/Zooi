@@ -48,10 +48,13 @@ namespace WindowsFormsApplication1
                 BComConnect.Hide();
                 resetButton.Hide();
                 //Getting all connected users:
-                users = network.GetAllConnectedUsers();
-                if(users.Count > 0)
-                    currentUser = users.First();
-                FillUserComboBox();
+                users = network.GetAllConnectedUsers(username);
+                if (users != null)
+                {
+                    if (users.Count > 0)
+                        currentUser = users.First();
+                    FillUserComboBox();
+                }
                 Thread physicianThread = new Thread(new ThreadStart(ResfreshThreadPhysician));
                 physicianThread.IsBackground = true;
                 physicianThread.Start();
@@ -370,7 +373,7 @@ namespace WindowsFormsApplication1
 
         private void newClient_Click(object sender, EventArgs e)
         {
-            new NewClient(network).ShowDialog();
+            new NewClient(network,username).ShowDialog();
         }
 
         private void viewOldDataToolStripMenuItem_Click(object sender, EventArgs e)
