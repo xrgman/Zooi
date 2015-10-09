@@ -10,11 +10,14 @@ namespace Network
     [Serializable]
     public class Physician : User, ISerializable
     {
-        public List<User> clients { get; }
-
+        public List<UserClient> clients
+        {
+            get;
+        }
+            
         public Physician(String username, string password): base(username, password)
         {
-            clients = new List<User>();
+            clients = new List<UserClient>();
         }
 
         //deserialize method (constructor)
@@ -27,7 +30,7 @@ namespace Network
 
         }
 
-        public void addClient(User client)
+        public void addClient(UserClient client)
         {
             clients.Add(client);
         }
@@ -35,7 +38,7 @@ namespace Network
         //serialize method
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("username", username.ToLower());
+            info.AddValue("username", username);
             info.AddValue("password", password);
             info.AddValue("clients", clients);
         }

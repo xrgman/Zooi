@@ -74,10 +74,8 @@ C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server applicatio
 C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\bin\Debug\Network.dll
 C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\bin\Debug\Network.pdb
 C:\Users\Beer\Dropbox\school\periode 1\project\week 6\build 10\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
-C:\Users\rkeet\Documents\CycleMasterPro2000\server application\obj\Debug\server application.exe
-C:\Users\rkeet\Documents\CycleMasterPro2000\server application\obj\Debug\server application.pdb
-C:\Users\rkeet\Documents\CycleMasterPro2000\server application\bin\Debug\server application.exe
-C:\Users\rkeet\Documents\CycleMasterPro2000\server application\bin\Debug\server application.pdb
-C:\Users\rkeet\Documents\CycleMasterPro2000\server application\bin\Debug\Network.dll
-C:\Users\rkeet\Documents\CycleMasterPro2000\server application\bin\Debug\Network.pdb
-C:\Users\rkeet\Documents\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.exe
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.pdb
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.dll
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\kees2125\Documents\GitHub\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
