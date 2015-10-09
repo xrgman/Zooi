@@ -10,9 +10,11 @@ namespace Network
     [Serializable]
     public class Physician : User, ISerializable
     {
-        private List<UserClient> clients = new List<UserClient>();
+        public List<User> clients { get; }
+
         public Physician(String username, string password): base(username, password)
         {
+            clients = new List<User>();
         }
 
         //deserialize method (constructor)

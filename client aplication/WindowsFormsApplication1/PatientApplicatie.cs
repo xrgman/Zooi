@@ -48,10 +48,15 @@ namespace WindowsFormsApplication1
                 BComConnect.Hide();
                 resetButton.Hide();
                 //Getting all connected users:
-                users = network.GetAllConnectedUsers();
-                if(users.Count > 0)
-                    currentUser = users.First();
-                FillUserComboBox();
+                users = network.GetAllConnectedUsers(username);
+                if (users != null)
+                {
+                    if (users.Count > 0)
+                        currentUser = users.First();
+                    FillUserComboBox();
+                }
+                else
+                    System.Diagnostics.Debug.WriteLine("faal");
                 Thread physicianThread = new Thread(new ThreadStart(ResfreshThreadPhysician));
                 physicianThread.IsBackground = true;
                 physicianThread.Start();

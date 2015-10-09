@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
                 Tuple<bool,bool> login =  network.login(usernameTextBox.Text, passwordTextBox.Text);
                 if (login.Item1)
                 {
-                    Form form = new FormClient(network,login.Item2, usernameTextBox.Text);
+                    Form form = new FormClient(network,login.Item2, usernameTextBox.Text.ToLower());
                     this.Hide();
                     if (form.ShowDialog() == DialogResult.Cancel)
                         this.Dispose();

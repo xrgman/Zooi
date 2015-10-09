@@ -73,7 +73,7 @@ namespace server_application
             }
         }
 
-        public void GiveUser(string username, bool allUsers)
+        public void GiveUser(string username, bool allUsers, string physicianName)
         {
             Console.WriteLine("Someone is requesting the user: " + username);
             if(username.Equals("*"))
@@ -81,7 +81,7 @@ namespace server_application
                 if (allUsers)
                     NetworkFlow.SendPacket(new PacketGiveUserResponse(server.users), server.SSL);
                 else
-                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers()),server.SSL);
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers(physicianName)),server.SSL);
                 Console.WriteLine("Sending all users " + allUsers );
             }
             else

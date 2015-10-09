@@ -15,7 +15,7 @@ namespace Network
 
         public User (string username, string password)
         {
-            this.username = username;
+            this.username = username.ToLower();
             this.password = PasswordHash.HashPassword(password);
         }
 

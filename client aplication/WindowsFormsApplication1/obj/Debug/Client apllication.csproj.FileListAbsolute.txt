@@ -103,3 +103,4 @@ C:\Users\rkeet\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplic
 C:\Users\rkeet\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
 C:\Users\rkeet\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\rkeet\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client apllication.csproj.GenerateResource.Cache
+C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.NewClient.resources

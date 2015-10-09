@@ -13,6 +13,7 @@ using System.Runtime.Serialization;
 using WindowsFormsApplication1;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
+using System.Linq;
 
 
 namespace server_application
@@ -38,14 +39,20 @@ namespace server_application
 
             //add test users obviously for testing
             //users.Add(new UserClient("Henk", "banaan"));
-            //users.Add(new Physician("Jaap", "appel"));
+            
             //Test online users:
-            ServerClient boefje = new ServerClient(null, this);
-            boefje.user = new UserClient("Boef", "lol");
-            ConnectedClients.Add(boefje);
+            ServerClient boefjeeee = new ServerClient(null, this);
+            UserClient boefje = new UserClient("Boef", "lol");
+            boefjeeee.user = boefje;
+            ConnectedClients.Add(boefjeeee);
             ServerClient boefje2 = new ServerClient(null, this);
             boefje2.user = new UserClient("Boef2", "lol");
             ConnectedClients.Add(boefje2);
+            Physician jaap2 = new Physician("Jaap2", "appel");
+            jaap2.addClient(boefje);
+            
+
+            users.Add(jaap2);
 
             TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
             listener.Start();
@@ -70,15 +77,29 @@ namespace server_application
             return ConnectedClients;
         }
 
-        public List<User> GetConnectedUsers()
+        public List<User> GetConnectedUsers(string physicianName)
         {
-            List<User> connectedUsers = new List<User>();
+            List<User> users = new List<User>();
+            Physician physician = null;
             foreach (ServerClient client in ConnectedClients)
             {
-                if (!(client.user is Physician))
-                    connectedUsers.Add(client.user);
+                if (client.user is Physician)
+                {
+                    if (client.user.username.Equals(physicianName))
+                        physician = (Physician)client.user;
+                }
+                else
+                    users.Add(client.user);
             }
-            return connectedUsers;
+            try
+            {
+                List<User> connectedUsers = users.Intersect(physician.clients).ToList();
+                return connectedUsers;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
         }
 
         public void AddNewUser(User newUser)
