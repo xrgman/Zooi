@@ -20,9 +20,10 @@ namespace Network
         //deserialize method (constructor)
         public Physician(SerializationInfo info, StreamingContext ctxt)
         {
+            clients = new List<User>();
             username = (string)info.GetValue("username", typeof(string));
             password = (string)info.GetValue("password", typeof(string));
-            //clients = (List<clients>)info.GetValue("clients", typeof(List<>));
+            clients = (List<User>)info.GetValue("clients", typeof(List<>));
 
         }
 
@@ -36,7 +37,7 @@ namespace Network
         {
             info.AddValue("username", username.ToLower());
             info.AddValue("password", password);
-            //info.AddValue("clients", clients);
+            info.AddValue("clients", clients);
         }
     }
 }

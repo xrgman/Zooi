@@ -48,11 +48,11 @@ namespace server_application
             ServerClient boefje2 = new ServerClient(null, this);
             boefje2.user = new UserClient("Boef2", "lol");
             ConnectedClients.Add(boefje2);
-            Physician jaap2 = new Physician("Jaap2", "appel");
-            jaap2.addClient(boefje);
+            Physician jaap4 = new Physician("Jaap4", "appel");
+            jaap4.addClient(boefje);
             
 
-            users.Add(jaap2);
+            users.Add(jaap4);
 
             TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
             listener.Start();
@@ -91,7 +91,13 @@ namespace server_application
                 else
                     users.Add(client.user);
             }
-            
+            Console.WriteLine("\nThe users: ");
+            foreach(User user in users)
+                Console.WriteLine(user);
+            Console.WriteLine("\nThe physician shit");
+            foreach (User user in physician.clients)
+                Console.WriteLine(user);
+
             try
             {
                 List<User> connectedUsers = users.Intersect(physician.clients).ToList();
@@ -120,7 +126,7 @@ namespace server_application
                 }
                    
             }
-            //physician.addClient(newUser);
+            physician.addClient(newUser);
             users.Add(newUser);
             SaveAllData();
         }
