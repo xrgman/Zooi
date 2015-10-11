@@ -281,7 +281,7 @@ namespace WindowsFormsApplication1
         {
             //stuur naar server en die stuurt naar client;
             if(pwrTxtBox.BackColor != Color.Red && timeTxtBox.BackColor != Color.Red && distanceTxtBox.BackColor != Color.Red)
-                network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text); 
+                network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text,currentUser.username); 
         }
 
         /// <summary>

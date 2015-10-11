@@ -110,5 +110,11 @@ namespace server_application
             Console.WriteLine("Succesfully created new user {0} with password {1}.", newUser.username, newUser.password);
 
         }
+
+        public void BikeValues(string power, string time, string distance, string username)
+        {
+            ServerClient client = server.getUser(username);
+            NetworkFlow.SendPacket(new PacketBikeValuesResponse(power,time,distance), client.server.SSL);
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace Network
         void GiveUserResponse(User user);
         void GiveUserResponse(List<User> users);
         void GiveUserResponse(List<UserClient> users);
+        void BikeValuesResponse(string power, string time, string distance);
     }
 }

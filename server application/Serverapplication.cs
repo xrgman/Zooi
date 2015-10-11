@@ -136,6 +136,16 @@ namespace server_application
             SaveAllData();
         }
 
+        public ServerClient getUser(string username)
+        {
+            foreach(ServerClient client in ConnectedClients)
+            {
+                if (client.user.username.Equals(username))
+                    return client;
+            }
+            return null;
+        }
+
         public void SaveAllData()
         {
             Console.WriteLine(users.Count);

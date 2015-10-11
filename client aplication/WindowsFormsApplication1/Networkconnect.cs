@@ -9,7 +9,9 @@ namespace WindowsFormsApplication1
     {
         private NetworkCommunication networkCommunication;
         public string status { get; set; }
-        public string power, time, distance;
+        public string power { get; set; }
+        public string time { get; set; }
+        public string distance { get; set; }
         private bool loginOk, isPhysician;
         private List<User> users;
         private User user;
@@ -41,9 +43,9 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketAddClient(user, physicianName));
         }
 
-        public void sendBikeValues(string power, string time, string distance)
+        public void sendBikeValues(string power, string time, string distance, string username)
         {
-            //Do something here or delete this method, otherwise it's wasting space!
+            networkCommunication.sendPacket(new PacketBikeValues(power, time, distance, username));
         }
 
         public void sendMeasurement(Measurement measurement)
@@ -87,7 +89,7 @@ namespace WindowsFormsApplication1
         public void GiveUserResponse(User user)
         {
             this.user = user;
-        }
+        } 
 
         public void GiveUserResponse(List<User> users)
         {
@@ -105,6 +107,14 @@ namespace WindowsFormsApplication1
             List<User> tempusers = users.ConvertAll(user => (User)user);
             
             this.users = tempusers;
+        }
+
+        public void BikeValuesResponse(string power, string time, string distance)
+        {
+            this.power = power;
+            this.time = time;
+            this.distance = distance;
+            System.Diagnostics.Debug.WriteLine("lol");
         }
     }
 }
