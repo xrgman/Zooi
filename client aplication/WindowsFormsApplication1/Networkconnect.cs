@@ -15,6 +15,7 @@ namespace WindowsFormsApplication1
         private bool loginOk, isPhysician;
         private List<User> users;
         private User user;
+        private FormClient parent;
 
         public Networkconnect(string ipAdress, int port)
         {
@@ -23,6 +24,11 @@ namespace WindowsFormsApplication1
                 status = "Connected";
             else
                 status = "Can't connect to: " + ipAdress + ":" + port;
+        }
+
+        public void SetParent(FormClient parent)
+        {
+            this.parent = parent;
         }
 
         /// <summary>
@@ -114,7 +120,7 @@ namespace WindowsFormsApplication1
             this.power = power;
             this.time = time;
             this.distance = distance;
-            System.Diagnostics.Debug.WriteLine("lol");
+            parent.setBikeValues(power, time, distance);
         }
     }
 }

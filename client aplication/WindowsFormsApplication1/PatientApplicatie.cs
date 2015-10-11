@@ -11,8 +11,7 @@ using System.Threading;
 using Network;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace WindowsFormsApplication1
-{
+namespace WindowsFormsApplication1 {  
     public partial class FormClient : Form
     {
         //statusLabel, modelLabel, versionLabel, timeLabel, actualPowerLabel, heartBeatLabel, rpmLabel, speedLabel, distanceLabel, energyLabel, requestedPowerLabel
@@ -27,6 +26,7 @@ namespace WindowsFormsApplication1
         public FormClient(Networkconnect network, bool isPhysician, string username)
         {
             InitializeComponent();
+            network.SetParent(this);
             this.isPhysician = isPhysician;
             this.network = network;
             this.username = username;
@@ -389,6 +389,13 @@ namespace WindowsFormsApplication1
             Thread t = new Thread(delegate () { new Video.VideoPlayer("15MinWorkout.mp4").ShowDialog(); });
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
+        }
+
+        public void SetBikeValues(string power, string time, string distance)
+        {
+            bike.SetPower(Int32.Parse(power));
+            bike.setTime(Int32.Parse(time));
+            bike.SetDistance(Int32.Parse(distance));
         }
     } 
 }
