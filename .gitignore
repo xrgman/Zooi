@@ -55,3 +55,4 @@ server application/obj/Debug/server application.csproj.FileListAbsolute.txt
 *.cache
 *.sln
 client aplication/Video/45MinWorkout.mp4
+*.mp4

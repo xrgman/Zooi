@@ -135,7 +135,7 @@ namespace server_application
             
             ServerClient client = server.getUser(receiver);
             Console.WriteLine("receiver: " + receiver + " sender: " + sender + " client: " + client.user.username);
-            NetworkFlow.SendPacket(new PacketChatMessageResponse(message,sender, receiver),client.server.SSL);
+            NetworkFlow.SendPacket(new PacketChatMessage(message,sender, receiver),client.server.SSL);
                 
         }
 
