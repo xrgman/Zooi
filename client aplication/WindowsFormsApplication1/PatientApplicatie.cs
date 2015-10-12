@@ -398,7 +398,7 @@ namespace WindowsFormsApplication1 {
 
         private void viewOldDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form f = new OldSesionData();
+            Form f = new OldSesionData(network,username);
             f.Show();
 
         }
@@ -423,6 +423,11 @@ namespace WindowsFormsApplication1 {
         }
 
         private void FormClient_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientPage1_Load(object sender, EventArgs e)
         {
 
         }
