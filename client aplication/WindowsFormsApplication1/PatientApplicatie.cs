@@ -397,5 +397,12 @@ namespace WindowsFormsApplication1 {
             bike.setTime(Int32.Parse(time));
             bike.SetDistance(Int32.Parse(distance));
         }
+
+        private void start45MinVideoTrainingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(delegate () { new Video.VideoPlayer("45MinWorkout.mp4").ShowDialog(); });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
     } 
 }

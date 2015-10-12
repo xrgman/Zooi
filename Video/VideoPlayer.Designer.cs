@@ -40,17 +40,18 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(0, 0);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(790, 519);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(481, 441);
             this.axWindowsMediaPlayer1.TabIndex = 0;
             // 
             // VideoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 519);
+            this.ClientSize = new System.Drawing.Size(481, 441);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "VideoPlayer";
-            this.Text = "Form1";
+            this.Text = "VideoPlayer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 

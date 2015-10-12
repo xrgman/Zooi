@@ -41,6 +41,8 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setComPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.start45MinVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TChatView = new System.Windows.Forms.TextBox();
             this.TChatSend = new System.Windows.Forms.TextBox();
@@ -81,7 +83,6 @@
             this.broadCastButton = new System.Windows.Forms.Button();
             this.connectedUsers = new System.Windows.Forms.ComboBox();
             this.newClient = new System.Windows.Forms.Button();
-            this.startVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
@@ -138,7 +139,8 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setComPortToolStripMenuItem,
             this.connectToServerToolStripMenuItem,
-            this.startVideoTrainingToolStripMenuItem});
+            this.startVideoTrainingToolStripMenuItem,
+            this.start45MinVideoTrainingToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -146,14 +148,28 @@
             // setComPortToolStripMenuItem
             // 
             this.setComPortToolStripMenuItem.Name = "setComPortToolStripMenuItem";
-            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.setComPortToolStripMenuItem.Text = "set ComPort";
             // 
             // connectToServerToolStripMenuItem
             // 
             this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
-            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.connectToServerToolStripMenuItem.Text = "connect to Server";
+            // 
+            // startVideoTrainingToolStripMenuItem
+            // 
+            this.startVideoTrainingToolStripMenuItem.Name = "startVideoTrainingToolStripMenuItem";
+            this.startVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.startVideoTrainingToolStripMenuItem.Text = "Start 15 min video training";
+            this.startVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.startVideoTrainingToolStripMenuItem_Click);
+            // 
+            // start45MinVideoTrainingToolStripMenuItem
+            // 
+            this.start45MinVideoTrainingToolStripMenuItem.Name = "start45MinVideoTrainingToolStripMenuItem";
+            this.start45MinVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.start45MinVideoTrainingToolStripMenuItem.Text = "Start 45 min video training";
+            this.start45MinVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.start45MinVideoTrainingToolStripMenuItem_Click);
             // 
             // viewOldDataToolStripMenuItem
             // 
@@ -568,13 +584,6 @@
             this.newClient.UseVisualStyleBackColor = true;
             this.newClient.Click += new System.EventHandler(this.newClient_Click);
             // 
-            // startVideoTrainingToolStripMenuItem
-            // 
-            this.startVideoTrainingToolStripMenuItem.Name = "startVideoTrainingToolStripMenuItem";
-            this.startVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.startVideoTrainingToolStripMenuItem.Text = "Start video training";
-            this.startVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.startVideoTrainingToolStripMenuItem_Click);
-            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -687,6 +696,7 @@
         private System.Windows.Forms.Button newClient;
         private System.Windows.Forms.ToolStripMenuItem viewOldDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startVideoTrainingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem start45MinVideoTrainingToolStripMenuItem;
     }
 }
 
