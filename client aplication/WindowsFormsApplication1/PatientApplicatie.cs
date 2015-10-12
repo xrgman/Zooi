@@ -323,8 +323,26 @@ namespace WindowsFormsApplication1 {
 
         private void BSend_Click(object sender, EventArgs e)
         {
-            network.sendChatMessage(TChatSend.Text, username, "Jaap");
+            if(isPhysician)
+                network.sendChatMessage(TChatSend.Text, username, currentUser.username);
+            else
+            {
+                network.sendChatMessage(TChatSend.Text, username, username);
+            }
             RTBChatText.Text += username + ": " +  TChatSend.Text + System.Environment.NewLine;
+        }
+
+        public void getChatMessage(string sender, string message)
+        {
+            // Invoke nodig?
+            if (RTBChatText.InvokeRequired)
+            {
+                RTBChatText.Invoke((MethodInvoker)delegate
+                {
+                    // BSend_Click(sender + ": " + message, null);
+                    RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
+                });
+            }
         }
     
 

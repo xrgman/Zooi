@@ -12,5 +12,6 @@ namespace Network
         void GiveUser(string username, bool allUsers, string physicianName);
         void AddUser(User user, string physicianName);
         void BikeValues(string power, string time, string distance, string username);
+        void ChatMessage(string sender, string receiver, string message);
     }
 }

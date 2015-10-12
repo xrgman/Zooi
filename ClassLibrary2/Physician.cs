@@ -31,6 +31,23 @@ namespace Network
             clients.Add(client);
         }
 
+        public Boolean hashClient(string usernameClient)
+        {
+            Boolean hashClient = false;
+            foreach(UserClient u in clients)
+            {
+                if (u.username.Equals(usernameClient))
+                {
+                    Console.WriteLine("checking:  " + u.username + usernameClient);
+                    hashClient = true;
+                }
+            }
+           Console.WriteLine("hashclient: " +  hashClient);
+            return hashClient;
+
+            
+        }
+
         //serialize method
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {

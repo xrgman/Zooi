@@ -65,6 +65,11 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketChatMessage(message, sender, receiver));
         }
 
+        public void getChatMessage(PacketChatMessage chatPacket)
+        {
+            parent.getChatMessage(chatPacket.sender, chatPacket.message);
+        }
+
         public void loginResponse(bool loginOk, bool isPhysician)
         {
             this.loginOk = loginOk;
@@ -121,6 +126,11 @@ namespace WindowsFormsApplication1
             this.time = time;
             this.distance = distance;
             parent.setBikeValues(power, time, distance);
+        }
+
+        public void ChatMessageResponse(string sender, string receiver, string message)
+        {
+            parent.getChatMessage(sender, message);
         }
     }
 }

@@ -111,6 +111,35 @@ namespace server_application
 
         }
 
+        public void ChatMessage(string sender, string receiver, string message)
+        {
+            if (receiver == sender)
+            {
+                Console.WriteLine("Gebruiker STUURT!!!!");
+                foreach (User u in server.users)
+                {
+                    try
+                    {
+                        Physician p = (Physician)u;
+                        if ((p != null) && (receiver == sender))
+                        {
+                            if (p.hashClient(sender) && (receiver == sender))
+                            {
+                                receiver = p.username;
+                            }
+                        }
+                    }
+                    catch { }
+                }
+            }
+            
+            ServerClient client = server.getUser(receiver);
+            Console.WriteLine("receiver: " + receiver + " sender: " + sender + " client: " + client.user.username);
+            NetworkFlow.SendPacket(new PacketChatMessageResponse(message,sender, receiver),client.server.SSL);
+                
+        }
+
+
         public void BikeValues(string power, string time, string distance, string username)
         {
             ServerClient client = server.getUser(username);
