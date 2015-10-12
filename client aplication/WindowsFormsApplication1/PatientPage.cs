@@ -111,13 +111,13 @@ namespace WindowsFormsApplication1
 
         private void doStuffsThread()
         {
-            while (true)
+             while (true)
             {
                 user.lastSession().addRandomItems();
                 plot();
 
                 Thread.Sleep(1000);
-            }
+            } 
         }
     }
 }

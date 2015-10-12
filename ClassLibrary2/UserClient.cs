@@ -56,7 +56,6 @@ namespace Network
                 sessions.Add(new Session());
 
             return sessions.Last();
-            
         }
 
         public Measurement lastMeasurement()
