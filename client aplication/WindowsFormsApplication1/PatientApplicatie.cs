@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1 {
     {
         //statusLabel, modelLabel, versionLabel, timeLabel, actualPowerLabel, heartBeatLabel, rpmLabel, speedLabel, distanceLabel, energyLabel, requestedPowerLabel
 
+        PatientPage page = new WindowsFormsApplication1.PatientPage();
         private Bike bike;
         private Networkconnect network;
         private bool isPhysician = false;
@@ -349,7 +350,7 @@ namespace WindowsFormsApplication1 {
                     Measurement measurement = null;
                     try
                     {
-                        measurement = ((UserClient)currentUser).getLastSession().GetLastMeasurement();
+                        measurement = ((UserClient)currentUser).lastSession().lastMeasurement();
                     }
                     catch(NullReferenceException e)
                     {
@@ -396,6 +397,16 @@ namespace WindowsFormsApplication1 {
             bike.SetPower(Int32.Parse(power));
             bike.setTime(Int32.Parse(time));
             bike.SetDistance(Int32.Parse(distance));
+        }
+
+        private void Chart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormClient_Load(object sender, EventArgs e)
+        {
+
         }
     } 
 }
