@@ -13,5 +13,6 @@ namespace Network
         void AddUser(User user, string physicianName);
         void BikeValues(string power, string time, string distance, string username);
         void ChatMessage(string sender, string receiver, string message);
+        void Broadcast(string sender, string message);
     }
 }

@@ -46,6 +46,9 @@
     <Compile Include="NetworkFlow.cs" />
     <Compile Include="Packets\PacketBikeValues.cs" />
     <Compile Include="Packets\PacketBikeValuesResponse.cs" />
+    <Compile Include="Packets\PacketBroadcast.cs" />
+    <Compile Include="Packets\PacketBroadcastResponse.cs" />
+    <Compile Include="Packets\PacketChatMessageResponse.cs" />
     <Compile Include="Packets\PacketRequestAllSesionsOfClient.cs" />
     <Compile Include="Packets\PacketAddClient.cs" />
     <Compile Include="Packets\PacketChatMessage.cs" />

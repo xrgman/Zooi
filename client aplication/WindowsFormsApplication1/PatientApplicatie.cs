@@ -87,11 +87,6 @@ namespace WindowsFormsApplication1 {
             bike.Reset();
         }
 
-        private void  broadCastButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void FillUserComboBox()
         {
             foreach(User user in users)
@@ -330,6 +325,17 @@ namespace WindowsFormsApplication1 {
                 network.sendChatMessage(TChatSend.Text, username, username);
             }
             RTBChatText.Text += username + ": " +  TChatSend.Text + System.Environment.NewLine;
+        }
+
+        private void broadCastButton_Click(object sender, EventArgs e)
+        {
+            if (isPhysician)
+                network.sendBroadcast(TChatSend.Text, username);
+            else
+            {
+                network.sendBroadcast(TChatSend.Text, username);
+            }
+            RTBChatText.Text += username + ": " + TChatSend.Text + System.Environment.NewLine;
         }
 
         public void getChatMessage(string sender, string message)

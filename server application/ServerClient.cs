@@ -10,6 +10,7 @@ using Network;
 using WindowsFormsApplication1;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
+using Network.Packets;
 
 namespace server_application
 {
@@ -111,6 +112,17 @@ namespace server_application
 
         }
 
+        public void Broadcast(string sender, string message)
+        {
+            foreach(User user in server.users)
+            {
+                ServerClient client = server.getUser(user.username);
+                if (client.server.SSL != null)
+                {
+                    NetworkFlow.SendPacket(new PacketBroadcastResponse(sender, message), client.server.SSL);
+                }
+            }
+        }
         public void ChatMessage(string sender, string receiver, string message)
         {
             if (receiver == sender)
@@ -134,7 +146,6 @@ namespace server_application
             }
             
             ServerClient client = server.getUser(receiver);
-            Console.WriteLine("receiver: " + receiver + " sender: " + sender + " client: " + client.user.username);
             NetworkFlow.SendPacket(new PacketChatMessage(message,sender, receiver),client.server.SSL);
                 
         }

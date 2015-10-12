@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Network;
 using System.Threading;
+using Network.Packets;
 
 namespace WindowsFormsApplication1
 {
@@ -65,9 +66,19 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketChatMessage(message, sender, receiver));
         }
 
+        public void sendBroadcast(string message, string sender)
+        {
+            networkCommunication.sendPacket(new PacketBroadcast(message, sender));
+        }
+
         public void getChatMessage(PacketChatMessage chatPacket)
         {
             parent.getChatMessage(chatPacket.sender, chatPacket.message);
+        }
+
+        public void getBroadcast(PacketBroadcast broadcastPacket)
+        {
+            parent.getChatMessage(broadcastPacket.sender, broadcastPacket.message);
         }
 
         public void loginResponse(bool loginOk, bool isPhysician)
@@ -129,6 +140,11 @@ namespace WindowsFormsApplication1
         }
 
         public void ChatMessageResponse(string sender, string receiver, string message)
+        {
+            parent.getChatMessage(sender, message);
+        }
+
+        public void BroadcastResponse(string sender, string message)
         {
             parent.getChatMessage(sender, message);
         }

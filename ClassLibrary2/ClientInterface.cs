@@ -14,5 +14,6 @@ namespace Network
         void GiveUserResponse(List<UserClient> users);
         void BikeValuesResponse(string power, string time, string distance);
         void ChatMessageResponse(string sender, string receiver, string message);
+        void BroadcastResponse(string sender, string message);
     }
 }
