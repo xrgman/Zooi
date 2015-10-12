@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace Network
 {
-    public class SimItem : IComparable
+    public class SimItem : IComparable<SimItem>
     {
-        // Session name
-        public string Name { get; set; }
-
         // Get int value on specific time
         private Dictionary<DateTime, double> dataSet = new Dictionary<DateTime, double>();
 
+        public Session.signalTypes SignalType;
+
         // Create Data class without adding data first
-        public SimItem(string name)
+        public SimItem(Session.signalTypes signalType)
         {
-            this.Name = name;
+            this.SignalType = signalType;
         }
 
-        public SimItem(String name, DateTime[] dates, int[] values)
-            : this(name)
+        public SimItem(Session.signalTypes signalType, DateTime[] dates, int[] values)
+            : this(signalType)
         {
             addData(dates, values);
             dataSet.OrderBy(x => x.Key);
@@ -83,9 +82,9 @@ namespace Network
         }
 
         // Sort simitems by name
-        public int CompareTo(object obj)
+        public int CompareTo(SimItem sim)
         {
-            return Name.CompareTo(((SimItem)(obj)).Name);
+            return this.SignalType.ToString().CompareTo(sim.SignalType.ToString());
         }
     }
 }

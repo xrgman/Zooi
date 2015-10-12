@@ -73,21 +73,22 @@ namespace WindowsFormsApplication1
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(205, 3);
+            this.chart1.Location = new System.Drawing.Point(205, 57);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(674, 300);
+            this.chart1.Size = new System.Drawing.Size(694, 284);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
+            this.chart1.Series.Clear();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, 0);
+            this.tabControl1.Location = new System.Drawing.Point(3, 38);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(200, 303);
@@ -138,7 +139,6 @@ namespace WindowsFormsApplication1
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Time";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // button1
             // 
@@ -196,7 +196,6 @@ namespace WindowsFormsApplication1
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Value";
             this.tabPage4.UseVisualStyleBackColor = true;
-            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // dateTimePicker2
             // 
@@ -247,8 +246,7 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.chart1);
             this.Name = "PatientPage";
-            this.Size = new System.Drawing.Size(881, 307);
-            this.Load += new System.EventHandler(this.PatientPage_Load);
+            this.Size = new System.Drawing.Size(902, 370);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -263,11 +261,12 @@ namespace WindowsFormsApplication1
 
         private void searchByDatesButton_Click(object sender, EventArgs e)
         {
+
             CurrentSearchType = SearchTypes.BETWEEN_DATES;
 
             try
             {
-                plot();
+                setupChart();
             }
             catch (FormatException arg)
             {
@@ -277,11 +276,12 @@ namespace WindowsFormsApplication1
 
         private void searchByValuesButton_Click(object sender, EventArgs e)
         {
+
             CurrentSearchType = SearchTypes.BETWEEN_VALUES;
 
             try
             {
-                plot();
+                setupChart();
             }
             catch (FormatException arg)
             {
@@ -310,7 +310,7 @@ namespace WindowsFormsApplication1
                 seriesCheckBoxes[x].UseVisualStyleBackColor = true;
                 seriesCheckBoxes[x].Name = chart1.Series[x].Name;
                 seriesCheckBoxes[x].Checked = true;     // Check the value (all signals are enabled by default)
-                seriesCheckBoxes[x].Location = new System.Drawing.Point(245 + x * 100, 25);
+                seriesCheckBoxes[x].Location = new System.Drawing.Point(245 + x * 80, 25);
 
                 // Allow the box to en-/disable the corresponding chart data
                 seriesCheckBoxes[x].CheckedChanged += new EventHandler(signal_checkbox_clicked);

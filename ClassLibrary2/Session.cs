@@ -43,14 +43,14 @@ namespace Network
             StartTime = DateTime.Now;
 
             // Add and instantiate all data (Every signalstype gets it's own simItem class)
-            simItems.Add(pulse = new SimItem("pulse"));
-            simItems.Add(rpm = new SimItem("rpm"));
-            simItems.Add(speed = new SimItem("speed"));
-            simItems.Add(time = new SimItem("time"));
-            simItems.Add(distance = new SimItem("distance"));
-            simItems.Add(requested_power = new SimItem("Req. Power"));
-            simItems.Add(energy = new SimItem("Energy"));
-            simItems.Add(actual_power = new SimItem("Actual Power"));
+            simItems.Add(pulse = new SimItem(signalTypes.PULSE));
+            simItems.Add(rpm = new SimItem(signalTypes.RPM));
+            simItems.Add(speed = new SimItem(signalTypes.SPEED));
+            simItems.Add(time = new SimItem(signalTypes.TIME));
+            simItems.Add(distance = new SimItem(signalTypes.DISTANCE));
+            simItems.Add(requested_power = new SimItem(signalTypes.REQUESTED_POWER));
+            simItems.Add(energy = new SimItem(signalTypes.ENERGY));
+            simItems.Add(actual_power = new SimItem(signalTypes.ACTUAL_POWER));
 
             simItems.Sort();
         }
@@ -120,8 +120,6 @@ namespace Network
             requested_power.addData(m.requested_power);
             rpm.addData(m.rpm);
             speed.addData(m.speed);
-
-            System.Diagnostics.Debug.WriteLine(actual_power.getData().Count);
         }
 
         public Measurement getMeasurement(DateTime fromTime)
@@ -138,6 +136,7 @@ namespace Network
 
         public Measurement lastMeasurement()
         {
+            // Elke methode 'lastMeasurement()' vanuit simItems aanroepen 
             return new Measurement((int)pulse.lastMeasurement(),
                                    (int)rpm.lastMeasurement(),
                                    (int)speed.lastMeasurement(),
@@ -148,6 +147,7 @@ namespace Network
                                    (int)speed.lastMeasurement());
         }
 
+        //* Compare session by startTime
         public int CompareTo(Session s)
         {
             return this.StartTime.CompareTo(s.StartTime);

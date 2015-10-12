@@ -49,3 +49,4 @@ C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.d
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
