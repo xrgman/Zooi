@@ -43,14 +43,6 @@ D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\server application\bin\Debug
 D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\server application\bin\Debug\Network.dll
 D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\server application\bin\Debug\Network.pdb
 D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\server application.exe.config
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.exe
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.pdb
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\server application.exe
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\server application.pdb
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\Network.dll
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\Network.pdb
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
 C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\bin\Debug\Network.dll
 C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\server application\bin\Debug\Network.pdb
 C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\server application\bin\Debug\server application.exe
@@ -94,3 +86,11 @@ C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\server application\bin\D
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\server application\bin\Debug\server application.pdb
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\server application\bin\Debug\Network.dll
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\server application.exe.config
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\server application.exe
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\server application.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\Network.dll
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.exe
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.pdb

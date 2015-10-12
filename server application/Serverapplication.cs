@@ -10,7 +10,6 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using System.Runtime.Serialization;
-using WindowsFormsApplication1;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Linq;

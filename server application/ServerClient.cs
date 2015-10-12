@@ -7,7 +7,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using Network;
-using WindowsFormsApplication1;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using Network.Packets;

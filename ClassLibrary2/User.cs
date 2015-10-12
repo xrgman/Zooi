@@ -10,6 +10,9 @@ namespace Network
     [Serializable]
     public class User 
     {
+
+        private List<Session> sessions = new List<Session>();
+
         public string username { get; set; }
         public string password { get; set; }
 
@@ -32,6 +35,8 @@ namespace Network
         {
 
         }
+
+
 
         public bool checkPassword(string passwordTry)
         {

@@ -16,6 +16,7 @@ namespace WindowsFormsApplication1 {
     {
         //statusLabel, modelLabel, versionLabel, timeLabel, actualPowerLabel, heartBeatLabel, rpmLabel, speedLabel, distanceLabel, energyLabel, requestedPowerLabel
 
+        PatientPage page = new WindowsFormsApplication1.PatientPage();
         private Bike bike;
         private Networkconnect network;
         private bool isPhysician = false;
@@ -85,6 +86,11 @@ namespace WindowsFormsApplication1 {
         private void resetButton_Click(object sender, EventArgs e)
         {
             bike.Reset();
+        }
+
+        private void  broadCastButton_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void FillUserComboBox()
@@ -318,37 +324,8 @@ namespace WindowsFormsApplication1 {
 
         private void BSend_Click(object sender, EventArgs e)
         {
-            if(isPhysician)
-                network.sendChatMessage(TChatSend.Text, username, currentUser.username);
-            else
-            {
-                network.sendChatMessage(TChatSend.Text, username, username);
-            }
+            network.sendChatMessage(TChatSend.Text, username, "Jaap");
             RTBChatText.Text += username + ": " +  TChatSend.Text + System.Environment.NewLine;
-        }
-
-        private void broadCastButton_Click(object sender, EventArgs e)
-        {
-            if (isPhysician)
-                network.sendBroadcast(TChatSend.Text, username);
-            else
-            {
-                network.sendBroadcast(TChatSend.Text, username);
-            }
-            RTBChatText.Text += username + ": " + TChatSend.Text + System.Environment.NewLine;
-        }
-
-        public void getChatMessage(string sender, string message)
-        {
-            // Invoke nodig?
-            if (RTBChatText.InvokeRequired)
-            {
-                RTBChatText.Invoke((MethodInvoker)delegate
-                {
-                    // BSend_Click(sender + ": " + message, null);
-                    RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
-                });
-            }
         }
     
 
@@ -373,7 +350,7 @@ namespace WindowsFormsApplication1 {
                     Measurement measurement = null;
                     try
                     {
-                        measurement = ((UserClient)currentUser).getLastSession().GetLastMeasurement();
+                        measurement = ((UserClient)currentUser).lastSession().lastMeasurement();
                     }
                     catch(NullReferenceException e)
                     {
@@ -422,11 +399,14 @@ namespace WindowsFormsApplication1 {
             bike.SetDistance(Int32.Parse(distance));
         }
 
-        private void start45MinVideoTrainingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Chart_Click(object sender, EventArgs e)
         {
-            Thread t = new Thread(delegate () { new Video.VideoPlayer("45MinWorkout.mp4").ShowDialog(); });
-            t.SetApartmentState(ApartmentState.STA);
-            t.Start();
+
+        }
+
+        private void FormClient_Load(object sender, EventArgs e)
+        {
+
         }
     } 
 }

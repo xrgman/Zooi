@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClient));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,12 +39,10 @@
             this.setComPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.start45MinVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TChatView = new System.Windows.Forms.TextBox();
             this.TChatSend = new System.Windows.Forms.TextBox();
             this.BSend = new System.Windows.Forms.Button();
-            this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LCurrentPower = new System.Windows.Forms.Label();
             this.LTime = new System.Windows.Forms.Label();
             this.LHeartBeat = new System.Windows.Forms.Label();
@@ -83,8 +78,9 @@
             this.broadCastButton = new System.Windows.Forms.Button();
             this.connectedUsers = new System.Windows.Forms.ComboBox();
             this.newClient = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.patientPage1 = new WindowsFormsApplication1.PatientPage();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -95,7 +91,7 @@
             this.viewOldDataToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1019, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1389, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,8 +135,7 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setComPortToolStripMenuItem,
             this.connectToServerToolStripMenuItem,
-            this.startVideoTrainingToolStripMenuItem,
-            this.start45MinVideoTrainingToolStripMenuItem});
+            this.startVideoTrainingToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -148,28 +143,21 @@
             // setComPortToolStripMenuItem
             // 
             this.setComPortToolStripMenuItem.Name = "setComPortToolStripMenuItem";
-            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.setComPortToolStripMenuItem.Text = "set ComPort";
             // 
             // connectToServerToolStripMenuItem
             // 
             this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
-            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.connectToServerToolStripMenuItem.Text = "connect to Server";
             // 
             // startVideoTrainingToolStripMenuItem
             // 
             this.startVideoTrainingToolStripMenuItem.Name = "startVideoTrainingToolStripMenuItem";
-            this.startVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.startVideoTrainingToolStripMenuItem.Text = "Start 15 min video training";
+            this.startVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.startVideoTrainingToolStripMenuItem.Text = "Start video training";
             this.startVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.startVideoTrainingToolStripMenuItem_Click);
-            // 
-            // start45MinVideoTrainingToolStripMenuItem
-            // 
-            this.start45MinVideoTrainingToolStripMenuItem.Name = "start45MinVideoTrainingToolStripMenuItem";
-            this.start45MinVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.start45MinVideoTrainingToolStripMenuItem.Text = "Start 45 min video training";
-            this.start45MinVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.start45MinVideoTrainingToolStripMenuItem_Click);
             // 
             // viewOldDataToolStripMenuItem
             // 
@@ -205,26 +193,6 @@
             this.BSend.Text = "send";
             this.BSend.UseVisualStyleBackColor = true;
             this.BSend.Click += new System.EventHandler(this.BSend_Click);
-            // 
-            // Chart
-            // 
-            this.Chart.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Chart.BackSecondaryColor = System.Drawing.Color.Transparent;
-            this.Chart.BorderlineColor = System.Drawing.Color.Black;
-            chartArea1.Name = "ChartArea1";
-            this.Chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Chart.Legends.Add(legend1);
-            this.Chart.Location = new System.Drawing.Point(484, 35);
-            this.Chart.Name = "Chart";
-            this.Chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.Chart.Series.Add(series1);
-            this.Chart.Size = new System.Drawing.Size(508, 339);
-            this.Chart.TabIndex = 4;
-            this.Chart.Text = "chart1";
             // 
             // LCurrentPower
             // 
@@ -584,6 +552,13 @@
             this.newClient.UseVisualStyleBackColor = true;
             this.newClient.Click += new System.EventHandler(this.newClient_Click);
             // 
+            // patientPage1
+            // 
+            this.patientPage1.Location = new System.Drawing.Point(470, 35);
+            this.patientPage1.Name = "patientPage1";
+            this.patientPage1.Size = new System.Drawing.Size(964, 358);
+            this.patientPage1.TabIndex = 39;
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,7 +566,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1019, 790);
+            this.ClientSize = new System.Drawing.Size(1389, 790);
+            this.Controls.Add(this.patientPage1);
             this.Controls.Add(this.newClient);
             this.Controls.Add(this.RTBChatText);
             this.Controls.Add(this.connectedUsers);
@@ -624,7 +600,6 @@
             this.Controls.Add(this.TChatView);
             this.Controls.Add(this.BComConnect);
             this.Controls.Add(this.LEnergy);
-            this.Controls.Add(this.Chart);
             this.Controls.Add(this.LDistance);
             this.Controls.Add(this.LCurrentPower);
             this.Controls.Add(this.LSpeed);
@@ -637,9 +612,9 @@
             this.Name = "FormClient";
             this.Text = "Client App";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClient_FormClosed);
+            this.Load += new System.EventHandler(this.FormClient_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,7 +633,6 @@
         private System.Windows.Forms.TextBox TChatView;
         private System.Windows.Forms.TextBox TChatSend;
         private System.Windows.Forms.Button BSend;
-        private System.Windows.Forms.DataVisualization.Charting.Chart Chart;
         private System.Windows.Forms.Label LCurrentPower;
         private System.Windows.Forms.Label LTime;
         private System.Windows.Forms.Label LHeartBeat;
@@ -696,7 +670,8 @@
         private System.Windows.Forms.Button newClient;
         private System.Windows.Forms.ToolStripMenuItem viewOldDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startVideoTrainingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem start45MinVideoTrainingToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private PatientPage patientPage1;
     }
 }
 

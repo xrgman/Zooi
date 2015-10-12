@@ -26,31 +26,17 @@ C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\Video\obj\Debug\Video.Pr
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\Video\obj\Debug\Video.exe
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\Video\obj\Debug\Video.pdb
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\bin\Debug\Video.exe.config
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\bin\Debug\Video.exe
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\bin\Debug\Video.pdb
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\bin\Debug\Interop.WMPLib.dll
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Interop.WMPLib.dll
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\AxInterop.WMPLib.dll
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Video.csproj.ResolveComReference.cache
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Video.VideoPlayer.resources
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Video.Properties.Resources.resources
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Video.exe
-C:\Users\rkeet\Documents\CycleMasterPro2000\Video\obj\Debug\Video.pdb
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\bin\Debug\Video.exe.config
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\bin\Debug\Video.exe
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\bin\Debug\Video.pdb
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\bin\Debug\Interop.WMPLib.dll
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Interop.WMPLib.dll
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\AxInterop.WMPLib.dll
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Video.csproj.ResolveComReference.cache
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Video.VideoPlayer.resources
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Video.Properties.Resources.resources
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Video.exe
-C:\Users\marnix\Documents\Visual Studio 2015\Projects\CycleMasterPro2000\Video\obj\Debug\Video.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\bin\Debug\Video.exe.config
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\bin\Debug\Video.exe
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\bin\Debug\Video.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\bin\Debug\Interop.WMPLib.dll
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Interop.WMPLib.dll
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Video.csproj.ResolveComReference.cache
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Video.VideoPlayer.resources
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Video.Properties.Resources.resources
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Video.exe
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\Video\obj\Debug\Video.pdb

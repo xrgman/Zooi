@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApplication1;
 
 namespace Network
 {
@@ -31,7 +30,7 @@ namespace Network
 
         public void addSession(DateTime startedDate)
         {
-            Session s = new Session(startedDate);
+            Session s = new Session();
         }
 
         public void addMeasurement(Measurement measurement)
@@ -43,7 +42,7 @@ namespace Network
 
         public void addMeasurement(Session session, Measurement measurement)
         {
-            session.AddMeasurement(measurement);
+            session.addMeasurement(measurement);
         }
 
         public List<Session> getSessions()
@@ -51,12 +50,18 @@ namespace Network
             return sessions;
         }
 
-        public Session getLastSession()
+        public Session lastSession()
         {
-            if (sessions.Count > 0)
-                return sessions.Last();
-            else
-                return null;
+            if (sessions.Count == 0)
+                sessions.Add(new Session());
+
+            return sessions.Last();
+            
+        }
+
+        public Measurement lastMeasurement()
+        {
+            return lastSession().lastMeasurement();
         }
          
         //serialize method
