@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApplication1
+﻿using System;
+
+namespace WindowsFormsApplication1
 {
     partial class FormClient
     {
