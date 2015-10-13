@@ -45,8 +45,8 @@ C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\ClassLibrary2\bin\Debug\
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
 C:\Users\Beer\Documents\GitHub\fiets\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
-C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.dll
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\bin\Debug\Network.pdb
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.dll
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.pdb
+C:\Users\Bilel\Source\Repos\CycleMasterPro2000\ClassLibrary2\obj\Debug\Network.csprojResolveAssemblyReference.cache

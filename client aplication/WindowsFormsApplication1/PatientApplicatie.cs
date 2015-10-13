@@ -88,9 +88,27 @@ namespace WindowsFormsApplication1 {
             bike.Reset();
         }
 
-        private void  broadCastButton_Click(object sender, EventArgs e)
+        private void broadCastButton_Click(object sender, EventArgs e) {
+            if (isPhysician)
+                network.sendBroadcast(TChatSend.Text, username);
+            else
+            {
+                network.sendBroadcast(TChatSend.Text, username);
+            }
+            RTBChatText.Text += username + ": " + TChatSend.Text + System.Environment.NewLine;
+        }
+
+        public void getChatMessage(string sender, string message)
         {
-            
+            // Invoke nodig?
+            if (RTBChatText.InvokeRequired)
+            {
+                RTBChatText.Invoke((MethodInvoker)delegate
+                {
+                    // BSend_Click(sender + ": " + message, null);
+                    RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
+                });
+            }
         }
 
         private void FillUserComboBox()
@@ -380,7 +398,7 @@ namespace WindowsFormsApplication1 {
 
         private void viewOldDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form f = new OldSesionData();
+            Form f = new OldSesionData(network,username);
             f.Show();
 
         }
@@ -405,6 +423,11 @@ namespace WindowsFormsApplication1 {
         }
 
         private void FormClient_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientPage1_Load(object sender, EventArgs e)
         {
 
         }

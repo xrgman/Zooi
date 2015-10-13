@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Network;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,23 @@ namespace WindowsFormsApplication1
 {
     public partial class OldSesionData : Form
     {
-
-        public OldSesionData()
+        Networkconnect network;
+        Network.User user;
+        public OldSesionData(Networkconnect network,string username)
         {
-            
+            this.network = network;
             InitializeComponent();
+            user = network.getUser(username);
+            if(user is Physician)
+            {
+                Physician p = (Physician)user;
+                listBox_Data.DataSource = p.clients;
+            }
+            else
+            {
+                UserClient a = (UserClient)user;
+                listBox_Data.DataSource = a.sessions;
+            }
             
         }
 
@@ -39,6 +52,11 @@ namespace WindowsFormsApplication1
         {
             this.Close();
            
+        }
+
+        private void listBox_Data_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

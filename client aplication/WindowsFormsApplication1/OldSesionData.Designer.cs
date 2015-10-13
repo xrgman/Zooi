@@ -56,6 +56,7 @@
             this.listBox_Data.Name = "listBox_Data";
             this.listBox_Data.Size = new System.Drawing.Size(540, 147);
             this.listBox_Data.TabIndex = 0;
+            this.listBox_Data.SelectedIndexChanged += new System.EventHandler(this.listBox_Data_SelectedIndexChanged);
             // 
             // button_Select
             // 
