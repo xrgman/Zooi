@@ -12,7 +12,6 @@ namespace Network
     {
         public List<Session> sessions { get; }
         
-
         public UserClient(string username, string userPassword): base(username,userPassword)
         {
             sessions =  new List<Session>();
@@ -23,7 +22,6 @@ namespace Network
         {
             username = (string)info.GetValue("username", typeof(string));
             password = (string)info.GetValue("password", typeof(string));
-            //sessions = (List<Session>)info.GetValue("sessions", typeof(List<>));
 
         }
 
@@ -68,7 +66,6 @@ namespace Network
         {
             info.AddValue("username", username);
             info.AddValue("password", password);
-            //info.AddValue("sessions", sessions);
         }
 
 

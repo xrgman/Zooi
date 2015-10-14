@@ -11,7 +11,7 @@ namespace Network
         // Get int value on specific time
         private Dictionary<DateTime, double> dataSet = new Dictionary<DateTime, double>();
 
-        public Session.signalTypes SignalType;
+        public Session.signalTypes SignalType { get; private set; }
 
         // Create Data class without adding data first
         public SimItem(Session.signalTypes signalType)
@@ -47,33 +47,23 @@ namespace Network
             return dataSet;
         }
         // Signaal op een specifiek punt terugkrijgen
-        public KeyValuePair<DateTime, double> getData(DateTime min)
-        {
-            IEnumerator<KeyValuePair<DateTime, double>> tmpEnm = dataSet.Where(data => data.Key == min).GetEnumerator();
-            tmpEnm.MoveNext();
-            return tmpEnm.Current;
+        public KeyValuePair<DateTime, double> getData(DateTime min) {
+
+            // return dataSet.ToDictionary(data => data.Key, data => data.Value).First();
+            return dataSet.Where(data => data.Key == min).First();
         }
         // Alle signalen tussen 2 datums teruggeven
         public Dictionary<DateTime, double> getDataBetween(DateTime min, DateTime max)
         {
-            Dictionary<DateTime, double> tempDic = new Dictionary<DateTime, double>();
-
-            foreach (KeyValuePair<DateTime, double> entry in dataSet)
-                if (entry.Key >= min && entry.Key <= max)       // Get all records between min and max
-                    tempDic.Add(entry.Key, entry.Value);
-
-            return tempDic;
+            return dataSet.Where(data => data.Key > min && data.Key < max)
+                          .ToDictionary(data => data.Key, data => data.Value);
         }
+
         // Alle signalen tussen 2 waarden teruggeven
         public Dictionary<DateTime, double> getDataBetween(int min, int max)
         {
-            Dictionary<DateTime, double> tempDic = new Dictionary<DateTime, double>();
-
-            foreach (KeyValuePair<DateTime, double> entry in dataSet)
-                if (entry.Value >= min && entry.Value <= max)       // Get all record between min and max
-                    tempDic.Add(entry.Key, entry.Value);
-
-            return tempDic;
+            return dataSet.Where(data => data.Value > min && data.Value < max)
+                            .ToDictionary(data => data.Key, data => data.Value);
         }
 
         public double lastMeasurement()

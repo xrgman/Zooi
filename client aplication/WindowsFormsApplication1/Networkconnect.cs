@@ -71,7 +71,7 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketBroadcast(message, sender));
         }
 
-       /* public void getChatMessage(PacketChatMessage chatPacket)
+        public void getChatMessage(PacketChatMessage chatPacket)
         {
             parent.getChatMessage(chatPacket.sender, chatPacket.message);
         }
@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1
         public void getBroadcast(PacketBroadcast broadcastPacket)
         {
             parent.getChatMessage(broadcastPacket.sender, broadcastPacket.message);
-        }*/
+        }
 
         public void loginResponse(bool loginOk, bool isPhysician)
         {
@@ -141,13 +141,12 @@ namespace WindowsFormsApplication1
 
         public void ChatMessageResponse(string sender, string receiver, string message)
         {
-           // throw new NotImplementedException();
+            parent.getChatMessage(sender, message);
         }
 
         public void BroadcastResponse(string sender, string message)
         {
-           // throw new NotImplementedException();
+            parent.getChatMessage(sender, message);
         }
-        
     }
 }

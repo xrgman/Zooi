@@ -28,6 +28,8 @@ namespace server_application
 
         public List<User> users = new List<User>();
 
+        private SslStream ssl;
+        public SslStream SSL { get { return ssl; } }
 
         public Serverapplication()
         {
@@ -38,13 +40,13 @@ namespace server_application
             users.Add(new UserClient("Henk", "banaan"));
             
             //Test online users:
-           // ServerClient boefjeeee = new ServerClient(null, this);
+            ServerClient boefjeeee = new ServerClient(null, this);
             UserClient boefje = new UserClient("Boef", "lol");
-          //  boefjeeee.user = boefje;
-          //  ConnectedClients.Add(boefjeeee);
-           // ServerClient boefje2 = new ServerClient(null, this);
-          //  boefje2.user = new UserClient("Boef2", "lol");
-          //  ConnectedClients.Add(boefje2);
+            boefjeeee.user = boefje;
+            ConnectedClients.Add(boefjeeee);
+            ServerClient boefje2 = new ServerClient(null, this);
+            boefje2.user = new UserClient("Boef2", "lol");
+            ConnectedClients.Add(boefje2);
             Physician jaap = new Physician("Jaap", "appel");
             jaap.addClient(boefje);
             
@@ -61,9 +63,13 @@ namespace server_application
             {
                 Console.WriteLine("Waiting for Client Connections");
                 TcpClient client = listener.AcceptTcpClient();
-                SslStream ssl = new SslStream(client.GetStream()); ;
+                // Authenticate cert
+                ssl = new SslStream(client.GetStream());
+                SSL.AuthenticateAsServer(cert, true, SslProtocols.Tls12, true);
 
-                ConnectedClients.Add(new ServerClient(client, this, ssl));
+                string ipAddress = "" + IPAddress.Parse(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                Console.WriteLine("Connected by {0} ({1}) on {2} ", ssl.CipherAlgorithm, ssl.CipherStrength, ipAddress.ToString());
+                ConnectedClients.Add(new ServerClient(client, this));
             }
         }
 

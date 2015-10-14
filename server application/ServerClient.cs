@@ -10,8 +10,6 @@ using Network;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using Network.Packets;
-using System.IO;
-using System.Net;
 
 namespace server_application
 {
@@ -22,25 +20,10 @@ namespace server_application
         private Serverapplication server;
         public User user { get; set; }
 
-        // Certificaat
-        private X509Certificate2 cert = new X509Certificate2(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\Shared Server Client\cyclemaster.pfx",
-                                                              "admin", X509KeyStorageFlags.MachineKeySet);
-
-        private SslStream ssl;
-        public SslStream SSL { get { return ssl; } }
-
-        public ServerClient(TcpClient client, Serverapplication server, SslStream ssl)
+        public ServerClient(TcpClient client, Serverapplication server)
         {
             this.server = server;
             this.client = client;
-            this.ssl = ssl;
-
-            // Authenticate cert
-           
-            SSL.AuthenticateAsServer(cert, true, SslProtocols.Tls12, true);
-            string ipAddress = "" + IPAddress.Parse(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
-            Console.WriteLine("Connected by {0} ({1}) on {2} ", ssl.CipherAlgorithm, ssl.CipherStrength, ipAddress.ToString());
-
             if (client != null)
             {
                 new Thread(() =>
@@ -48,7 +31,7 @@ namespace server_application
                     BinaryFormatter formatter = new BinaryFormatter();
                     while (client.Connected)
                     {
-                        Packet packet = NetworkFlow.ReadPacket(SSL);
+                        Packet packet = NetworkFlow.ReadPacket(server.SSL);
                         if (packet != null)
                         {
                             Console.WriteLine("recieved packet");
@@ -75,7 +58,7 @@ namespace server_application
                 {
                     if (PasswordHash.ValidatePassword(password, user.password)) //succesfull login
                     { 
-                        NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), SSL);
+                        NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), server.SSL);
                         Console.WriteLine("{0} succesfully logged in.",username);
                         this.user = user;
                         break;
@@ -83,7 +66,7 @@ namespace server_application
                     else //wrong password
                     {
                         Console.WriteLine("wrong password");
-                        NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), SSL);
+                        NetworkFlow.SendPacket(new PacketLoginResponse(false, user is Physician), server.SSL);
                         break;
                     }
                 }
@@ -96,9 +79,9 @@ namespace server_application
             if(username.Equals("*"))
             {
                 if (allUsers)
-                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.users), SSL);
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.users), server.SSL);
                 else
-                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers(physicianName)),SSL);
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers(physicianName)),server.SSL);
                 Console.WriteLine("Sending all users " + allUsers );
             }
             else
@@ -133,9 +116,9 @@ namespace server_application
             foreach(User user in server.users)
             {
                 ServerClient client = server.getUser(user.username);
-                if (client.SSL != null)
+                if (client.server.SSL != null)
                 {
-                    NetworkFlow.SendPacket(new PacketBroadcastResponse(sender, message), client.SSL);
+                    NetworkFlow.SendPacket(new PacketBroadcastResponse(sender, message), client.server.SSL);
                 }
             }
         }
@@ -162,7 +145,7 @@ namespace server_application
             }
             
             ServerClient client = server.getUser(receiver);
-            NetworkFlow.SendPacket(new PacketChatMessage(message,sender, receiver),client.SSL);
+            NetworkFlow.SendPacket(new PacketChatMessage(message,sender, receiver),client.server.SSL);
                 
         }
 
@@ -170,7 +153,7 @@ namespace server_application
         public void BikeValues(string power, string time, string distance, string username)
         {
             ServerClient client = server.getUser(username);
-            NetworkFlow.SendPacket(new PacketBikeValuesResponse(power,time,distance), client.SSL);
+            NetworkFlow.SendPacket(new PacketBikeValuesResponse(power,time,distance), client.server.SSL);
         }
     }
 }

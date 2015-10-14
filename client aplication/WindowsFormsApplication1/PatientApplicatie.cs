@@ -431,5 +431,10 @@ namespace WindowsFormsApplication1 {
         {
 
         }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }

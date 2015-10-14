@@ -13,15 +13,9 @@ namespace Network
         // data
         private List<SimItem> simItems = new List<SimItem>();
 
-        // One for each signaltype
-        private SimItem actual_power,
-                        distance,
-                        energy,
-                        pulse,
-                        requested_power,
-                        rpm,
-                        speed,
-                        time;
+        private TimeSpan sessionTime;
+
+        public List<SimItem> SimItems { get { return simItems; } private set { } }
 
         // Enum for easy signal (Ex. rpm/pulse/etc..)
         public enum signalTypes
@@ -40,23 +34,62 @@ namespace Network
 
         public Session()
         {
+            // We beginnen nu
             StartTime = DateTime.Now;
+            // Voor elk signaal type een sim item aanmaken
+            foreach (var str in Enum.GetValues(typeof(signalTypes))){
+                simItems.Add(new SimItem((signalTypes)(str)));      
+            }
+            
+        }
 
-            // Add and instantiate all data (Every signalstype gets it's own simItem class)
-            simItems.Add(pulse = new SimItem(signalTypes.PULSE));
-            simItems.Add(rpm = new SimItem(signalTypes.RPM));
-            simItems.Add(speed = new SimItem(signalTypes.SPEED));
-            simItems.Add(time = new SimItem(signalTypes.TIME));
-            simItems.Add(distance = new SimItem(signalTypes.DISTANCE));
-            simItems.Add(requested_power = new SimItem(signalTypes.REQUESTED_POWER));
-            simItems.Add(energy = new SimItem(signalTypes.ENERGY));
-            simItems.Add(actual_power = new SimItem(signalTypes.ACTUAL_POWER));
+        public SimItem getSimItem(signalTypes sType)
+        {   // Bijbehorende simitem zoeken
+            return simItems.Where(item => item.SignalType == sType).First();
+        }
 
-            simItems.Sort();
+        public void addSignal(signalTypes sType, int value)
+        {   // Toevoegen aan simItem
+            getSimItem(sType).addData(value);
+        }
+
+        public void addMeasurement(Measurement m)
+        {   // Fill SimItems with measurement data
+            addSignal(signalTypes.ACTUAL_POWER, m.actual_power);
+            addSignal(signalTypes.DISTANCE, m.distance);
+            addSignal(signalTypes.ENERGY, m.energy);
+            addSignal(signalTypes.PULSE, m.pulse);
+            addSignal(signalTypes.RPM, m.rpm);
+            addSignal(signalTypes.SPEED, m.speed);
+            addSignal(signalTypes.REQUESTED_POWER, m.requested_power);
+        }
+
+        public Measurement getMeasurement(DateTime fromTime)
+        {   // Measurement van bepaalde tijd opvragen
+            return new Measurement((int)getSimItem(signalTypes.PULSE).getData(fromTime).Value,
+                                    (int)getSimItem(signalTypes.RPM).getData(fromTime).Value,
+                                    (int)getSimItem(signalTypes.SPEED).getData(fromTime).Value,
+                                    (int)getSimItem(signalTypes.DISTANCE).getData(fromTime).Value,
+                                    (int)getSimItem(signalTypes.REQUESTED_POWER).getData(fromTime).Value,
+                                    (int)getSimItem(signalTypes.ENERGY).getData(fromTime).Value,
+                                    "0",
+                                    (int)getSimItem(signalTypes.ACTUAL_POWER).getData(fromTime).Value);
+        }
+
+        public Measurement lastMeasurement()
+        {   // Elke methode 'lastMeasurement()' vanuit simItems aanroepen en in een nieuwe measurement gestopt
+            return new Measurement((int)getSimItem(signalTypes.PULSE).lastMeasurement(),
+                                    (int)getSimItem(signalTypes.RPM).lastMeasurement(),
+                                    (int)getSimItem(signalTypes.SPEED).lastMeasurement(),
+                                    (int)getSimItem(signalTypes.DISTANCE).lastMeasurement(),
+                                    (int)getSimItem(signalTypes.REQUESTED_POWER).lastMeasurement(),
+                                    (int)getSimItem(signalTypes.ENERGY).lastMeasurement(),
+                                    "0",
+                                    (int)getSimItem(signalTypes.ACTUAL_POWER).lastMeasurement());
         }
 
         // Random measurement maken/toevoegen
-        public void addRandomItems()
+        public void addRandomMeasurement()
         {
             Random random = new Random();
             addMeasurement(new Measurement((int)(random.NextDouble() * 100),
@@ -69,82 +102,19 @@ namespace Network
                                             (int)(random.NextDouble() * 10)));
         }
 
-        public List<SimItem> SimItems
+        public void start()
         {
-            get { return simItems; }
+
         }
 
-        public SimItem getSimItem(signalTypes sType)
+        public void pause()
         {
-            switch (sType)
-            {
-                case signalTypes.ACTUAL_POWER: return actual_power;
-                case signalTypes.DISTANCE: return distance;
-                case signalTypes.ENERGY: return energy;
-                case signalTypes.PULSE: return actual_power;
-                case signalTypes.REQUESTED_POWER: return requested_power;
-                case signalTypes.RPM: return rpm;
-                case signalTypes.SPEED: return speed;
-                default: return null;
-            }
+
         }
 
-        public void addSignal(signalTypes sType, int value)
+        public void stop()
         {
-            switch (sType)
-            {
-                case signalTypes.ACTUAL_POWER:
-                    actual_power.addData(value); break;
-                case signalTypes.DISTANCE:
-                    distance.addData(value); break;
-                case signalTypes.ENERGY:
-                    energy.addData(value); break;
-                case signalTypes.PULSE:
-                    pulse.addData(value); break;
-                case signalTypes.REQUESTED_POWER:
-                    requested_power.addData(value); break;
-                case signalTypes.RPM:
-                    rpm.addData(value); break;
-                case signalTypes.SPEED:
-                    speed.addData(value); break;
-            }
-        }
 
-        public void addMeasurement(Measurement m)
-        {
-            // Fill SimItems with measurement data
-            actual_power.addData(m.actual_power);
-            distance.addData(m.distance);
-            energy.addData(m.energy);
-            pulse.addData(m.pulse);
-            requested_power.addData(m.requested_power);
-            rpm.addData(m.rpm);
-            speed.addData(m.speed);
-        }
-
-        public Measurement getMeasurement(DateTime fromTime)
-        {
-            return new Measurement((int)pulse.getData(fromTime).Value,
-                                    (int)rpm.getData(fromTime).Value,
-                                    (int)speed.getData(fromTime).Value,
-                                    (int)distance.getData(fromTime).Value,
-                                    (int)requested_power.getData(fromTime).Value,
-                                    (int)energy.getData(fromTime).Value,
-                                    "0",
-                                    (int)actual_power.getData(fromTime).Value);
-        }
-
-        public Measurement lastMeasurement()
-        {
-            // Elke methode 'lastMeasurement()' vanuit simItems aanroepen 
-            return new Measurement((int)pulse.lastMeasurement(),
-                                   (int)rpm.lastMeasurement(),
-                                   (int)speed.lastMeasurement(),
-                                   (int)distance.lastMeasurement(),
-                                   (int)requested_power.lastMeasurement(),
-                                   (int)energy.lastMeasurement(),
-                                   "0",
-                                   (int)speed.lastMeasurement());
         }
 
         //* Compare session by startTime

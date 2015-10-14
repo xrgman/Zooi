@@ -10,6 +10,7 @@ namespace Network
     [Serializable]
     public class Physician : User, ISerializable
     {
+        // Patient van de arts
         public List<UserClient> clients = new List<UserClient>();
             
         public Physician(String username, string password): base(username, password)

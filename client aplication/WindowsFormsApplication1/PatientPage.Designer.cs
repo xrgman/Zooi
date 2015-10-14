@@ -41,7 +41,6 @@ namespace WindowsFormsApplication1
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -54,8 +53,8 @@ namespace WindowsFormsApplication1
             this.label1 = new System.Windows.Forms.Label();
             this.valueMinBox = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.endTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.startTimePicker = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -75,14 +74,9 @@ namespace WindowsFormsApplication1
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(205, 57);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(694, 284);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            this.chart1.Series.Clear();
             // 
             // tabControl1
             // 
@@ -137,7 +131,7 @@ namespace WindowsFormsApplication1
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(171, 135);
             this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "Time";
+            this.tabPage3.Text = "Value";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -184,8 +178,8 @@ namespace WindowsFormsApplication1
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.dateTimePicker2);
-            this.tabPage4.Controls.Add(this.dateTimePicker1);
+            this.tabPage4.Controls.Add(this.endTimePicker);
+            this.tabPage4.Controls.Add(this.startTimePicker);
             this.tabPage4.Controls.Add(this.button2);
             this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.label4);
@@ -194,22 +188,22 @@ namespace WindowsFormsApplication1
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(171, 135);
             this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "Value";
+            this.tabPage4.Text = "Time";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // endTimePicker
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(3, 65);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePicker2.TabIndex = 11;
+            this.endTimePicker.Location = new System.Drawing.Point(3, 65);
+            this.endTimePicker.Name = "endTimePicker";
+            this.endTimePicker.Size = new System.Drawing.Size(166, 20);
+            this.endTimePicker.TabIndex = 11;
             // 
-            // dateTimePicker1
+            // startTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.startTimePicker.Location = new System.Drawing.Point(3, 26);
+            this.startTimePicker.Name = "startTimePicker";
+            this.startTimePicker.Size = new System.Drawing.Size(166, 20);
+            this.startTimePicker.TabIndex = 10;
             // 
             // button2
             // 
@@ -267,6 +261,8 @@ namespace WindowsFormsApplication1
             try
             {
                 setupChart();
+                chart1.ChartAreas[0].AxisX.Minimum = Int32.Parse(startTimePicker.Text);
+                chart1.ChartAreas[0].AxisX.Maximum = Int32.Parse(endTimePicker.Text);
             }
             catch (FormatException arg)
             {
@@ -282,6 +278,8 @@ namespace WindowsFormsApplication1
             try
             {
                 setupChart();
+                chart1.ChartAreas[0].AxisY.Minimum = Int32.Parse(valueMinBox.Text);
+                chart1.ChartAreas[0].AxisY.Maximum = Int32.Parse(valueMaxBox.Text);
             }
             catch (FormatException arg)
             {
@@ -345,7 +343,7 @@ namespace WindowsFormsApplication1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker endTimePicker;
+        private DateTimePicker startTimePicker;
     }
 }
