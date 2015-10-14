@@ -139,7 +139,7 @@ namespace server_application
         {
             foreach(ServerClient client in ConnectedClients)
             {
-                if (client.user.username.Equals(username))
+                if (client.user.username.ToLower().Equals(username.ToLower()))
                     return client;
             }
             return null;

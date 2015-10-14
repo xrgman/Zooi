@@ -100,6 +100,7 @@ namespace WindowsFormsApplication1 {
 
         public void getChatMessage(string sender, string message)
         {
+
             // Invoke nodig?
             if (RTBChatText.InvokeRequired)
             {

@@ -126,9 +126,15 @@ namespace WindowsFormsApplication1
 
         public void GiveUserResponse(List<UserClient> users)
         {
-            List<User> tempusers = users.ConvertAll(user => (User)user);
-            
-            this.users = tempusers;
+            try
+            {
+                List<User> tempusers = users.ConvertAll(user => (User)user);
+
+                this.users = tempusers;
+            }
+            catch(Exception e){
+                Console.WriteLine("error in NetworkConnect GiveUserResponse(List<UserClient> user) /n"  + e);
+            }
         }
 
         public void BikeValuesResponse(string power, string time, string distance)
