@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
             {
                 if(network.GetAllUsers().FindIndex(user => user.username.ToLower() == gebruikersNaam.Text.ToLower()) == -1)
                 {
-                    network.addNewClient(new Network.UserClient(gebruikersNaam.Text, password.Text), physicianName);
+                    network.addNewClient(new Network.UserClient(gebruikersNaam.Text, password.Text,physicianName), physicianName);
 
                     MessageBox.Show("Gebruiker '"+ gebruikersNaam.Text + "' met wachtwoord '"+ password.Text + "' aangemaakt.");
                     this.Hide();

@@ -9,9 +9,11 @@ namespace Network
     public class UserClient : User, ISerializable
     {
         public List<Session> sessions { get; }
+        public string physician { get; }
         
-        public UserClient(string username, string userPassword): base(username,userPassword)
+        public UserClient(string username, string userPassword, string physician): base(username,userPassword)
         {
+            this.physician = physician;
             sessions =  new List<Session>();
         }
 

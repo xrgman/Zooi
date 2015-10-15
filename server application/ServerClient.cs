@@ -83,6 +83,7 @@ namespace server_application
             else
             {
                 Console.WriteLine("Sending user: " + username);
+                NetworkFlow.SendPacket(new PacketGiveUserResponse(server.getUserClient(username)),stream);
             }
         }
 
@@ -150,6 +151,11 @@ namespace server_application
             ServerClient client = server.getUser(username);
             Console.WriteLine("Send bike values to: " + client.user.username);
             NetworkFlow.SendPacket(new PacketBikeValuesResponse(power,time,distance),client.stream);
+        }
+
+        public void ReceiveMeasurement(Measurement measurement, string physcianName)
+        {
+            UserClient userClient = (UserClient)user;
         }
     }
 }

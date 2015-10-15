@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
             thread.Start();
         }
 
-        public PatientPage() : this(new UserClient("John", PasswordHash.HashPassword("banaan")))
+        public PatientPage() : this(new UserClient("John", PasswordHash.HashPassword("banaan"),""))
         {
 
         }

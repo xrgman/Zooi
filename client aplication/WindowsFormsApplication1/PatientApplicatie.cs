@@ -29,6 +29,7 @@ namespace WindowsFormsApplication1
             this.username = username;
             if(!isPhysician) //Client:
             {
+                currentUser = network.getUser(username);
                 pwrTxtBox.Hide();
                 distanceTxtBox.Hide();
                 timeTxtBox.Hide();
@@ -254,7 +255,9 @@ namespace WindowsFormsApplication1
         {
             do
             {
+                //Set the status of connection:
                 SetStatusLabel(bike.GetStatus());
+                //Get latest measurement: 
                 Measurement measurement = bike.GetMeasurement();
                 if (measurement != null)
                 {
@@ -267,12 +270,8 @@ namespace WindowsFormsApplication1
                     SetEnergyLabel(measurement.energy.ToString());
                     SetRequestedPowerLabel(measurement.requested_power.ToString());
                 }
-                //Set values from doctor:
-
-
                 //Send measurement to the server
-
-                
+                network.sendMeasurement(measurement,((UserClient)currentUser).physician);
                 Thread.Sleep(1000);
             }
             while (statusLabel.Text != "Error: connection lost");
@@ -393,8 +392,8 @@ namespace WindowsFormsApplication1
                         SetEnergyLabel(measurement.energy.ToString());
                         SetRequestedPowerLabel(measurement.requested_power.ToString());
                     }
-                    network.GetAllConnectedUsers(username);
-                    FillUserComboBox();
+                    //network.GetAllConnectedUsers(username);
+                    //FillUserComboBox();
                 }
                 Thread.Sleep(1000);
             }

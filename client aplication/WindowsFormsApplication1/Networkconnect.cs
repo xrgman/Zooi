@@ -55,10 +55,9 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketBikeValues(power, time, distance, username));
         }
 
-        public void sendMeasurement(Measurement measurement)
+        public void sendMeasurement(Measurement measurement, string physicianName)
         {
-            //Send object;
-            //Do something here or delete this method, otherwise it's wasting space!
+            networkCommunication.sendPacket(new PacketMeasurement(measurement, physicianName)); 
         }
         
         public void sendChatMessage(string message, string sender, string receiver)
@@ -105,7 +104,9 @@ namespace WindowsFormsApplication1
 
         public User getUser(string username)
         {
-            return null;
+            networkCommunication.sendPacket(new PacketGiveUser(username, true, ""));
+            Thread.Sleep(1000);
+            return user;
         }
 
         public void GiveUserResponse(User user)

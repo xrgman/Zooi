@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Network
+﻿namespace Network
 {
     public interface ServerInterface
     {
@@ -14,5 +8,6 @@ namespace Network
         void BikeValues(string power, string time, string distance, string username);
         void ChatMessage(string sender, string receiver, string message);
         void Broadcast(string sender, string message);
+        void ReceiveMeasurement(Measurement measurement, string physcianName);
     }
 }
