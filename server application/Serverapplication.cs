@@ -35,10 +35,10 @@ namespace server_application
         {
             ConnectedClients = new List<ServerClient>();
             LoadAllData();
-
-            //add test users obviously for testing
-            users.Add(new UserClient("Henk", "banaan"));
             
+            //DO NOT UNCOMMENT THIS, OTHERWISE ALL USERS WILL BE ADDED MULTIPLE TIMES!
+            /*//add test users obviously for testing
+            users.Add(new UserClient("Henk", "banaan"));     
             //Test online users:
             ServerClient boefjeeee = new ServerClient(null, this);
             UserClient boefje = new UserClient("Boef", "lol");
@@ -49,9 +49,7 @@ namespace server_application
             ConnectedClients.Add(boefje2);
             Physician jaap = new Physician("Jaap", "appel");
             jaap.addClient(boefje);
-            
-
-            users.Add(jaap);
+            users.Add(jaap);*/
 
             SaveAllData();
 

@@ -19,8 +19,6 @@ namespace Network
             this.password = PasswordHash.HashPassword(password);
         }
 
-
-
         //deserialization function
         public User(SerializationInfo info, StreamingContext ctxt)
         {
@@ -32,8 +30,6 @@ namespace Network
         {
 
         }
-
-
 
         public bool checkPassword(string passwordTry)
         {
