@@ -138,6 +138,7 @@ namespace WindowsFormsApplication1
 
         private void RefreshThread()
         {
+            network.sendMeasurement(null, ((UserClient)currentUser).physician, "Create");
             do
             {
                 //Set the status of connection:
@@ -156,7 +157,7 @@ namespace WindowsFormsApplication1
                     SetLabelText(requestedPowerLabel,measurement.requested_power.ToString());
                 }
                 //Send measurement to the server
-                network.sendMeasurement(measurement,((UserClient)currentUser).physician);
+                network.sendMeasurement(measurement,((UserClient)currentUser).physician,"Last");
                 Thread.Sleep(1000);
             }
             while (statusLabel.Text != "Error: connection lost");
@@ -346,26 +347,6 @@ namespace WindowsFormsApplication1
             bike.SetPower(Int32.Parse(power));
             bike.setTime(Int32.Parse(time));
             bike.SetDistance(Int32.Parse(distance));
-        }
-
-        private void Chart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormClient_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void patientPage1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void findToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     } 
 }

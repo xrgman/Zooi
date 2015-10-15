@@ -22,13 +22,14 @@ namespace Network
         {
             username = (string)info.GetValue("username", typeof(string));
             password = (string)info.GetValue("password", typeof(string));
-
+            //halp rene
         }
 
 
         public void addSession(DateTime startedDate)
         {
             Session s = new Session(startedDate);
+            sessions.Add(s);
         }
 
         public void addMeasurement(Measurement measurement)
@@ -67,8 +68,5 @@ namespace Network
             info.AddValue("username", username);
             info.AddValue("password", password);
         }
-
-
-
     }
 }

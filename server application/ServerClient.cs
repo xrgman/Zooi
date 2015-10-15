@@ -155,9 +155,16 @@ namespace server_application
             NetworkFlow.SendPacket(new PacketBikeValuesResponse(power,time,distance),client.stream);
         }
 
-        public void ReceiveMeasurement(Measurement measurement, string physcianName)
+        public void ReceiveMeasurement(Measurement measurement, string physcianName, string sessionType)
         {
             UserClient userClient = (UserClient)user;
+            Console.WriteLine("measurement shizzle");
+            if (sessionType.Equals("Create"))
+                userClient.addSession(DateTime.Now);
+            else
+            {
+                userClient.addMeasurement(measurement);
+            }
         }
     }
 }
