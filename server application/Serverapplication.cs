@@ -137,6 +137,16 @@ namespace server_application
             return null;
         }
 
+        public User getUserClient(string username)
+        {
+            foreach (User user in users)
+            {
+                if (user.username.ToLower().Equals(username.ToLower()))
+                    return user;
+            }
+            return null;
+        }
+
         public void SaveAllData()
         {
             Console.WriteLine(users.Count);
