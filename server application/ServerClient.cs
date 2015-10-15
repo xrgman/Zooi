@@ -138,9 +138,12 @@ namespace server_application
             }
             
             ServerClient client = server.getUser(receiver);
-            Console.WriteLine("sending packet to: " + client.user.username );
-            
-            NetworkFlow.SendPacket(new PacketChatMessage(message,sender, receiver),client.stream);
+            if (client != null)
+            {
+                Console.WriteLine("sending packet to: " + client.user.username);
+
+                NetworkFlow.SendPacket(new PacketChatMessage(message, sender, receiver), client.stream);
+            }
                 
         }
 

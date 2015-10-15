@@ -86,11 +86,16 @@ namespace WindowsFormsApplication1
 
         private void broadCastButton_Click(object sender, EventArgs e) {
             if (isPhysician)
-                network.sendBroadcast(TChatSend.Text, username);
-            else
             {
-                network.sendBroadcast(TChatSend.Text, username);
-            }
+                foreach(User u in users)
+                    network.sendChatMessage(TChatSend.Text, username, u.username);
+                RTBChatText.Text += "BROADCAST: " + username + ": " + TChatSend.Text + System.Environment.NewLine;
+
+
+            } else
+                MessageBox.Show("cliënten kunnen geen broadcastbericht versturen!");
+
+            
             RTBChatText.Text += username + ": " + TChatSend.Text + System.Environment.NewLine;
         }
         delegate void SetUserComboBox();
@@ -287,6 +292,11 @@ namespace WindowsFormsApplication1
                     bike.SetDistance(distanceNumber);
         }
 
+        /// <summary>
+        /// Send bike data to server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sendButton_Click(object sender, EventArgs e)
         {
             //stuur naar server en die stuurt naar client;
@@ -333,6 +343,11 @@ namespace WindowsFormsApplication1
                 distanceTxtBox.BackColor = Color.White;
         }
 
+        /// <summary>
+        /// get the chat message from the server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="message"></param>
         public void getChatMessage(string sender, string message)
         {
 
@@ -348,6 +363,11 @@ namespace WindowsFormsApplication1
                 RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
         }
 
+        /// <summary>
+        /// sends chat message to server 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BSend_Click(object sender, EventArgs e)
         {
             string receiver;
