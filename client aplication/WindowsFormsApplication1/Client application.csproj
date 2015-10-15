@@ -81,14 +81,6 @@
     <Compile Include="CommChooser.Designer.cs">
       <DependentUpon>CommChooser.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientPage.cs">
-      <SubType>UserControl</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="PatientPage.Designer.cs">
-      <DependentUpon>PatientPage.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulator.cs" />
@@ -106,10 +98,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommChooser.resx">
       <DependentUpon>CommChooser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PatientPage.resx">
-      <DependentUpon>PatientPage.cs</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -28,7 +28,7 @@ namespace Network
 
         public void addSession(DateTime startedDate)
         {
-            Session s = new Session();
+            Session s = new Session(startedDate);
         }
 
         public void addMeasurement(Measurement measurement)
@@ -40,7 +40,7 @@ namespace Network
 
         public void addMeasurement(Session session, Measurement measurement)
         {
-            session.addMeasurement(measurement);
+            session.AddMeasurement(measurement);
         }
 
         public List<Session> getSessions()
@@ -51,14 +51,14 @@ namespace Network
         public Session lastSession()
         {
             if (sessions.Count == 0)
-                sessions.Add(new Session());
+                sessions.Add(new Session(DateTime.Now));
 
             return sessions.Last();
         }
 
         public Measurement lastMeasurement()
         {
-            return lastSession().lastMeasurement();
+            return lastSession().GetLastMeasurement();
         }
          
         //serialize method

@@ -40,6 +40,8 @@
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TChatView = new System.Windows.Forms.TextBox();
             this.TChatSend = new System.Windows.Forms.TextBox();
             this.BSend = new System.Windows.Forms.Button();
@@ -79,9 +81,6 @@
             this.connectedUsers = new System.Windows.Forms.ComboBox();
             this.newClient = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.patientPage1 = new WindowsFormsApplication1.PatientPage();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +93,7 @@
             this.usersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1389, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(529, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,25 +111,25 @@
             // saveFileToolStripMenuItem
             // 
             this.saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.saveFileToolStripMenuItem.Text = "save file";
             // 
             // quickSaveToolStripMenuItem
             // 
             this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
-            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.quickSaveToolStripMenuItem.Text = "quick save";
             // 
             // loadFileToolStripMenuItem
             // 
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.loadFileToolStripMenuItem.Text = "load file";
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.quitToolStripMenuItem.Text = "quit";
             // 
             // optionsToolStripMenuItem
@@ -169,6 +168,21 @@
             this.viewOldDataToolStripMenuItem.Text = "view old data";
             this.viewOldDataToolStripMenuItem.Click += new System.EventHandler(this.viewOldDataToolStripMenuItem_Click);
             // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.findToolStripMenuItem});
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.usersToolStripMenuItem.Text = "Users";
+            // 
+            // findToolStripMenuItem
+            // 
+            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.findToolStripMenuItem.Text = "Find";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
+            // 
             // TChatView
             // 
             this.TChatView.Enabled = false;
@@ -177,19 +191,19 @@
             this.TChatView.Multiline = true;
             this.TChatView.Name = "TChatView";
             this.TChatView.ReadOnly = true;
-            this.TChatView.Size = new System.Drawing.Size(1350, 373);
+            this.TChatView.Size = new System.Drawing.Size(497, 223);
             this.TChatView.TabIndex = 0;
             // 
             // TChatSend
             // 
-            this.TChatSend.Location = new System.Drawing.Point(388, 758);
+            this.TChatSend.Location = new System.Drawing.Point(12, 609);
             this.TChatSend.Name = "TChatSend";
-            this.TChatSend.Size = new System.Drawing.Size(811, 20);
+            this.TChatSend.Size = new System.Drawing.Size(326, 20);
             this.TChatSend.TabIndex = 2;
             // 
             // BSend
             // 
-            this.BSend.Location = new System.Drawing.Point(1205, 758);
+            this.BSend.Location = new System.Drawing.Point(353, 609);
             this.BSend.Name = "BSend";
             this.BSend.Size = new System.Drawing.Size(75, 23);
             this.BSend.TabIndex = 3;
@@ -522,13 +536,13 @@
             this.RTBChatText.Location = new System.Drawing.Point(28, 391);
             this.RTBChatText.Name = "RTBChatText";
             this.RTBChatText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.RTBChatText.Size = new System.Drawing.Size(953, 346);
+            this.RTBChatText.Size = new System.Drawing.Size(474, 196);
             this.RTBChatText.TabIndex = 37;
             this.RTBChatText.Text = "";
             // 
             // broadCastButton
             // 
-            this.broadCastButton.Location = new System.Drawing.Point(1286, 758);
+            this.broadCastButton.Location = new System.Drawing.Point(434, 609);
             this.broadCastButton.Name = "broadCastButton";
             this.broadCastButton.Size = new System.Drawing.Size(78, 23);
             this.broadCastButton.TabIndex = 14;
@@ -555,28 +569,6 @@
             this.newClient.UseVisualStyleBackColor = true;
             this.newClient.Click += new System.EventHandler(this.newClient_Click);
             // 
-            // patientPage1
-            // 
-            this.patientPage1.Location = new System.Drawing.Point(470, 35);
-            this.patientPage1.Name = "patientPage1";
-            this.patientPage1.Size = new System.Drawing.Size(964, 358);
-            this.patientPage1.TabIndex = 39;
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.findToolStripMenuItem});
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.usersToolStripMenuItem.Text = "Users";
-            // 
-            // findToolStripMenuItem
-            // 
-            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.findToolStripMenuItem.Text = "Find";
-            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
-            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,8 +576,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1389, 790);
-            this.Controls.Add(this.patientPage1);
+            this.ClientSize = new System.Drawing.Size(529, 650);
             this.Controls.Add(this.newClient);
             this.Controls.Add(this.RTBChatText);
             this.Controls.Add(this.connectedUsers);
@@ -689,7 +680,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewOldDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startVideoTrainingToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private PatientPage patientPage1;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
     }
