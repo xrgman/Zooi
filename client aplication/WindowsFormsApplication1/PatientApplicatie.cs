@@ -121,122 +121,18 @@ namespace WindowsFormsApplication1
 
 
         //Safe setting of label methodes: 
-        delegate void SetTextCallback(string text);
+        delegate void SetTextCallback(Label label, string text);
 
-        private void SetActualPowerLabel(string actualPower)
+        private void SetLabelText(Label label, string text)
         {
-            if (this.actualPowerLabel.InvokeRequired)
+            if (label.InvokeRequired)
             {
-                SetTextCallback d = new SetTextCallback(SetActualPowerLabel);
-                this.Invoke(d, new object[] { actualPower });
+                SetTextCallback d = new SetTextCallback(SetLabelText);
+                this.Invoke(d, new object[] { label, text });
             }
             else
             {
-                this.actualPowerLabel.Text = actualPower;
-            }
-        }
-
-        private void SetTimeLabel(string time)
-        {
-            if (this.timeLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetTimeLabel);
-                this.Invoke(d, new object[] { time });
-            }
-            else
-            {
-                this.timeLabel.Text = time;
-            }
-        }
-
-        private void SetHeartBeatLabel(string heartBeat)
-        {
-            if (this.heartBeatLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetHeartBeatLabel);
-                this.Invoke(d, new object[] { heartBeat });
-            }
-            else
-            {
-                this.heartBeatLabel.Text = heartBeat;
-            }
-        }
-
-        private void SetRpmLabel(string rpm)
-        {
-            if (this.rpmLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetRpmLabel);
-                this.Invoke(d, new object[] { rpm });
-            }
-            else
-            {
-                this.rpmLabel.Text = rpm;
-            }
-        }
-
-        private void SetDistanceLabel(string distance)
-        {
-            if (this.distanceLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetDistanceLabel);
-                this.Invoke(d, new object[] { distance });
-            }
-            else
-            {
-                this.distanceLabel.Text = distance;
-            }
-        }
-
-        private void SetEnergyLabel(string energy)
-        {
-            if (this.energyLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetEnergyLabel);
-                this.Invoke(d, new object[] { energy });
-            }
-            else
-            {
-                this.energyLabel.Text = energy;
-            }
-        }
-
-        private void SetRequestedPowerLabel(string requestedPower)
-        {
-            if (this.requestedPowerLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetRequestedPowerLabel);
-                this.Invoke(d, new object[] { requestedPower });
-            }
-            else
-            {
-                this.requestedPowerLabel.Text = requestedPower;
-            }
-        }
-
-        private void SetSpeedLabel(string speed)
-        {
-            if (this.speedLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetSpeedLabel);
-                this.Invoke(d, new object[] { speed });
-            }
-            else
-            {
-                this.speedLabel.Text = speed;
-            }
-        }
-
-        private void SetStatusLabel(string status)
-        {
-            if (this.statusLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetStatusLabel);
-                this.Invoke(d, new object[] { status });
-            }
-            else
-            {
-                this.statusLabel.Text = status;
+                label.Text = text;
             }
         }
 
@@ -245,19 +141,19 @@ namespace WindowsFormsApplication1
             do
             {
                 //Set the status of connection:
-                SetStatusLabel(bike.GetStatus());
+                SetLabelText(statusLabel,bike.GetStatus());
                 //Get latest measurement: 
                 Measurement measurement = bike.GetMeasurement();
                 if (measurement != null)
                 {
-                    SetActualPowerLabel(measurement.actual_power.ToString());
-                    SetTimeLabel(measurement.time);
-                    SetHeartBeatLabel(measurement.pulse.ToString());
-                    SetRpmLabel(measurement.rpm.ToString());
-                    SetSpeedLabel(measurement.speed.ToString());
-                    SetDistanceLabel(measurement.distance.ToString());
-                    SetEnergyLabel(measurement.energy.ToString());
-                    SetRequestedPowerLabel(measurement.requested_power.ToString());
+                    SetLabelText(actualPowerLabel,measurement.actual_power.ToString());
+                    SetLabelText(timeLabel, measurement.time);
+                    SetLabelText(heartBeatLabel,measurement.pulse.ToString());
+                    SetLabelText(rpmLabel,measurement.rpm.ToString());
+                    SetLabelText(speedLabel,measurement.speed.ToString());
+                    SetLabelText(distanceLabel,measurement.distance.ToString());
+                    SetLabelText(energyLabel,measurement.energy.ToString());
+                    SetLabelText(requestedPowerLabel,measurement.requested_power.ToString());
                 }
                 //Send measurement to the server
                 network.sendMeasurement(measurement,((UserClient)currentUser).physician);
@@ -410,14 +306,14 @@ namespace WindowsFormsApplication1
                     }
                     if (measurement != null)
                     {
-                        SetActualPowerLabel(measurement.actual_power.ToString());
-                        SetTimeLabel(measurement.time);
-                        SetHeartBeatLabel(measurement.pulse.ToString());
-                        SetRpmLabel(measurement.rpm.ToString());
-                        SetSpeedLabel(measurement.speed.ToString());
-                        SetDistanceLabel(measurement.distance.ToString());
-                        SetEnergyLabel(measurement.energy.ToString());
-                        SetRequestedPowerLabel(measurement.requested_power.ToString());
+                        SetLabelText(actualPowerLabel, measurement.actual_power.ToString());
+                        SetLabelText(timeLabel, measurement.time);
+                        SetLabelText(heartBeatLabel, measurement.pulse.ToString());
+                        SetLabelText(rpmLabel, measurement.rpm.ToString());
+                        SetLabelText(speedLabel, measurement.speed.ToString());
+                        SetLabelText(distanceLabel, measurement.distance.ToString());
+                        SetLabelText(energyLabel, measurement.energy.ToString());
+                        SetLabelText(requestedPowerLabel, measurement.requested_power.ToString());
                     }
                     //network.GetAllConnectedUsers(username);
                     //FillUserComboBox();
