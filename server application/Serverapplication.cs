@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Net;
-using System.Threading;
 using System.Net.Security;
 using Network;
 using System.IO;
-using System.Xml.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml;
-using System.Runtime.Serialization;
 using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
-using System.Linq;
 
 
 namespace server_application
@@ -29,7 +24,6 @@ namespace server_application
         public List<User> users = new List<User>();
 
         private SslStream ssl;
-        public SslStream SSL { get { return ssl; } }
 
         public Serverapplication()
         {
@@ -63,11 +57,11 @@ namespace server_application
                 TcpClient client = listener.AcceptTcpClient();
                 // Authenticate cert
                 ssl = new SslStream(client.GetStream());
-                SSL.AuthenticateAsServer(cert, true, SslProtocols.Tls12, true);
+                ssl.AuthenticateAsServer(cert, true, SslProtocols.Tls12, true);
 
                 string ipAddress = "" + IPAddress.Parse(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
                 Console.WriteLine("Connected by {0} ({1}) on {2} ", ssl.CipherAlgorithm, ssl.CipherStrength, ipAddress.ToString());
-                ConnectedClients.Add(new ServerClient(client, this));
+                ConnectedClients.Add(new ServerClient(client, this, ssl));
             }
         }
 

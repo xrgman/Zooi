@@ -35,7 +35,6 @@ namespace WindowsFormsApplication1
             // Certificaat toevoegen
             certs.Add(new X509Certificate2(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + @"\Shared Server Client\cyclemaster.pfx",
                                                               "admin", X509KeyStorageFlags.MachineKeySet));
-
         }
 
         public bool ConnectToServer()

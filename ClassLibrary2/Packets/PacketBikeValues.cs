@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Network
 {
+    [Serializable]
     public class PacketBikeValues : Packet
     {
         private string power { get; }

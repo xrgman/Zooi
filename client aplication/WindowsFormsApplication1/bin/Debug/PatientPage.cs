@@ -41,6 +41,7 @@ namespace WindowsFormsApplication1
             setupChart();
 
             thread = new Thread(new ThreadStart(doStuffsThread));
+            thread.IsBackground = true;
             thread.Start();
         }
 
