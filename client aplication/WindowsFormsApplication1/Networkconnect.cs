@@ -13,6 +13,8 @@ namespace WindowsFormsApplication1
         public string power { get; set; }
         public string time { get; set; }
         public string distance { get; set; }
+        private string ipAdress;
+        private int port;
         private bool loginOk, isPhysician;
         private List<User> users;
         private User user;
@@ -20,16 +22,27 @@ namespace WindowsFormsApplication1
 
         public Networkconnect(string ipAdress, int port)
         {
+            this.ipAdress = ipAdress;
+            this.port = port;
             networkCommunication = new NetworkCommunication(ipAdress, port, this);
-            if (networkCommunication.ConnectToServer())
-                status = "Connected";
-            else
-                status = "Can't connect to: " + ipAdress + ":" + port;
+            Thread connectionThread = new Thread(new ThreadStart(TryConnecting));
+            connectionThread.IsBackground = true;
+            connectionThread.Start();    
         }
 
         public void SetParent(FormClient parent)
         {
             this.parent = parent;
+        }
+
+        public void TryConnecting()
+        {
+            while(!networkCommunication.ConnectToServer())
+            {
+                status = "Can't connect to: " + ipAdress + ":" + port;
+                Thread.Sleep(5000);
+            }
+            status = "Connected";
         }
 
         /// <summary>
