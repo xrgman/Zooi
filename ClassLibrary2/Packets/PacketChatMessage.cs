@@ -27,5 +27,10 @@ namespace Network
         {
             serverInterface.ChatMessage(sender, receiver, message);
         }
+
+        public override void handleClientSide(ClientInterface clientInterface)
+        {
+            clientInterface.ChatMessageResponse(sender, receiver, message);
+        }
     }
 }

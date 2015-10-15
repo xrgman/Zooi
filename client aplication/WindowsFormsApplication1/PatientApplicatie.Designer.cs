@@ -552,6 +552,8 @@
             // 
             // connectedUsers
             // 
+            this.connectedUsers.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
+            this.connectedUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.connectedUsers.FormattingEnabled = true;
             this.connectedUsers.Location = new System.Drawing.Point(329, 147);
             this.connectedUsers.Name = "connectedUsers";

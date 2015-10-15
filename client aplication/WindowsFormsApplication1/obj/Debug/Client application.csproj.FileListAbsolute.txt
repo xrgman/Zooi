@@ -74,9 +74,6 @@ C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplica
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csproj.ResolveComReference.cache
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\PatientPage.resx
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\PatientPage.cs
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\PatientPage.Designer.cs
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
@@ -91,7 +88,6 @@ C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplica
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.OldSesionData.resources
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
-C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.PatientPage.resources
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\rene\Documents\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csproj.GenerateResource.Cache
 D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\client aplication\WindowsFormsApplication1\bin\Debug\PatientPage.resx

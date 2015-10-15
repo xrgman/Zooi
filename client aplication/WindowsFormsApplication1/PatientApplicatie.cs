@@ -93,21 +93,6 @@ namespace WindowsFormsApplication1
             }
             RTBChatText.Text += username + ": " + TChatSend.Text + System.Environment.NewLine;
         }
-
-        public void getChatMessage(string sender, string message)
-        {
-
-            // Invoke nodig?
-            if (RTBChatText.InvokeRequired)
-            {
-                RTBChatText.Invoke((MethodInvoker)delegate
-                {
-                    // BSend_Click(sender + ": " + message, null);
-                    RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
-                });
-            }
-        }
-        
         delegate void SetUserComboBox();
 
         private void FillUserComboBox()
@@ -309,6 +294,8 @@ namespace WindowsFormsApplication1
                 network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text,currentUser.username); 
         }
 
+
+
         /// <summary>
         /// Checks if entered value is correct.
         /// </summary>
@@ -346,9 +333,30 @@ namespace WindowsFormsApplication1
                 distanceTxtBox.BackColor = Color.White;
         }
 
+        public void getChatMessage(string sender, string message)
+        {
+
+            // Invoke nodig?
+            if (RTBChatText.InvokeRequired)
+            {
+                RTBChatText.Invoke((MethodInvoker)delegate
+                {
+                    // BSend_Click(sender + ": " + message, null);
+                    RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
+                });
+            }else
+                RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
+        }
+
         private void BSend_Click(object sender, EventArgs e)
         {
-            network.sendChatMessage(TChatSend.Text, username, "Jaap");
+            string receiver;
+            if (isPhysician)
+                receiver = currentUser.username;
+            else
+                receiver = username;
+
+            network.sendChatMessage(TChatSend.Text, username, receiver);
             RTBChatText.Text += username + ": " +  TChatSend.Text + System.Environment.NewLine;
         }
     

@@ -120,7 +120,6 @@ namespace server_application
         {
             if (receiver == sender)
             {
-                Console.WriteLine("Gebruiker STUURT!!!!");
                 foreach (User u in server.users)
                 {
                     try
@@ -139,7 +138,7 @@ namespace server_application
             }
             
             ServerClient client = server.getUser(receiver);
-            Console.WriteLine(client.user.username + "sending packet:");
+            Console.WriteLine("sending packet to: " + client.user.username );
             
             NetworkFlow.SendPacket(new PacketChatMessage(message,sender, receiver),client.stream);
                 
