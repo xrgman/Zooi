@@ -129,7 +129,6 @@ namespace WindowsFormsApplication1
             try
             {
                 List<User> tempusers = users.ConvertAll(user => (User)user);
-
                 this.users = tempusers;
             }
             catch(Exception e){
@@ -142,7 +141,6 @@ namespace WindowsFormsApplication1
             this.power = power;
             this.time = time;
             this.distance = distance;
-            System.Diagnostics.Debug.WriteLine("Binne00");
             parent.setBikeValues(power, time, distance);
         }
 

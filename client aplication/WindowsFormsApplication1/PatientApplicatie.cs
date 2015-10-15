@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using Network;
-using System.Runtime.Serialization.Formatters.Binary;
 
-namespace WindowsFormsApplication1 {  
+namespace WindowsFormsApplication1
+{
     public partial class FormClient : Form
     {
         //statusLabel, modelLabel, versionLabel, timeLabel, actualPowerLabel, heartBeatLabel, rpmLabel, speedLabel, distanceLabel, energyLabel, requestedPowerLabel
@@ -111,15 +107,26 @@ namespace WindowsFormsApplication1 {
                 });
             }
         }
+        
+        delegate void SetUserComboBox();
 
         private void FillUserComboBox()
         {
-            foreach(User user in users)
+            if (this.connectedUsers.InvokeRequired)
             {
-                connectedUsers.Items.Add(user);
+                SetUserComboBox d = new SetUserComboBox(FillUserComboBox);
+                this.Invoke(d, new object[] { });
             }
-            if(currentUser != null)
-                connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
+            else
+            {
+                this.connectedUsers.Items.Clear();
+                foreach (User user in users)
+                {
+                    this.connectedUsers.Items.Add(user);
+                }
+                if (currentUser != null)
+                    this.connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
+            }
         }
 
 
@@ -386,7 +393,8 @@ namespace WindowsFormsApplication1 {
                         SetEnergyLabel(measurement.energy.ToString());
                         SetRequestedPowerLabel(measurement.requested_power.ToString());
                     }
-                    //get new user data;
+                    network.GetAllConnectedUsers(username);
+                    FillUserComboBox();
                 }
                 Thread.Sleep(1000);
             }

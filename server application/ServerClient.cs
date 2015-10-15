@@ -36,6 +36,8 @@ namespace server_application
                         }
                     }
                     server.getConnectedClients().Remove(this);
+                    if (user != null)
+                        user.isOnline = false;
                     Console.WriteLine("Client disconnected");
                 }).Start();
             }
@@ -54,6 +56,7 @@ namespace server_application
                         NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), stream);
                         Console.WriteLine("{0} succesfully logged in.",username);
                         this.user = user;
+                        this.user.isOnline = true;
                         break;
                     }
                     else //wrong password

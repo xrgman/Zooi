@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Network
 {
@@ -12,6 +8,7 @@ namespace Network
     {
         public string username { get; set; }
         public string password { get; set; }
+        public bool isOnline { get; set; }
 
         public User (string username, string password)
         {
@@ -46,7 +43,7 @@ namespace Network
 
         public override string ToString()
         {
-            return username;
+            return username + " - " + isOnline;
         }
 
     }
