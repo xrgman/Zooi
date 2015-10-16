@@ -160,7 +160,7 @@ namespace WindowsFormsApplication1
             this.power = power;
             this.time = time;
             this.distance = distance;
-            parent.setBikeValues(power, time, distance);
+            parent.SetBikeValues(power, time, distance);
         }
 
         public void ChatMessageResponse(string sender, string receiver, string message)

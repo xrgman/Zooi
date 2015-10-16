@@ -160,8 +160,11 @@ namespace server_application
         public void BikeValues(string power, string time, string distance, string username)
         {
             ServerClient client = server.getUser(username);
-            Console.WriteLine("Send bike values to: " + client.user.username);
-            NetworkFlow.SendPacket(new PacketBikeValuesResponse(power,time,distance),client.stream);
+            if (client != null)
+            { 
+                Console.WriteLine("Send bike values to: " + client.user.username);
+                NetworkFlow.SendPacket(new PacketBikeValuesResponse(power, time, distance), client.stream);
+            }
         }
 
         public void ReceiveMeasurement(Measurement measurement, string physcianName, string sessionType)
