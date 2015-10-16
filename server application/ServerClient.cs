@@ -55,8 +55,12 @@ namespace server_application
                     { 
                         NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), stream);
                         Console.WriteLine("{0} succesfully logged in.",username);
-                        this.user = user;
-                        this.user.isOnline = true;
+                        if (user is Physician)
+                            this.user = user;
+                        else
+                           this.user = server.GetUserFromPhysician(username);
+                        user.isOnline = true;
+                        Console.WriteLine("This is the user: " + user);
                         if (!(user is Physician) && server.getPhysicianClient(((UserClient)user).physician) != null)
                         {
                             Console.WriteLine("sending to physician: " + server.getUser(((UserClient)user).physician));
@@ -87,7 +91,7 @@ namespace server_application
             }
             else
             {
-                Console.WriteLine("Sending user: " + username);
+                Console.WriteLine("Sending user: " + server.getUserClient(username));
                 NetworkFlow.SendPacket(new PacketGiveUserResponse(server.getUserClient(username)),stream);
             }
         }
@@ -180,7 +184,7 @@ namespace server_application
 
         public override string ToString()
         {
-            return "lol : " + user.username;
+            return "ServerClient: " + user;
         }
     }
 }

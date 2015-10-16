@@ -70,7 +70,26 @@ namespace server_application
             return ConnectedClients;
         }
 
-
+        public User GetUserFromPhysician(string username)
+        {
+            //Boolean isonline;
+            foreach (User user in users)
+            {
+                if (user is Physician)
+                {
+                    foreach (User user2 in ((Physician)user).clients)
+                    {
+                        Console.WriteLine("boem");
+                        if (user2.username.Equals(username))
+                        {
+                            Console.WriteLine("jaa");
+                            return user2;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
 
         public List<UserClient> GetConnectedUsers(string physicianName)
         {

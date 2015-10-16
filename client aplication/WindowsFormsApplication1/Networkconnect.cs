@@ -140,9 +140,14 @@ namespace WindowsFormsApplication1
 
         public void GiveUserResponse(List<UserClient> users)
         {
-            System.Diagnostics.Debug.Write("Recieved ysers: " + users.Count);
+            System.Diagnostics.Debug.WriteLine("Recieved users: " + users.Count);
             try
             {
+                foreach(UserClient user2 in users)
+                {
+                    System.Diagnostics.Debug.WriteLine(user2);
+                }
+
                 List<User> tempusers = users.ConvertAll(user => (User)user);
                 this.users = tempusers;
             }

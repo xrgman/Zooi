@@ -324,10 +324,9 @@ namespace WindowsFormsApplication1
                     }
                     ////network.GetAllConnectedUsers(username);
                     users = network.users;
-                    System.Diagnostics.Debug.WriteLine("Users: ");
                     foreach(User user in users)
                     {
-                        System.Diagnostics.Debug.WriteLine(user.username);
+                        //System.Diagnostics.Debug.WriteLine(user);
                     }
                     FillUserComboBox();
                 }
