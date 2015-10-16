@@ -41,13 +41,10 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setComPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TChatView = new System.Windows.Forms.TextBox();
             this.TChatSend = new System.Windows.Forms.TextBox();
             this.BSend = new System.Windows.Forms.Button();
+            this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LCurrentPower = new System.Windows.Forms.Label();
             this.LTime = new System.Windows.Forms.Label();
             this.LHeartBeat = new System.Windows.Forms.Label();
@@ -79,27 +76,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.sendButton = new System.Windows.Forms.Button();
-            this.RTBChatText = new System.Windows.Forms.RichTextBox();
-            this.broadCastButton = new System.Windows.Forms.Button();
-            this.connectedUsers = new System.Windows.Forms.ComboBox();
-            this.newClient = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.minVideoWorkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.optionsToolStripMenuItem,
-            this.viewOldDataToolStripMenuItem,
-            this.usersToolStripMenuItem});
+            this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(865, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1019, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -142,9 +130,7 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setComPortToolStripMenuItem,
-            this.connectToServerToolStripMenuItem,
-            this.startVideoTrainingToolStripMenuItem,
-            this.minVideoWorkoutToolStripMenuItem});
+            this.connectToServerToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -152,42 +138,14 @@
             // setComPortToolStripMenuItem
             // 
             this.setComPortToolStripMenuItem.Name = "setComPortToolStripMenuItem";
-            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.setComPortToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.setComPortToolStripMenuItem.Text = "set ComPort";
             // 
             // connectToServerToolStripMenuItem
             // 
             this.connectToServerToolStripMenuItem.Name = "connectToServerToolStripMenuItem";
-            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.connectToServerToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.connectToServerToolStripMenuItem.Text = "connect to Server";
-            // 
-            // startVideoTrainingToolStripMenuItem
-            // 
-            this.startVideoTrainingToolStripMenuItem.Name = "startVideoTrainingToolStripMenuItem";
-            this.startVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.startVideoTrainingToolStripMenuItem.Text = "15 min video workout";
-            this.startVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.startVideoTrainingToolStripMenuItem_Click);
-            // 
-            // viewOldDataToolStripMenuItem
-            // 
-            this.viewOldDataToolStripMenuItem.Name = "viewOldDataToolStripMenuItem";
-            this.viewOldDataToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-            this.viewOldDataToolStripMenuItem.Text = "view old data";
-            this.viewOldDataToolStripMenuItem.Click += new System.EventHandler(this.viewOldDataToolStripMenuItem_Click);
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.findToolStripMenuItem});
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.usersToolStripMenuItem.Text = "Users";
-            // 
-            // findToolStripMenuItem
-            // 
-            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
-            this.findToolStripMenuItem.Text = "Find";
             // 
             // TChatView
             // 
@@ -197,25 +155,44 @@
             this.TChatView.Multiline = true;
             this.TChatView.Name = "TChatView";
             this.TChatView.ReadOnly = true;
-            this.TChatView.Size = new System.Drawing.Size(497, 223);
+            this.TChatView.Size = new System.Drawing.Size(977, 373);
             this.TChatView.TabIndex = 0;
             // 
             // TChatSend
             // 
-            this.TChatSend.Location = new System.Drawing.Point(12, 609);
+            this.TChatSend.Location = new System.Drawing.Point(15, 759);
             this.TChatSend.Name = "TChatSend";
-            this.TChatSend.Size = new System.Drawing.Size(326, 20);
+            this.TChatSend.Size = new System.Drawing.Size(897, 20);
             this.TChatSend.TabIndex = 2;
             // 
             // BSend
             // 
-            this.BSend.Location = new System.Drawing.Point(353, 609);
+            this.BSend.Location = new System.Drawing.Point(918, 759);
             this.BSend.Name = "BSend";
             this.BSend.Size = new System.Drawing.Size(75, 23);
             this.BSend.TabIndex = 3;
             this.BSend.Text = "send";
             this.BSend.UseVisualStyleBackColor = true;
-            this.BSend.Click += new System.EventHandler(this.BSend_Click);
+            // 
+            // Chart
+            // 
+            this.Chart.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Chart.BackSecondaryColor = System.Drawing.Color.Transparent;
+            this.Chart.BorderlineColor = System.Drawing.Color.Black;
+            chartArea1.Name = "ChartArea1";
+            this.Chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Chart.Legends.Add(legend1);
+            this.Chart.Location = new System.Drawing.Point(484, 35);
+            this.Chart.Name = "Chart";
+            this.Chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Chart.Series.Add(series1);
+            this.Chart.Size = new System.Drawing.Size(508, 339);
+            this.Chart.TabIndex = 4;
+            this.Chart.Text = "chart1";
             // 
             // LCurrentPower
             // 
@@ -535,84 +512,14 @@
             this.sendButton.UseVisualStyleBackColor = true;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
-            // RTBChatText
-            // 
-            this.RTBChatText.BackColor = System.Drawing.Color.White;
-            this.RTBChatText.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.RTBChatText.Location = new System.Drawing.Point(28, 391);
-            this.RTBChatText.Name = "RTBChatText";
-            this.RTBChatText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.RTBChatText.Size = new System.Drawing.Size(474, 196);
-            this.RTBChatText.TabIndex = 37;
-            this.RTBChatText.Text = "";
-            // 
-            // broadCastButton
-            // 
-            this.broadCastButton.Location = new System.Drawing.Point(434, 609);
-            this.broadCastButton.Name = "broadCastButton";
-            this.broadCastButton.Size = new System.Drawing.Size(78, 23);
-            this.broadCastButton.TabIndex = 14;
-            this.broadCastButton.Text = "Broadcast";
-            this.broadCastButton.UseVisualStyleBackColor = true;
-            this.broadCastButton.Click += new System.EventHandler(this.broadCastButton_Click);
-            // 
-            // connectedUsers
-            // 
-            this.connectedUsers.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.connectedUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.connectedUsers.FormattingEnabled = true;
-            this.connectedUsers.Location = new System.Drawing.Point(329, 147);
-            this.connectedUsers.Name = "connectedUsers";
-            this.connectedUsers.Size = new System.Drawing.Size(121, 21);
-            this.connectedUsers.TabIndex = 37;
-            this.connectedUsers.SelectedIndexChanged += new System.EventHandler(this.connectedUsers_SelectedIndexChanged);
-            // 
-            // newClient
-            // 
-            this.newClient.Location = new System.Drawing.Point(13, 336);
-            this.newClient.Name = "newClient";
-            this.newClient.Size = new System.Drawing.Size(113, 38);
-            this.newClient.TabIndex = 38;
-            this.newClient.Text = "New client";
-            this.newClient.UseVisualStyleBackColor = true;
-            this.newClient.Click += new System.EventHandler(this.newClient_Click);
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(533, 36);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(311, 593);
-            this.chart1.TabIndex = 39;
-            this.chart1.Text = "chart1";
-            // 
-            // minVideoWorkoutToolStripMenuItem
-            // 
-            this.minVideoWorkoutToolStripMenuItem.Name = "minVideoWorkoutToolStripMenuItem";
-            this.minVideoWorkoutToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.minVideoWorkoutToolStripMenuItem.Text = "45 min video workout";
-            this.minVideoWorkoutToolStripMenuItem.Click += new System.EventHandler(this.minVideoWorkoutToolStripMenuItem_Click);
-            // 
             // FormClient
             // 
-            this.AcceptButton = this.BSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(865, 650);
-            this.Controls.Add(this.chart1);
-            this.Controls.Add(this.newClient);
-            this.Controls.Add(this.RTBChatText);
-            this.Controls.Add(this.connectedUsers);
+            this.ClientSize = new System.Drawing.Size(1019, 790);
             this.Controls.Add(this.sendButton);
             this.Controls.Add(this.pwrTxtBox);
             this.Controls.Add(this.timeTxtBox);
@@ -642,13 +549,13 @@
             this.Controls.Add(this.TChatView);
             this.Controls.Add(this.BComConnect);
             this.Controls.Add(this.LEnergy);
+            this.Controls.Add(this.Chart);
             this.Controls.Add(this.LDistance);
             this.Controls.Add(this.LCurrentPower);
             this.Controls.Add(this.LSpeed);
             this.Controls.Add(this.LTime);
             this.Controls.Add(this.LRoundPerMin);
             this.Controls.Add(this.LHeartBeat);
-            this.Controls.Add(this.broadCastButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormClient";
@@ -656,7 +563,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClient_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -675,6 +582,7 @@
         private System.Windows.Forms.TextBox TChatView;
         private System.Windows.Forms.TextBox TChatSend;
         private System.Windows.Forms.Button BSend;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Chart;
         private System.Windows.Forms.Label LCurrentPower;
         private System.Windows.Forms.Label LTime;
         private System.Windows.Forms.Label LHeartBeat;
@@ -706,17 +614,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button sendButton;
-        private System.Windows.Forms.RichTextBox RTBChatText;
-        private System.Windows.Forms.Button broadCastButton;
-        private System.Windows.Forms.ComboBox connectedUsers;
-        private System.Windows.Forms.Button newClient;
-        private System.Windows.Forms.ToolStripMenuItem viewOldDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startVideoTrainingToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.ToolStripMenuItem minVideoWorkoutToolStripMenuItem;
     }
 }
 
