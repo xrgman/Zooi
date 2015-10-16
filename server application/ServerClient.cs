@@ -177,7 +177,7 @@ namespace server_application
                 ServerClient physician = server.getPhysicianClient(physcianName);
                 if (physician != null)
                 {
-                    Console.WriteLine("sending new user");
+                    Console.WriteLine("sending new user " + user.isOnline);
                     NetworkFlow.SendPacket(new PacketGiveUserResponse(user), server.getPhysicianClient(((UserClient)user).physician).stream);
                 }
             }

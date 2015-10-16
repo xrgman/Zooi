@@ -142,11 +142,6 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                foreach(UserClient user2 in users)
-                {
-                    System.Diagnostics.Debug.WriteLine(user2);
-                }
-
                 List<User> tempusers = users.ConvertAll(user => (User)user);
                 this.users = tempusers;
             }
