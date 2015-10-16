@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         private string ipAdress;
         private int port;
         private bool loginOk, isPhysician;
-        private List<User> users;
+        public List<User> users { get; private set; }
         private User user;
         private FormClient parent;
 
@@ -140,6 +140,7 @@ namespace WindowsFormsApplication1
 
         public void GiveUserResponse(List<UserClient> users)
         {
+            System.Diagnostics.Debug.Write("Recieved ysers: " + users.Count);
             try
             {
                 List<User> tempusers = users.ConvertAll(user => (User)user);

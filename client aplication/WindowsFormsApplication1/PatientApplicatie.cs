@@ -296,6 +296,7 @@ namespace WindowsFormsApplication1
             {
                 if(currentUser != null)
                 {
+                    //System.Diagnostics.Debug.WriteLine("trying getting");
                     Measurement measurement = null;
                     try
                     {
@@ -303,10 +304,11 @@ namespace WindowsFormsApplication1
                     }
                     catch(NullReferenceException e)
                     {
-
+                        
                     }
                     if (measurement != null)
                     {
+                        System.Diagnostics.Debug.WriteLine("recieved measurement");
                         SetLabelText(actualPowerLabel, measurement.actual_power.ToString());
                         SetLabelText(timeLabel, measurement.time);
                         SetLabelText(heartBeatLabel, measurement.pulse.ToString());
@@ -316,9 +318,20 @@ namespace WindowsFormsApplication1
                         SetLabelText(energyLabel, measurement.energy.ToString());
                         SetLabelText(requestedPowerLabel, measurement.requested_power.ToString());
                     }
-                    //network.GetAllConnectedUsers(username);
-                    //FillUserComboBox();
+                    else
+                    {
+                        //System.Diagnostics.Debug.WriteLine("no measurement");
+                    }
+                    ////network.GetAllConnectedUsers(username);
+                    users = network.users;
+                    System.Diagnostics.Debug.WriteLine("Users: ");
+                    foreach(User user in users)
+                    {
+                        System.Diagnostics.Debug.WriteLine(user.username);
+                    }
+                    FillUserComboBox();
                 }
+                
                 Thread.Sleep(1000);
             }
         }
@@ -332,7 +345,6 @@ namespace WindowsFormsApplication1
         {
             Form f = new OldSesionData(network,username);
             f.Show();
-
         }
 
         private void startVideoTrainingToolStripMenuItem_Click(object sender, EventArgs e)

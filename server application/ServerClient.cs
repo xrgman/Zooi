@@ -57,6 +57,11 @@ namespace server_application
                         Console.WriteLine("{0} succesfully logged in.",username);
                         this.user = user;
                         this.user.isOnline = true;
+                        if (!(user is Physician) && server.getPhysicianClient(((UserClient)user).physician) != null)
+                        {
+                            Console.WriteLine("sending to physician: " + server.getUser(((UserClient)user).physician));
+                            NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers(((UserClient)user).physician)), server.getPhysicianClient(((UserClient)user).physician).stream);
+                        }
                         break;
                     }
                     else //wrong password
@@ -164,7 +169,18 @@ namespace server_application
             else
             {
                 userClient.addMeasurement(measurement);
+                ServerClient physician = server.getPhysicianClient(physcianName);
+                if (physician != null)
+                {
+                    Console.WriteLine("sending new user");
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(user), physician.stream);
+                }
             }
+        }
+
+        public override string ToString()
+        {
+            return "lol : " + user.username;
         }
     }
 }

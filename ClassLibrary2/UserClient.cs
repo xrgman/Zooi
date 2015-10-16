@@ -22,7 +22,16 @@ namespace Network
         {
             username = (string)info.GetValue("username", typeof(string));
             password = (string)info.GetValue("password", typeof(string));
-            //halp rene
+            try
+            {
+                physician = (string)info.GetValue("physician", typeof(string));
+                sessions = (List<Session>)info.GetValue("sessions", typeof(List<Session>));
+            }
+            catch(Exception e)
+            {
+               physician = "jaap";
+               sessions = new List<Session>();
+            }
         }
 
 
@@ -67,6 +76,8 @@ namespace Network
         {
             info.AddValue("username", username);
             info.AddValue("password", password);
+            info.AddValue("physician", physician);
+            info.AddValue("sessions", sessions);
         }
     }
 }

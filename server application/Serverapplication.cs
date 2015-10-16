@@ -47,7 +47,7 @@ namespace server_application
 
             SaveAllData();
 
-            TcpListener listener = new TcpListener(IPAddress.Loopback, 130);
+            TcpListener listener = new TcpListener(IPAddress.Any, 130);
             listener.Start();
             
 
@@ -69,6 +69,8 @@ namespace server_application
         {
             return ConnectedClients;
         }
+
+
 
         public List<UserClient> GetConnectedUsers(string physicianName)
         {
@@ -144,6 +146,15 @@ namespace server_application
                 if (user.username.ToLower().Equals(username.ToLower()))
                     return user;
             }
+            return null;
+        }
+
+        public ServerClient getPhysicianClient(string name)
+        {
+            foreach(ServerClient client in ConnectedClients) 
+                if (client.user is Physician)
+                    if (client.user.username.Equals(name))
+                        return client;
             return null;
         }
 
