@@ -9,7 +9,7 @@ namespace WindowsFormsApplication1
 {
     class Simulator
     {
-        private int pulse, rpm, speed, time, distance, requested_power, energy, actual_power;
+        private int pulse, rpm, speed, minutes, seconds, distance, requested_power, energy, actual_power;
 
         private bool commandMode;
 
@@ -28,7 +28,8 @@ namespace WindowsFormsApplication1
             {
                 case "RS":
                     speed = 0;
-                    time = 0;
+                    seconds = 0;
+                    minutes = 0;
                     pulse = 0;
                     rpm = 0;
                     distance = 0;
@@ -101,15 +102,15 @@ namespace WindowsFormsApplication1
                                 seconds = Int32.Parse(newTime[1]);
                                 if (seconds > 60)
                                     seconds = 59;
-                                time = seconds;
+                                this.seconds = seconds;
                             }
                             else
                             {
                                 seconds = Int32.Parse(newTime[1].Substring(newTime[1].Length-2));
                                 if (seconds > 60)
-                                    seconds = 59;
-                                String finalTime = newTime[1].Substring(0,newTime[1].Length-2) + seconds; 
-                                time = Int32.Parse(finalTime);
+                                {
+                                    seconds = 0;
+                                }
                             }
                             return getStatus();
                         }
@@ -120,19 +121,20 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private String getStatus()
+        private string getStatus()
         {
-            String timeString = time.ToString();
-            if (time < 1)
-                timeString = "00:00";
-            else if (time < 10)
-                timeString = "00:0" + time;
-            else if (time < 100)
-                timeString = "00:" + time;
-            else if (time < 1000)
-                timeString = "0" + timeString.Substring(0, 1) + ":" + timeString.Substring(1,2);
+
+            string timeString;
+
+            if (seconds < 10 && minutes < 10)
+                timeString = "0" + minutes + ":0" + seconds;
+            else if (seconds < 10 && minutes >= 10)
+                timeString = minutes + ":0" + seconds;
+            else if (seconds >= 10 && minutes < 10)
+                timeString = "0" + minutes + ":" + seconds;
             else
-                timeString = timeString.Substring(0, timeString.Length-2) + ":" + timeString.Substring(timeString.Length-2);
+                timeString = minutes + ":" + seconds;
+           
 
            return pulse + "\t" + rpm + "\t" + speed + "\t" + distance + "\t" + requested_power + "\t" + energy + "\t" + timeString + "\t" + actual_power;
         }
@@ -141,7 +143,14 @@ namespace WindowsFormsApplication1
         {
             while(true)
             {
-                time += 1;
+                seconds += 1;
+                if (seconds >= 60)
+                {
+                    seconds -= 60;
+                    minutes++;
+                }
+                
+                
                 UpdateValues();
                 Thread.Sleep(1000);
             }
@@ -169,7 +178,7 @@ namespace WindowsFormsApplication1
                 distance += actualDistance;
 
             //generate engergy (kcal)
-            energy = distance * (requested_power + 1);
+            energy = (int)(distance * 0.75 * (requested_power + 1));
 
             //generate actual power
             actual_power = requested_power;
