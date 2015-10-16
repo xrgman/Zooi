@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
         private int port;
         private bool loginOk, isPhysician;
         public List<User> users { get; private set; }
-        private User user;
+        public User user { get; private set; }
         private FormClient parent;
 
         public Networkconnect(string ipAdress, int port)
@@ -140,7 +140,6 @@ namespace WindowsFormsApplication1
 
         public void GiveUserResponse(List<UserClient> users)
         {
-            System.Diagnostics.Debug.WriteLine("Recieved users: " + users.Count);
             try
             {
                 foreach(UserClient user2 in users)

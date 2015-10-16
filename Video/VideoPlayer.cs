@@ -17,9 +17,7 @@ namespace Video
         {          
             InitializeComponent();
             axWindowsMediaPlayer1.uiMode = "none";
-            MessageBox.Show(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\client application\Video\" + video);
             axWindowsMediaPlayer1.URL = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\Video\"+video;
-               // @"C:\Users\Davey\Videos\4K Video Downloader\"+video;
             this.FormClosed += MyClosedHandler;
         }
 
