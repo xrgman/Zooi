@@ -267,16 +267,20 @@ namespace WindowsFormsApplication1
         /// <param name="e"></param>
         private void BSend_Click(object sender, EventArgs e)
         {
-            string receiver;
-            if (isPhysician)
-                receiver = currentUser.username;
-            else
-                receiver = username;
-
-            network.sendChatMessage(TChatSend.Text, username, receiver);
-            RTBChatText.Text += username + ": " +  TChatSend.Text + System.Environment.NewLine;
+            SendChatMessage(TChatSend.Text);
+            TChatSend.Text = "";
         }
-    
+
+        private void BSend_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("enter");
+            if (e.KeyData == Keys.Enter)
+            {
+                BSend_Click(sender, e);
+            }
+            
+        }
+
 
         private void connectedUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -349,7 +353,18 @@ namespace WindowsFormsApplication1
 
         private void startVideoTrainingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SendChatMessage("Starting video training session 15 min workout");
+
             Thread t = new Thread(delegate () { new Video.VideoPlayer("15MinWorkout.mp4").ShowDialog(); });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
+
+        private void minVideoWorkoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendChatMessage("Starting video training session 45 min workout");
+
+            Thread t = new Thread(delegate () { new Video.VideoPlayer("45MinWorkout.mp4").ShowDialog(); });
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
         }
@@ -360,5 +375,19 @@ namespace WindowsFormsApplication1
             bike.setTime(Int32.Parse(time));
             bike.SetDistance(Int32.Parse(distance));
         }
+
+        public void SendChatMessage(string text)
+        {
+            string receiver;
+            if (isPhysician)
+                receiver = currentUser.username;
+            else
+                receiver = username;
+
+            network.sendChatMessage(text, username, receiver);
+            RTBChatText.Text += username + ": " + text + System.Environment.NewLine;
+
+        }
+
     } 
 }
