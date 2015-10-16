@@ -112,10 +112,13 @@ namespace WindowsFormsApplication1
                 this.connectedUsers.Items.Clear();
                 foreach (User user in users)
                 {
-                    this.connectedUsers.Items.Add(user);
+                    if(user.isOnline)
+                        this.connectedUsers.Items.Add(user);
                 }
                 if (currentUser != null)
                     this.connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
+                else if(connectedUsers.Items.Count > 0)
+                    this.connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(0);
             }
         }
 
@@ -286,7 +289,7 @@ namespace WindowsFormsApplication1
         {
             currentUser = (User) connectedUsers.SelectedItem;
             RefreshFields();
-            TChatView.Text = "current user: " + currentUser;
+            //TChatView.Text = "current user: " + currentUser;
         }
 
         private void RefreshFields()

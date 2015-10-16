@@ -45,7 +45,7 @@ namespace Network
 
         public override string ToString()
         {
-            return username + " - " + isOnline;
+            return username;
         }
 
     }
