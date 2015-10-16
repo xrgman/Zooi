@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using Network;
 
 namespace WindowsFormsApplication1
 {
@@ -18,14 +15,20 @@ namespace WindowsFormsApplication1
         private Bike bike;
         private Networkconnect network;
         private bool isPhysician = false;
+        private string username;
+        private List<User> users;
+        private User currentUser;
 
-        public FormClient(Networkconnect network, bool isPhysician)
+        public FormClient(Networkconnect network, bool isPhysician, string username)
         {
             InitializeComponent();
+            network.SetParent(this);
             this.isPhysician = isPhysician;
             this.network = network;
+            this.username = username;
             if(!isPhysician) //Client:
             {
+                currentUser = network.getUser(username);
                 pwrTxtBox.Hide();
                 distanceTxtBox.Hide();
                 timeTxtBox.Hide();
@@ -33,11 +36,25 @@ namespace WindowsFormsApplication1
                 label6.Hide();
                 label7.Hide();
                 sendButton.Hide();
+                broadCastButton.Hide();
+                connectedUsers.Hide();
+                newClient.Hide();
             }
             else //Specialist:
             {
                 BComConnect.Hide();
                 resetButton.Hide();
+                //Getting all connected users:
+                users = network.GetAllConnectedUsers(username);
+                if (users != null)
+                {
+                    if (users.Count > 0)
+                        currentUser = users.First();
+                    FillUserComboBox();
+                }
+                Thread physicianThread = new Thread(new ThreadStart(ResfreshThreadPhysician));
+                physicianThread.IsBackground = true;
+                physicianThread.Start();
             }
         }
 
@@ -67,150 +84,80 @@ namespace WindowsFormsApplication1
             bike.Reset();
         }
 
+        private void broadCastButton_Click(object sender, EventArgs e) {
+            if (isPhysician)
+            {
+                foreach(User u in users)
+                    network.sendChatMessage(TChatSend.Text, username, u.username);
+                RTBChatText.Text += "BROADCAST: " + username + ": " + TChatSend.Text + System.Environment.NewLine;
+
+
+            } else
+                MessageBox.Show("cliënten kunnen geen broadcastbericht versturen!");
+
+            
+            RTBChatText.Text += username + ": " + TChatSend.Text + System.Environment.NewLine;
+        }
+        delegate void SetUserComboBox();
+
+        private void FillUserComboBox()
+        {
+            if (this.connectedUsers.InvokeRequired)
+            {
+                SetUserComboBox d = new SetUserComboBox(FillUserComboBox);
+                this.Invoke(d, new object[] { });
+            }
+            else
+            {
+                this.connectedUsers.Items.Clear();
+                foreach (User user in users)
+                {
+                    this.connectedUsers.Items.Add(user);
+                }
+                if (currentUser != null)
+                    this.connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
+            }
+        }
+
 
         //Safe setting of label methodes: 
-        delegate void SetTextCallback(string text);
+        delegate void SetTextCallback(Label label, string text);
 
-        private void SetActualPowerLabel(string actualPower)
+        private void SetLabelText(Label label, string text)
         {
-            if (this.actualPowerLabel.InvokeRequired)
+            if (label.InvokeRequired)
             {
-                SetTextCallback d = new SetTextCallback(SetActualPowerLabel);
-                this.Invoke(d, new object[] { actualPower });
+                SetTextCallback d = new SetTextCallback(SetLabelText);
+                this.Invoke(d, new object[] { label, text });
             }
             else
             {
-                this.actualPowerLabel.Text = actualPower;
-            }
-        }
-
-        private void SetTimeLabel(string time)
-        {
-            if (this.timeLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetTimeLabel);
-                this.Invoke(d, new object[] { time });
-            }
-            else
-            {
-                this.timeLabel.Text = time;
-            }
-        }
-
-        private void SetHeartBeatLabel(string heartBeat)
-        {
-            if (this.heartBeatLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetHeartBeatLabel);
-                this.Invoke(d, new object[] { heartBeat });
-            }
-            else
-            {
-                this.heartBeatLabel.Text = heartBeat;
-            }
-        }
-
-        private void SetRpmLabel(string rpm)
-        {
-            if (this.rpmLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetRpmLabel);
-                this.Invoke(d, new object[] { rpm });
-            }
-            else
-            {
-                this.rpmLabel.Text = rpm;
-            }
-        }
-
-        private void SetDistanceLabel(string distance)
-        {
-            if (this.distanceLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetDistanceLabel);
-                this.Invoke(d, new object[] { distance });
-            }
-            else
-            {
-                this.distanceLabel.Text = distance;
-            }
-        }
-
-        private void SetEnergyLabel(string energy)
-        {
-            if (this.energyLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetEnergyLabel);
-                this.Invoke(d, new object[] { energy });
-            }
-            else
-            {
-                this.energyLabel.Text = energy;
-            }
-        }
-
-        private void SetRequestedPowerLabel(string requestedPower)
-        {
-            if (this.requestedPowerLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetRequestedPowerLabel);
-                this.Invoke(d, new object[] { requestedPower });
-            }
-            else
-            {
-                this.requestedPowerLabel.Text = requestedPower;
-            }
-        }
-
-        private void SetSpeedLabel(string speed)
-        {
-            if (this.speedLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetSpeedLabel);
-                this.Invoke(d, new object[] { speed });
-            }
-            else
-            {
-                this.speedLabel.Text = speed;
-            }
-        }
-
-        private void SetStatusLabel(string status)
-        {
-            if (this.statusLabel.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetStatusLabel);
-                this.Invoke(d, new object[] { status });
-            }
-            else
-            {
-                this.statusLabel.Text = status;
+                label.Text = text;
             }
         }
 
         private void RefreshThread()
         {
+            network.sendMeasurement(null, ((UserClient)currentUser).physician, "Create");
             do
             {
-                SetStatusLabel(bike.GetStatus());
+                //Set the status of connection:
+                SetLabelText(statusLabel,bike.GetStatus());
+                //Get latest measurement: 
                 Measurement measurement = bike.GetMeasurement();
                 if (measurement != null)
                 {
-                    SetActualPowerLabel(measurement.actual_power.ToString());
-                    SetTimeLabel(measurement.time);
-                    SetHeartBeatLabel(measurement.pulse.ToString());
-                    SetRpmLabel(measurement.rpm.ToString());
-                    SetSpeedLabel(measurement.speed.ToString());
-                    SetDistanceLabel(measurement.distance.ToString());
-                    SetEnergyLabel(measurement.energy.ToString());
-                    SetRequestedPowerLabel(measurement.requested_power.ToString());
+                    SetLabelText(actualPowerLabel,measurement.actual_power.ToString());
+                    SetLabelText(timeLabel, measurement.time);
+                    SetLabelText(heartBeatLabel,measurement.pulse.ToString());
+                    SetLabelText(rpmLabel,measurement.rpm.ToString());
+                    SetLabelText(speedLabel,measurement.speed.ToString());
+                    SetLabelText(distanceLabel,measurement.distance.ToString());
+                    SetLabelText(energyLabel,measurement.energy.ToString());
+                    SetLabelText(requestedPowerLabel,measurement.requested_power.ToString());
                 }
-                //Set values from doctor:
-
-
                 //Send measurement to the server
-
-                
+                network.sendMeasurement(measurement,((UserClient)currentUser).physician,"Last");
                 Thread.Sleep(1000);
             }
             while (statusLabel.Text != "Error: connection lost");
@@ -242,12 +189,19 @@ namespace WindowsFormsApplication1
                     bike.SetDistance(distanceNumber);
         }
 
+        /// <summary>
+        /// Send bike data to server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sendButton_Click(object sender, EventArgs e)
         {
             //stuur naar server en die stuurt naar client;
             if(pwrTxtBox.BackColor != Color.Red && timeTxtBox.BackColor != Color.Red && distanceTxtBox.BackColor != Color.Red)
-                network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text); 
+                network.sendBikeValues(pwrTxtBox.Text, timeTxtBox.Text, distanceTxtBox.Text,currentUser.username); 
         }
+
+
 
         /// <summary>
         /// Checks if entered value is correct.
@@ -285,5 +239,143 @@ namespace WindowsFormsApplication1
             else
                 distanceTxtBox.BackColor = Color.White;
         }
-    }
+
+        /// <summary>
+        /// get the chat message from the server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="message"></param>
+        public void getChatMessage(string sender, string message)
+        {
+
+            // Invoke nodig?
+            if (RTBChatText.InvokeRequired)
+            {
+                RTBChatText.Invoke((MethodInvoker)delegate
+                {
+                    // BSend_Click(sender + ": " + message, null);
+                    RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
+                });
+            }else
+                RTBChatText.Text += sender + ": " + message + System.Environment.NewLine;
+        }
+
+        /// <summary>
+        /// sends chat message to server 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BSend_Click(object sender, EventArgs e)
+        {
+            SendChatMessage(TChatSend.Text);
+            TChatSend.Text = "";
+        }
+
+        private void BSend_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("enter");
+            if (e.KeyData == Keys.Enter)
+            {
+                BSend_Click(sender, e);
+            }
+            
+        }
+
+
+        private void connectedUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentUser = (User) connectedUsers.SelectedItem;
+            RefreshFields();
+            TChatView.Text = "current user: " + currentUser;
+        }
+
+        private void RefreshFields()
+        {
+            //Set model en version fields
+        }
+
+        private void ResfreshThreadPhysician()
+        {
+            while(true)
+            {
+                if(currentUser != null)
+                {
+                    Measurement measurement = null;
+                    try
+                    {
+                        measurement = ((UserClient)currentUser).lastSession().GetLastMeasurement();
+                    }
+                    catch(NullReferenceException e)
+                    {
+
+                    }
+                    if (measurement != null)
+                    {
+                        SetLabelText(actualPowerLabel, measurement.actual_power.ToString());
+                        SetLabelText(timeLabel, measurement.time);
+                        SetLabelText(heartBeatLabel, measurement.pulse.ToString());
+                        SetLabelText(rpmLabel, measurement.rpm.ToString());
+                        SetLabelText(speedLabel, measurement.speed.ToString());
+                        SetLabelText(distanceLabel, measurement.distance.ToString());
+                        SetLabelText(energyLabel, measurement.energy.ToString());
+                        SetLabelText(requestedPowerLabel, measurement.requested_power.ToString());
+                    }
+                    //network.GetAllConnectedUsers(username);
+                    //FillUserComboBox();
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+        private void newClient_Click(object sender, EventArgs e)
+        {
+            new NewClient(network,username).ShowDialog();
+        }
+
+        private void viewOldDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new OldSesionData(network,username);
+            f.Show();
+
+        }
+
+        private void startVideoTrainingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendChatMessage("Starting video training session 15 min workout");
+
+            Thread t = new Thread(delegate () { new Video.VideoPlayer("15MinWorkout.mp4").ShowDialog(); });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
+
+        private void minVideoWorkoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendChatMessage("Starting video training session 45 min workout");
+
+            Thread t = new Thread(delegate () { new Video.VideoPlayer("45MinWorkout.mp4").ShowDialog(); });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
+
+        public void SetBikeValues(string power, string time, string distance)
+        {
+            bike.SetPower(Int32.Parse(power));
+            bike.setTime(Int32.Parse(time));
+            bike.SetDistance(Int32.Parse(distance));
+        }
+
+        public void SendChatMessage(string text)
+        {
+            string receiver;
+            if (isPhysician)
+                receiver = currentUser.username;
+            else
+                receiver = username;
+
+            network.sendChatMessage(text, username, receiver);
+            RTBChatText.Text += username + ": " + text + System.Environment.NewLine;
+
+        }
+
+    } 
 }
