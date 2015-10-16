@@ -24,11 +24,13 @@ namespace Network
             password = (string)info.GetValue("password", typeof(string));
             try
             {
+                isOnline = (bool)info.GetValue("isOnline", typeof(bool));
                 physician = (string)info.GetValue("physician", typeof(string));
                 sessions = (List<Session>)info.GetValue("sessions", typeof(List<Session>));
             }
             catch(Exception e)
             {
+               isOnline = false;
                physician = "jaap";
                sessions = new List<Session>();
             }
@@ -76,8 +78,10 @@ namespace Network
         {
             info.AddValue("username", username);
             info.AddValue("password", password);
+            info.AddValue("isOnline", isOnline);
             info.AddValue("physician", physician);
             info.AddValue("sessions", sessions);
+
         }
     }
 }

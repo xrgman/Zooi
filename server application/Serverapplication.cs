@@ -79,10 +79,9 @@ namespace server_application
                 {
                     foreach (User user2 in ((Physician)user).clients)
                     {
-                        Console.WriteLine("boem");
                         if (user2.username.Equals(username))
                         {
-                            Console.WriteLine("jaa");
+                            Console.WriteLine("gevonde use: " + user2);
                             return user2;
                         }
                     }
@@ -105,18 +104,19 @@ namespace server_application
                 else
                     users.Add(client.user);
             }
+            /*
             Console.WriteLine("\nThe users: ");
             foreach(User user in users)
                 Console.WriteLine(user);
             Console.WriteLine("\nThe physician shit");
             foreach (User user in physician.clients)
-                Console.WriteLine(user);
+                Console.WriteLine(user);*/
 
             try
             {
-                Console.WriteLine("usersss: " + users.Count + "  specia: " + physician.clients.Count );
-                List<UserClient> connectedUsers = physician.clients;
-                Console.WriteLine("size: " + connectedUsers.Count);
+                //Console.WriteLine("usersss: " + users.Count + "  specia: " + physician.clients.Count );
+                //List<UserClient> connectedUsers = physician.clients;
+                //Console.WriteLine("size: " + connectedUsers.Count);
                 return physician.clients;
             }
             catch(Exception e)

@@ -368,7 +368,6 @@ namespace WindowsFormsApplication1
 
         public void SetBikeValues(string power, string time, string distance)
         {
-            System.Diagnostics.Debug.WriteLine("setted");
             if(power != "")
                 bike.SetPower(Int32.Parse(power));
             if(time != "")

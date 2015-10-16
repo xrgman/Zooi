@@ -20,7 +20,8 @@ namespace Network
         public User(SerializationInfo info, StreamingContext ctxt)
         {
             username = (string)info.GetValue("username", typeof(string));
-            password = (String)info.GetValue("password", typeof(string));
+            password = (string)info.GetValue("password", typeof(string));
+            isOnline = (bool)info.GetValue("isOnline", typeof(bool));
         }
 
         public User()
@@ -38,6 +39,7 @@ namespace Network
         {
             info.AddValue("username", username);
             info.AddValue("password", password);
+            info.AddValue("isOnline", isOnline);
             //info.AddValue("clients", clients);
         }
 

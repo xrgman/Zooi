@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Security;
 using System.Net.Sockets;
+using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using Network;
@@ -56,15 +57,15 @@ namespace server_application
                         NetworkFlow.SendPacket(new PacketLoginResponse(true, user is Physician), stream);
                         Console.WriteLine("{0} succesfully logged in.",username);
                         if (user is Physician)
-                            this.user = user;
+                           this.user = user;
                         else
                            this.user = server.GetUserFromPhysician(username);
-                        user.isOnline = true;
+                        this.user.isOnline = true;
                         Console.WriteLine("This is the user: " + user);
                         if (!(user is Physician) && server.getPhysicianClient(((UserClient)user).physician) != null)
                         {
-                            Console.WriteLine("sending to physician: " + server.getUser(((UserClient)user).physician));
-                            NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers(((UserClient)user).physician)), server.getPhysicianClient(((UserClient)user).physician).stream);
+                            List<UserClient> clients = server.GetConnectedUsers(((UserClient)user).physician);
+                            NetworkFlow.SendPacket(new PacketGiveUserResponse(clients), server.getPhysicianClient(((UserClient)user).physician).stream);
                         }
                         break;
                     }
@@ -83,10 +84,7 @@ namespace server_application
             Console.WriteLine("Someone is requesting the user: " + username);
             if(username.Equals("*"))
             {
-                if (allUsers)
-                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.users),stream);
-                else
-                    NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers(physicianName)),stream);
+                NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetConnectedUsers(physicianName)),stream);
                 Console.WriteLine("Sending all users " + allUsers );
             }
             else
@@ -180,7 +178,7 @@ namespace server_application
                 if (physician != null)
                 {
                     Console.WriteLine("sending new user");
-                    NetworkFlow.SendPacket(new PacketGiveUserResponse(user), physician.stream);
+                    NetworkFlow.SendPacket(new PacketGiveUserResponse(user), server.getPhysicianClient(((UserClient)user).physician).stream);
                 }
             }
         }
