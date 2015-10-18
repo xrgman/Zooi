@@ -66,6 +66,7 @@
             this.button_Select.TabIndex = 1;
             this.button_Select.Text = "Select";
             this.button_Select.UseVisualStyleBackColor = true;
+            this.button_Select.Click += new System.EventHandler(this.button_Select_Click);
             // 
             // button_Back
             // 
@@ -75,6 +76,7 @@
             this.button_Back.TabIndex = 2;
             this.button_Back.Text = "Back";
             this.button_Back.UseVisualStyleBackColor = true;
+            this.button_Back.Click += new System.EventHandler(this.button_Back_Click);
             // 
             // button_Exit
             // 
