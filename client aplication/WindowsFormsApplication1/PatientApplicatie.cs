@@ -132,8 +132,15 @@ namespace WindowsFormsApplication1
         {
             if (label.InvokeRequired)
             {
-                SetTextCallback d = new SetTextCallback(SetLabelText);
-                this.Invoke(d, new object[] { label, text });
+                try
+                {
+                    SetTextCallback d = new SetTextCallback(SetLabelText);
+                    this.Invoke(d, new object[] { label, text });
+                }catch(Exception e)
+                {
+                    //TODO catch die shit
+                }
+               
             }
             else
             {
