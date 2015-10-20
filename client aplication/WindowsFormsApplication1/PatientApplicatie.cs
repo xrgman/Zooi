@@ -100,7 +100,7 @@ namespace WindowsFormsApplication1
         }
         delegate void SetUserComboBox();
 
-        private void FillUserComboBox()
+        public void FillUserComboBox()
         {
             if (this.connectedUsers.InvokeRequired)
             {
@@ -339,7 +339,7 @@ namespace WindowsFormsApplication1
                     users = network.users;
                     if(currentUser != null)
                         currentUser = network.getUser(currentUser.username); 
-                    FillUserComboBox();
+                    //FillUserComboBox();
                     System.Diagnostics.Debug.WriteLine("current user: " + currentUser);
                 }
                 Thread.Sleep(1000);

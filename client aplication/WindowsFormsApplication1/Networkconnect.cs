@@ -110,7 +110,7 @@ namespace WindowsFormsApplication1
         //Get all users in the database.
         public List<User> GetAllUsers()
         {
-            networkCommunication.sendPacket(new PacketGiveUser("*", true,""));
+            networkCommunication.sendPacket(new PacketGiveUser("*", true, ""));
             Thread.Sleep(1000);
             return users;
         }
@@ -144,6 +144,7 @@ namespace WindowsFormsApplication1
             {
                 List<User> tempusers = users.ConvertAll(user => (User)user);
                 this.users = tempusers;
+                parent.FillUserComboBox();
             }
             catch(Exception e){
                 Console.WriteLine("error in NetworkConnect GiveUserResponse(List<UserClient> user) /n"  + e);
