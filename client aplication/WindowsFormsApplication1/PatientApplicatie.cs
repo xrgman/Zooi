@@ -399,5 +399,14 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            network.sendSaveData();     
+        }
+
+        public void DataSaved(bool succesfull)
+        {
+
+        }
     } 
 }

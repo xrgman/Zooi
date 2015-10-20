@@ -94,3 +94,11 @@ C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\bin\Debug\Netw
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.exe
 C:\Users\Bilel\Source\Repos\CycleMasterPro2000\server application\obj\Debug\server application.pdb
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\bin\Debug\server application.exe.config
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\obj\Debug\server application.exe
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\obj\Debug\server application.pdb
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\bin\Debug\server application.exe
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\bin\Debug\server application.pdb
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\bin\Debug\Network.dll
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\bin\Debug\Network.pdb
+C:\Users\rene\Desktop\CycleMasterPro2000\server application\obj\Debug\server application.csprojResolveAssemblyReference.cache

@@ -78,6 +78,11 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketChatMessage(message, sender, receiver));
         }
 
+        public void sendSaveData()
+        {
+            networkCommunication.sendPacket(new PacketSaveData());
+        }
+
         public void sendBroadcast(string message, string sender)
         {
             networkCommunication.sendPacket(new PacketBroadcast(message, sender));
@@ -167,6 +172,11 @@ namespace WindowsFormsApplication1
         public void BroadcastResponse(string sender, string message)
         {
             parent.getChatMessage(sender, message);
+        }
+
+        public void SaveDataResponse(bool succesfull)
+        {
+            parent.DataSaved(true);
         }
     }
 }

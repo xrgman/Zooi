@@ -187,5 +187,10 @@ namespace server_application
         {
             return "ServerClient: " + user;
         }
+
+        public void SaveData()
+        {
+            server.SaveAllData();
+        }
     }
 }

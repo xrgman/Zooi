@@ -9,5 +9,6 @@
         void ChatMessage(string sender, string receiver, string message);
         void Broadcast(string sender, string message);
         void ReceiveMeasurement(Measurement measurement, string physcianName, string sessionType);
+        void SaveData();
     }
 }

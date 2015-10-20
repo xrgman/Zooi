@@ -45,7 +45,7 @@ namespace server_application
             jaap.addClient(boefje);
             users.Add(jaap);*/
 
-            SaveAllData();
+            //SaveAllData();
 
             TcpListener listener = new TcpListener(IPAddress.Any, 130);
             listener.Start();

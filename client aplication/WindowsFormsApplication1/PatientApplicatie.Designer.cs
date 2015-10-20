@@ -42,6 +42,7 @@
             this.setComPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startVideoTrainingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minVideoWorkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +86,6 @@
             this.newClient = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.minVideoWorkoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -117,25 +117,26 @@
             // saveFileToolStripMenuItem
             // 
             this.saveFileToolStripMenuItem.Name = "saveFileToolStripMenuItem";
-            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.saveFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveFileToolStripMenuItem.Text = "save file";
+            this.saveFileToolStripMenuItem.Click += new System.EventHandler(this.saveFileToolStripMenuItem_Click);
             // 
             // quickSaveToolStripMenuItem
             // 
             this.quickSaveToolStripMenuItem.Name = "quickSaveToolStripMenuItem";
-            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.quickSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quickSaveToolStripMenuItem.Text = "quick save";
             // 
             // loadFileToolStripMenuItem
             // 
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadFileToolStripMenuItem.Text = "load file";
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitToolStripMenuItem.Text = "quit";
             // 
             // optionsToolStripMenuItem
@@ -167,6 +168,13 @@
             this.startVideoTrainingToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.startVideoTrainingToolStripMenuItem.Text = "15 min video workout";
             this.startVideoTrainingToolStripMenuItem.Click += new System.EventHandler(this.startVideoTrainingToolStripMenuItem_Click);
+            // 
+            // minVideoWorkoutToolStripMenuItem
+            // 
+            this.minVideoWorkoutToolStripMenuItem.Name = "minVideoWorkoutToolStripMenuItem";
+            this.minVideoWorkoutToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.minVideoWorkoutToolStripMenuItem.Text = "45 min video workout";
+            this.minVideoWorkoutToolStripMenuItem.Click += new System.EventHandler(this.minVideoWorkoutToolStripMenuItem_Click);
             // 
             // viewOldDataToolStripMenuItem
             // 
@@ -592,13 +600,6 @@
             this.chart1.Size = new System.Drawing.Size(311, 593);
             this.chart1.TabIndex = 39;
             this.chart1.Text = "chart1";
-            // 
-            // minVideoWorkoutToolStripMenuItem
-            // 
-            this.minVideoWorkoutToolStripMenuItem.Name = "minVideoWorkoutToolStripMenuItem";
-            this.minVideoWorkoutToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.minVideoWorkoutToolStripMenuItem.Text = "45 min video workout";
-            this.minVideoWorkoutToolStripMenuItem.Click += new System.EventHandler(this.minVideoWorkoutToolStripMenuItem_Click);
             // 
             // FormClient
             // 
