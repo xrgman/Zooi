@@ -90,7 +90,7 @@ namespace server_application
             else
             {
                 Console.WriteLine("Sending user: " + server.getUserClient(username));
-                NetworkFlow.SendPacket(new PacketGiveUserResponse(server.getUserClient(username)),stream);
+                NetworkFlow.SendPacket(new PacketGiveUserResponse(server.GetUserFromPhysician(username)),stream);
             }
         }
 
@@ -174,12 +174,12 @@ namespace server_application
             else
             {
                 userClient.addMeasurement(measurement);
-                ServerClient physician = server.getPhysicianClient(physcianName);
-                if (physician != null)
-                {
-                    Console.WriteLine("sending new user " + user.isOnline);
-                    NetworkFlow.SendPacket(new PacketGiveUserResponse(user), server.getPhysicianClient(((UserClient)user).physician).stream);
-                }
+                //ServerClient physician = server.getPhysicianClient(physcianName);
+                //if (physician != null)
+                //{
+                //    Console.WriteLine("sending new user " + user.isOnline);
+                //    NetworkFlow.SendPacket(new PacketGiveUserResponse(user), server.getPhysicianClient(((UserClient)user).physician).stream);
+                //}
             }
         }
 

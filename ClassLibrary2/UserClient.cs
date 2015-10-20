@@ -25,13 +25,23 @@ namespace Network
             try
             {
                 isOnline = (bool)info.GetValue("isOnline", typeof(bool));
+            }
+            catch(Exception e )
+            {
+                isOnline = false;
+            }
+            try {
                 physician = (string)info.GetValue("physician", typeof(string));
+            }
+            catch(Exception e)
+            {
+                physician = "jaap";
+            }
+            try { 
                 sessions = (List<Session>)info.GetValue("sessions", typeof(List<Session>));
             }
             catch(Exception e)
             {
-               isOnline = false;
-               physician = "jaap";
                sessions = new List<Session>();
             }
         }
@@ -71,6 +81,11 @@ namespace Network
         public Measurement lastMeasurement()
         {
             return lastSession().GetLastMeasurement();
+        }
+
+        public int getSizeDing()
+        {
+            return sessions.Count;
         }
          
         //serialize method

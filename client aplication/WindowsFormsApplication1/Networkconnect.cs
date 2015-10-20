@@ -118,7 +118,7 @@ namespace WindowsFormsApplication1
         public User getUser(string username)
         {
             networkCommunication.sendPacket(new PacketGiveUser(username, true, ""));
-            Thread.Sleep(1000);
+            Thread.Sleep(50);
             return user;
         }
 

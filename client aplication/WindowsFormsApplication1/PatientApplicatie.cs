@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1
                 if (users != null)
                 {
                     if (users.Count > 0)
-                        currentUser = users.First();
+                            currentUser = users.First();
                     FillUserComboBox();
                 }
                 Thread physicianThread = new Thread(new ThreadStart(ResfreshThreadPhysician));
@@ -112,12 +112,14 @@ namespace WindowsFormsApplication1
                 this.connectedUsers.Items.Clear();
                 foreach (User user in users)
                 {
-                    if(user.isOnline)
+                    //if(user.isOnline)
                         this.connectedUsers.Items.Add(user);
                 }
                 if (currentUser != null)
-                    this.connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(currentUser);
-                else if(connectedUsers.Items.Count > 0)
+                {
+                    this.connectedUsers.SelectedIndex = this.connectedUsers.Items.IndexOf(currentUser);
+                }
+                else if (connectedUsers.Items.Count > 0)
                     this.connectedUsers.SelectedIndex = connectedUsers.Items.IndexOf(0);
             }
         }
@@ -289,12 +291,19 @@ namespace WindowsFormsApplication1
         {
             currentUser = (User) connectedUsers.SelectedItem;
             RefreshFields();
-            //TChatView.Text = "current user: " + currentUser;
+            
         }
 
         private void RefreshFields()
         {
-            //Set model en version fields
+            SetLabelText(actualPowerLabel, "");
+            SetLabelText(timeLabel, "");
+            SetLabelText(heartBeatLabel, "");
+            SetLabelText(rpmLabel, "");
+            SetLabelText(speedLabel, "");
+            SetLabelText(distanceLabel, "");
+            SetLabelText(energyLabel, "");
+            SetLabelText(requestedPowerLabel, "");
         }
 
         private void ResfreshThreadPhysician()
@@ -310,7 +319,6 @@ namespace WindowsFormsApplication1
                     }
                     catch(NullReferenceException e)
                     {
-
                     }
                     if (measurement != null)
                     {
@@ -325,15 +333,14 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
-                        //System.Diagnostics.Debug.WriteLine("no measurement");
+                        System.Diagnostics.Debug.WriteLine("no measurement");
                     }
-                    ////network.GetAllConnectedUsers(username);
+                    //network.GetAllConnectedUsers(username);
                     users = network.users;
-                    foreach(User user in users)
-                    {
-                        //System.Diagnostics.Debug.WriteLine(user);
-                    }
+                    if(currentUser != null)
+                        currentUser = network.getUser(currentUser.username); 
                     FillUserComboBox();
+                    System.Diagnostics.Debug.WriteLine("current user: " + currentUser);
                 }
                 Thread.Sleep(1000);
             }
