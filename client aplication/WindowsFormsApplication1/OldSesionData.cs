@@ -93,35 +93,39 @@ namespace WindowsFormsApplication1
 
         private void button_Select_Click(object sender, EventArgs e)
         {
+            
             int temp = listBox_Data.SelectedIndex;
-            if (isPhysician)
+            if (temp >=0)
             {
-                if (depth == 0)
+                if (isPhysician)
                 {
-                    UserClient tempc = users.ElementAt(temp);
-                    listBox_Data.DataSource = tempc.getSessions();
-                    sesions = tempc.getSessions();
-                    depth++;
-                }
-                else if (depth == 1)
-                {
-                    Session tempc = sesions.ElementAt(temp);
-                    listBox_Data.DataSource = tempc.getMeasurement();
-                    measurements = tempc.getMeasurement();
-                    depth++;
-                }
+                    if (depth == 0)
+                    {
+                        UserClient tempc = users.ElementAt(temp);
+                        listBox_Data.DataSource = tempc.getSessions();
+                        sesions = tempc.getSessions();
+                        depth++;
+                    }
+                    else if (depth == 1)
+                    {
+                        Session tempc = sesions.ElementAt(temp);
+                        listBox_Data.DataSource = tempc.getMeasurement();
+                        measurements = tempc.getMeasurement();
+                        depth++;
+                    }
 
-            }
-            else
-            {
-                if (depth == 0)
-                {
-                    Session tempc = sesions.ElementAt(temp);
-                    listBox_Data.DataSource = tempc.getMeasurement();
-                    measurements = tempc.getMeasurement();
-                    depth++;
                 }
+                else
+                {
+                    if (depth == 0)
+                    {
+                        Session tempc = sesions.ElementAt(temp);
+                        listBox_Data.DataSource = tempc.getMeasurement();
+                        measurements = tempc.getMeasurement();
+                        depth++;
+                    }
 
+                }
             }
         }
 
