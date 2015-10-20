@@ -96,22 +96,9 @@ namespace WindowsFormsApplication1
                         }
                         else
                         {
-                            int seconds;
-                            if (newTime[1].Length < 3)
-                            {
-                                seconds = Int32.Parse(newTime[1]);
-                                if (seconds > 60)
-                                    seconds = 59;
-                                this.seconds = seconds;
-                            }
-                            else
-                            {
-                                seconds = Int32.Parse(newTime[1].Substring(newTime[1].Length-2));
-                                if (seconds > 60)
-                                {
-                                    seconds = 0;
-                                }
-                            }
+                            this.seconds = Int32.Parse(newTime[1])% 60;
+                            this.minutes = Int32.Parse(newTime[1]) / 60;
+
                             return getStatus();
                         }
                     }

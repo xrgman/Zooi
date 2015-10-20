@@ -383,7 +383,7 @@ namespace WindowsFormsApplication1
             if(time != "")
                 bike.setTime(Int32.Parse(time));
             if(distance != "")
-                bike.SetDistance(Int32.Parse(distance)); 
+                bike.SetDistance(Int32.Parse(distance));
         }
 
         public void SendChatMessage(string text)

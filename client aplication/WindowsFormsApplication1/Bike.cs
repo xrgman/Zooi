@@ -174,7 +174,7 @@ namespace WindowsFormsApplication1
             else
             {
                 simulator.SendMessage("CM");
-                simulator.SendMessage("PD " + distance);
+                simulator.SendMessage("PD " + distance*10);
             }
         }
 

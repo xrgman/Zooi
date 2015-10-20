@@ -67,3 +67,4 @@ C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\Video\obj\Debug\Video.Prop
 C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
 C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\Video\obj\Debug\Video.exe
 C:\Users\Beer-msi\Documents\GitHub\CycleMasterPro2000\Video\obj\Debug\Video.pdb
+D:\avans\Jaar 2\Periode 1\RHCAPP\CycleMasterPro2000\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
