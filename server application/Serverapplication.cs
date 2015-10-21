@@ -29,7 +29,7 @@ namespace server_application
         {
             ConnectedClients = new List<ServerClient>();
             LoadAllData();
-            
+
             //DO NOT UNCOMMENT THIS, OTHERWISE ALL USERS WILL BE ADDED MULTIPLE TIMES!
             /*//add test users obviously for testing
             users.Add(new UserClient("Henk", "banaan"));     
