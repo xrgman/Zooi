@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
     public partial class Graph
     {
         // Bijbehorende gebruiker
-        public Session session { get; private set; }
+        public Session session { get; set; }
 
         // Wat laat de grafiek zien
         private SearchTypes CurrentSearchType { get; set; }

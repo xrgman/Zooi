@@ -29,6 +29,12 @@ namespace WindowsFormsApplication1
             if(!isPhysician) //Client:
             {
                 currentUser = network.getUser(username);
+                try {
+                    graph1.setSession(((UserClient)currentUser).lastSession()); }
+                catch (NullReferenceException ex)
+                {
+                    // Homo
+                }
                 pwrTxtBox.Hide();
                 distanceTxtBox.Hide();
                 timeTxtBox.Hide();
@@ -39,7 +45,7 @@ namespace WindowsFormsApplication1
                 broadCastButton.Hide();
                 connectedUsers.Hide();
                 newClient.Hide();
-            }
+                }
             else //Specialist:
             {
                 BComConnect.Hide();
@@ -149,7 +155,16 @@ namespace WindowsFormsApplication1
         }
 
         private void RefreshThread()
-        {
+        { 
+            try
+            {
+                if (graph1.session == null)
+                    graph1.setSession(((UserClient)currentUser).lastSession());
+            }
+            catch (NullReferenceException ex)
+            {
+                // Homo
+            }
             network.sendMeasurement(null, ((UserClient)currentUser).physician, "Create");
             do
             {
@@ -413,6 +428,11 @@ namespace WindowsFormsApplication1
         }
 
         public void DataSaved(bool succesfull)
+        {
+
+        }
+
+        private void graph1_Load(object sender, EventArgs e)
         {
 
         }
