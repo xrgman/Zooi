@@ -585,6 +585,7 @@
             // 
             this.graph1.Location = new System.Drawing.Point(531, 36);
             this.graph1.Name = "graph1";
+            this.graph1.session = null;
             this.graph1.Size = new System.Drawing.Size(651, 311);
             this.graph1.TabIndex = 39;
             this.graph1.Load += new System.EventHandler(this.graph1_Load);
