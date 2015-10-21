@@ -297,6 +297,7 @@ namespace WindowsFormsApplication1
         private void connectedUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentUser = (User) connectedUsers.SelectedItem;
+            graph1.setSession(((UserClient)currentUser).lastSession());
             RefreshFields();
             
         }
