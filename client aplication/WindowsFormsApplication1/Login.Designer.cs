@@ -131,7 +131,7 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(172, 59);
+            this.passwordTextBox.Location = new System.Drawing.Point(126, 59);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(132, 20);
             this.passwordTextBox.TabIndex = 3;
@@ -139,7 +139,7 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(172, 23);
+            this.usernameTextBox.Location = new System.Drawing.Point(126, 23);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(132, 20);
             this.usernameTextBox.TabIndex = 2;
@@ -150,9 +150,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(30, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 18);
+            this.label2.Size = new System.Drawing.Size(88, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Wachtwoord:";
+            this.label2.Text = "Password:";
             // 
             // label1
             // 
@@ -160,10 +160,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(30, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 18);
+            this.label1.Size = new System.Drawing.Size(90, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Gebruikersnaam:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Username:";
             // 
             // Login
             // 

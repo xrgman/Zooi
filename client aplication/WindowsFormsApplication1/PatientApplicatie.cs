@@ -29,12 +29,6 @@ namespace WindowsFormsApplication1
             if(!isPhysician) //Client:
             {
                 currentUser = network.getUser(username);
-                try {
-                    graph1.setSession(((UserClient)currentUser).lastSession()); }
-                catch (NullReferenceException ex)
-                {
-                    // Homo
-                }
                 pwrTxtBox.Hide();
                 distanceTxtBox.Hide();
                 timeTxtBox.Hide();
@@ -45,7 +39,7 @@ namespace WindowsFormsApplication1
                 broadCastButton.Hide();
                 connectedUsers.Hide();
                 newClient.Hide();
-                }
+            }
             else //Specialist:
             {
                 BComConnect.Hide();
@@ -155,16 +149,7 @@ namespace WindowsFormsApplication1
         }
 
         private void RefreshThread()
-        { 
-            try
-            {
-                if (graph1.session == null)
-                    graph1.setSession(((UserClient)currentUser).lastSession());
-            }
-            catch (NullReferenceException ex)
-            {
-                // Homo
-            }
+        {
             network.sendMeasurement(null, ((UserClient)currentUser).physician, "Create");
             do
             {
@@ -174,14 +159,14 @@ namespace WindowsFormsApplication1
                 Measurement measurement = bike.GetMeasurement();
                 if (measurement != null)
                 {
-                    SetLabelText(actualPowerLabel,measurement.actual_power.ToString());
+                    SetLabelText(actualPowerLabel,measurement.actual_power.ToString() + " Watt");
                     SetLabelText(timeLabel, measurement.time);
-                    SetLabelText(heartBeatLabel,measurement.pulse.ToString());
+                    SetLabelText(heartBeatLabel,measurement.pulse.ToString()+" bpm");
                     SetLabelText(rpmLabel,measurement.rpm.ToString());
-                    SetLabelText(speedLabel,measurement.speed.ToString());
-                    SetLabelText(distanceLabel,measurement.distance.ToString());
-                    SetLabelText(energyLabel,measurement.energy.ToString());
-                    SetLabelText(requestedPowerLabel,measurement.requested_power.ToString());
+                    SetLabelText(speedLabel,measurement.speed.ToString() + " km/h");
+                    SetLabelText(distanceLabel,measurement.distance.ToString()+ " km");
+                    SetLabelText(energyLabel,measurement.energy.ToString()+" kJ");
+                    SetLabelText(requestedPowerLabel,measurement.requested_power.ToString()+" Watt");
                 }
                 //Send measurement to the server
                 network.sendMeasurement(measurement,((UserClient)currentUser).physician,"Last");
@@ -312,7 +297,6 @@ namespace WindowsFormsApplication1
         private void connectedUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentUser = (User) connectedUsers.SelectedItem;
-            graph1.setSession(((UserClient)currentUser).lastSession());
             RefreshFields();
             
         }
@@ -345,14 +329,14 @@ namespace WindowsFormsApplication1
                     }
                     if (measurement != null)
                     {
-                        SetLabelText(actualPowerLabel, measurement.actual_power.ToString());
+                        SetLabelText(actualPowerLabel, measurement.actual_power.ToString() +" Watt");
                         SetLabelText(timeLabel, measurement.time);
-                        SetLabelText(heartBeatLabel, measurement.pulse.ToString());
+                        SetLabelText(heartBeatLabel, measurement.pulse.ToString()+" bpm");
                         SetLabelText(rpmLabel, measurement.rpm.ToString());
-                        SetLabelText(speedLabel, measurement.speed.ToString());
-                        SetLabelText(distanceLabel, measurement.distance.ToString());
-                        SetLabelText(energyLabel, measurement.energy.ToString());
-                        SetLabelText(requestedPowerLabel, measurement.requested_power.ToString());
+                        SetLabelText(speedLabel, measurement.speed.ToString()+" km/h");
+                        SetLabelText(distanceLabel, measurement.distance.ToString()+" km");
+                        SetLabelText(energyLabel, measurement.energy.ToString()+" kJ");
+                        SetLabelText(requestedPowerLabel, measurement.requested_power.ToString() +" Watt");
                     }
                     else
                     {
@@ -432,7 +416,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void graph1_Load(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

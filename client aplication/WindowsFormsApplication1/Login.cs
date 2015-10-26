@@ -64,10 +64,5 @@ namespace WindowsFormsApplication1
                     MessageBox.Show("Please enter a username and a password!");
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

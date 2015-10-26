@@ -81,12 +81,6 @@
     <Compile Include="CommChooser.Designer.cs">
       <DependentUpon>CommChooser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Graph.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Graph.Designer.cs">
-      <DependentUpon>Graph.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulator.cs" />
@@ -104,9 +98,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommChooser.resx">
       <DependentUpon>CommChooser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Graph.resx">
-      <DependentUpon>Graph.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
