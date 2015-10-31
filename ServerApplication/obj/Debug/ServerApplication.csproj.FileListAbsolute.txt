@@ -1,0 +1,8 @@
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\bin\Debug\ServerApplication.exe.config
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\bin\Debug\ServerApplication.exe
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\bin\Debug\ServerApplication.pdb
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\bin\Debug\NetworkLibrary.dll
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\bin\Debug\NetworkLibrary.pdb
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\obj\Debug\ServerApplication.csprojResolveAssemblyReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\obj\Debug\ServerApplication.exe
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ServerApplication\obj\Debug\ServerApplication.pdb

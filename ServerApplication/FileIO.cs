@@ -1,0 +1,6 @@
+﻿namespace ServerApplication
+{
+    class FileIO
+    {
+    }
+}

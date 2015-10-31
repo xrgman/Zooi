@@ -1,0 +1,5 @@
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\NetworkLibrary\bin\Debug\NetworkLibrary.dll
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\NetworkLibrary\bin\Debug\NetworkLibrary.pdb
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\NetworkLibrary\obj\Debug\NetworkLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\NetworkLibrary\obj\Debug\NetworkLibrary.dll
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\NetworkLibrary\obj\Debug\NetworkLibrary.pdb
