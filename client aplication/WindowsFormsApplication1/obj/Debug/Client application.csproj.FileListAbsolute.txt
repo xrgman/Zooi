@@ -202,3 +202,26 @@ D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\client aplication\Win
 D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
 D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csproj.GenerateResource.Cache
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\Interop.WMPLib.dll
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csproj.ResolveComReference.cache
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\Network.dll
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\Video.exe
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\Interop.WMPLib.dll
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\Network.pdb
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\bin\Debug\Video.pdb
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csprojResolveAssemblyReference.cache
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.NewClient.resources
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.OldSesionData.resources
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.OldTestData.resources
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.FormClient.resources
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CommForm.resources
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Beer-msi\Documents\GitHub\ip2\Zooi\client aplication\WindowsFormsApplication1\obj\Debug\Client application.csproj.GenerateResource.Cache
