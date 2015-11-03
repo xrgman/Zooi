@@ -1,0 +1,12 @@
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\bin\Debug\ClientApplicatie.exe.config
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\bin\Debug\ClientApplicatie.exe
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\bin\Debug\ClientApplicatie.pdb
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\bin\Debug\NetworkLibrary.dll
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\bin\Debug\NetworkLibrary.pdb
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\obj\Debug\ClientApplicatie.csprojResolveAssemblyReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\obj\Debug\ClientApplicatie.ClientApplication.resources
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\obj\Debug\ClientApplicatie.Login.resources
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\obj\Debug\ClientApplicatie.Properties.Resources.resources
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\obj\Debug\ClientApplicatie.csproj.GenerateResource.Cache
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\obj\Debug\ClientApplicatie.exe
+C:\Users\Beer\Dropbox\school\periode 1\c#\eindopdracht\agendaa\ClientApplicatie\ClientApplicatie\obj\Debug\ClientApplicatie.pdb
