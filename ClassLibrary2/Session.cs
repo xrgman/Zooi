@@ -48,6 +48,11 @@ namespace Network
                 return null;
         }
 
+        public override string ToString()
+        {
+            return "" + startedDate;
+        }
+
         //serialize method
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {

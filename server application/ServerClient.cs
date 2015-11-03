@@ -150,8 +150,7 @@ namespace server_application
                 Console.WriteLine("sending packet to: " + client.user.username);
 
                 NetworkFlow.SendPacket(new PacketChatMessage(message, sender, receiver), client.stream);
-            }
-                
+            }        
         }
 
 
@@ -165,12 +164,15 @@ namespace server_application
             }
         }
 
-        public void ReceiveMeasurement(Measurement measurement, string physcianName, string sessionType)
+        public void ReceiveMeasurement(Measurement measurement, string physcianName, string sessionType, string username)
         {
-            UserClient userClient = (UserClient)user;
-            Console.WriteLine("measurement shizzle");
+            UserClient userClient = (UserClient) server.GetUserFromPhysician(username);
             if (sessionType.Equals("Create"))
                 userClient.addSession(DateTime.Now);
+            else if (sessionType.Equals("CreateTest"))
+                userClient.StartNewTest();
+            else if (sessionType.Equals("AddToTest"))
+                userClient.AddToLatestTest(measurement);
             else
             {
                 userClient.addMeasurement(measurement);
@@ -182,6 +184,7 @@ namespace server_application
                 //}
             }
         }
+
 
         public override string ToString()
         {

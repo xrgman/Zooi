@@ -68,9 +68,9 @@ namespace WindowsFormsApplication1
             networkCommunication.sendPacket(new PacketBikeValues(power, time, distance, username));
         }
 
-        public void sendMeasurement(Measurement measurement, string physicianName, string sessionType)
+        public void sendMeasurement(Measurement measurement, string physicianName, string sessionType, string username)
         {
-            networkCommunication.sendPacket(new PacketMeasurement(measurement, physicianName,sessionType));
+            networkCommunication.sendPacket(new PacketMeasurement(measurement, physicianName,sessionType, username));
         }
         
         public void sendChatMessage(string message, string sender, string receiver)
@@ -123,7 +123,7 @@ namespace WindowsFormsApplication1
         public User getUser(string username)
         {
             networkCommunication.sendPacket(new PacketGiveUser(username, true, ""));
-            Thread.Sleep(50);
+            Thread.Sleep(200);
             return user;
         }
 

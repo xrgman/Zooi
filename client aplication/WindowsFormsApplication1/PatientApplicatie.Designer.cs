@@ -46,6 +46,11 @@
             this.viewOldDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dropDownTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.bikeImprovementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.olddataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TChatView = new System.Windows.Forms.TextBox();
             this.TChatSend = new System.Windows.Forms.TextBox();
             this.BSend = new System.Windows.Forms.Button();
@@ -97,7 +102,8 @@
             this.toolStripMenuItem1,
             this.optionsToolStripMenuItem,
             this.viewOldDataToolStripMenuItem,
-            this.usersToolStripMenuItem});
+            this.usersToolStripMenuItem,
+            this.dropDownTest});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(521, 24);
@@ -197,6 +203,44 @@
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.findToolStripMenuItem.Text = "Find";
+            // 
+            // dropDownTest
+            // 
+            this.dropDownTest.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bikeImprovementToolStripMenuItem});
+            this.dropDownTest.Name = "dropDownTest";
+            this.dropDownTest.Size = new System.Drawing.Size(40, 20);
+            this.dropDownTest.Text = "Test";
+            // 
+            // bikeImprovementToolStripMenuItem
+            // 
+            this.bikeImprovementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.startToolStripMenuItem,
+            this.olddataToolStripMenuItem});
+            this.bikeImprovementToolStripMenuItem.Name = "bikeImprovementToolStripMenuItem";
+            this.bikeImprovementToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.bikeImprovementToolStripMenuItem.Text = "Bike-Improvement";
+            this.bikeImprovementToolStripMenuItem.Click += new System.EventHandler(this.bikeImprovementToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // startToolStripMenuItem
+            // 
+            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.startToolStripMenuItem.Text = "Start";
+            this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
+            // 
+            // olddataToolStripMenuItem
+            // 
+            this.olddataToolStripMenuItem.Name = "olddataToolStripMenuItem";
+            this.olddataToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.olddataToolStripMenuItem.Text = "Old-data";
+            this.olddataToolStripMenuItem.Click += new System.EventHandler(this.olddataToolStripMenuItem_Click);
             // 
             // TChatView
             // 
@@ -732,6 +776,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ToolStripMenuItem minVideoWorkoutToolStripMenuItem;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolStripMenuItem dropDownTest;
+        private System.Windows.Forms.ToolStripMenuItem bikeImprovementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem olddataToolStripMenuItem;
     }
 }
 

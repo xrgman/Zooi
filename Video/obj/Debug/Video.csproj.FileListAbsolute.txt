@@ -96,3 +96,31 @@ D:\CycleMasterPro2000\Video\obj\Debug\Video.Properties.Resources.resources
 D:\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
 D:\CycleMasterPro2000\Video\obj\Debug\Video.exe
 D:\CycleMasterPro2000\Video\obj\Debug\Video.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Video.exe.config
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Video.exe
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Video.pdb
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Interop.WMPLib.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Interop.WMPLib.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.csproj.ResolveComReference.cache
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.VideoPlayer.resources
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.Properties.Resources.resources
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.exe
+C:\Users\Beer\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.pdb
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Video.exe.config
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Video.exe
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Video.pdb
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\Interop.WMPLib.dll
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\bin\Debug\AxInterop.WMPLib.dll
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Interop.WMPLib.dll
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\AxInterop.WMPLib.dll
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.csproj.ResolveComReference.cache
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.VideoPlayer.resources
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.Properties.Resources.resources
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.csproj.GenerateResource.Cache
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.exe
+D:\Dropbox\school\periode 1\project\IP2\CycleMasterPro2000\Video\obj\Debug\Video.pdb

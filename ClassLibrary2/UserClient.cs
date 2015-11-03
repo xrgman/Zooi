@@ -9,12 +9,14 @@ namespace Network
     public class UserClient : User, ISerializable
     {
         public List<Session> sessions { get; }
+        public List<Session> tests { get; }
         public string physician { get; }
         
         public UserClient(string username, string userPassword, string physician): base(username,userPassword)
         {
             this.physician = physician;
             sessions =  new List<Session>();
+            tests = new List<Session>();
         }
 
         //deserialize method
@@ -43,6 +45,13 @@ namespace Network
             catch(Exception e)
             {
                sessions = new List<Session>();
+            }
+            try
+            {
+                tests = (List<Session>)info.GetValue("tests", typeof(List<Session>));
+            }
+            catch(Exception e) {
+                tests = new List<Session>();
             }
         }
 
@@ -87,7 +96,23 @@ namespace Network
         {
             return sessions.Count;
         }
-         
+
+        public List<Session> GetTests()
+        {
+            return tests;
+        }
+
+        public void StartNewTest()
+        {
+            Session test = new Session(DateTime.Now);
+            tests.Add(test);
+        }
+
+        public void AddToLatestTest(Measurement measurement)
+        {
+            tests.Last().AddMeasurement(measurement);
+        }
+          
         //serialize method
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -96,7 +121,7 @@ namespace Network
             info.AddValue("isOnline", isOnline);
             info.AddValue("physician", physician);
             info.AddValue("sessions", sessions);
-
+            info.AddValue("tests", tests);
         }
     }
 }

@@ -152,7 +152,7 @@ namespace WindowsFormsApplication1
                 rpm = newrpm;
             if (rpm > 150)
                 rpm -= r.Next(rpm - 145);
-
+            //rpm = 90;
 
             //generate pulse 
             pulse = 60 + (int)(0.5 * rpm);

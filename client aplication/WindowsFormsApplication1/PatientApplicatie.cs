@@ -39,6 +39,8 @@ namespace WindowsFormsApplication1
                 broadCastButton.Hide();
                 connectedUsers.Hide();
                 newClient.Hide();
+                dropDownTest.HideDropDown();
+                bikeImprovementToolStripMenuItem.HideDropDown();
             }
             else //Specialist:
             {
@@ -150,7 +152,7 @@ namespace WindowsFormsApplication1
 
         private void RefreshThread()
         {
-            network.sendMeasurement(null, ((UserClient)currentUser).physician, "Create");
+            network.sendMeasurement(null, ((UserClient)currentUser).physician, "Create", username);
             do
             {
                 //Set the status of connection:
@@ -169,7 +171,7 @@ namespace WindowsFormsApplication1
                     SetLabelText(requestedPowerLabel,measurement.requested_power.ToString()+" Watt");
                 }
                 //Send measurement to the server
-                network.sendMeasurement(measurement,((UserClient)currentUser).physician,"Last");
+                network.sendMeasurement(measurement,((UserClient)currentUser).physician,"Last", username);
                 Thread.Sleep(1000);
             }
             while (statusLabel.Text != "Error: connection lost");
@@ -289,17 +291,36 @@ namespace WindowsFormsApplication1
             if (e.KeyData == Keys.Enter)
             {
                 BSend_Click(sender, e);
-            }
-            
+            }   
         }
 
 
         private void connectedUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentUser = (User) connectedUsers.SelectedItem;
+            //currentUser = (User) connectedUsers.SelectedItem;
+            SetCurrentUser();
             RefreshFields();
-            
         }
+
+        delegate void SetCurrentUserCallBack();
+
+        private void SetCurrentUser()
+        {
+            if (connectedUsers.InvokeRequired)
+            {
+                try
+                {
+                    SetCurrentUserCallBack d = new SetCurrentUserCallBack(SetCurrentUser);
+                    this.Invoke(d, new object[] {});
+                }
+                catch (Exception e) { }
+            }
+            else
+            {
+                currentUser = (User)connectedUsers.SelectedItem;
+            }
+        }
+
 
         private void RefreshFields()
         {
@@ -340,14 +361,19 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
-                        System.Diagnostics.Debug.WriteLine("no measurement");
+                        //System.Diagnostics.Debug.WriteLine("no measurement");
                     }
                     //network.GetAllConnectedUsers(username);
                     users = network.users;
-                    if(currentUser != null)
-                        currentUser = network.getUser(currentUser.username); 
+                    if (currentUser != null)
+                    {
+                        System.Diagnostics.Debug.WriteLine(currentUser.username);
+                        User user = network.getUser(currentUser.username);
+                        
+                        currentUser = user;
+                    }
                     //FillUserComboBox();
-                    System.Diagnostics.Debug.WriteLine("current user: " + currentUser);
+                    //System.Diagnostics.Debug.WriteLine("current user: " + currentUser);
                 }
                 Thread.Sleep(1000);
             }
@@ -385,12 +411,15 @@ namespace WindowsFormsApplication1
 
         public void SetBikeValues(string power, string time, string distance)
         {
-            if(power != "")
-                bike.SetPower(Int32.Parse(power));
-            if(time != "")
-                bike.setTime(Int32.Parse(time));
-            if(distance != "")
-                bike.SetDistance(Int32.Parse(distance));
+            if (bike != null)
+            {
+                if (power != "")
+                    bike.SetPower(Int32.Parse(power));
+                if (time != "")
+                    bike.setTime(Int32.Parse(time));
+                if (distance != "")
+                    bike.SetDistance(Int32.Parse(distance));
+            }
         }
 
         public void SendChatMessage(string text)
@@ -403,7 +432,31 @@ namespace WindowsFormsApplication1
 
             network.sendChatMessage(text, username, receiver);
             RTBChatText.Text += username + ": " + text + System.Environment.NewLine;
+        }
 
+        public void SendChatMessage(string text, User user)
+        {
+            string receiver = user.username;
+            network.sendChatMessage(text, username, receiver);
+            //if(currentUser == user)
+                SetChatMessage(username + ": " + text + System.Environment.NewLine);
+        }
+
+        delegate void SetChatWindow(string text);
+
+        private void SetChatMessage(string text)
+        {
+            if (RTBChatText.InvokeRequired)
+            {
+                try
+                {
+                    SetChatWindow d = new SetChatWindow(SetChatMessage);
+                    this.Invoke(d, new object[] { text });
+                }
+                catch (Exception e) { }
+            }
+            else
+                RTBChatText.Text += text; 
         }
 
         private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -419,6 +472,89 @@ namespace WindowsFormsApplication1
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        
+        private void bikeImprovementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //Inspannings test IP2: 
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {  
+            if (isPhysician)
+            {
+                Thread thread = new Thread(new ThreadStart(BikeImprovementThread));
+                thread.IsBackground = true;
+                thread.Start();
+            }
+        }
+
+        private void BikeImprovementThread()
+        {
+            bool test = true;
+            UserClient user = (UserClient) currentUser;
+            //The test:
+            SendChatMessage("Bike Imporvement test started!",user);
+            SendChatMessage("Let's start with a warming up for 10-15 minutes before we start the real excesise",user);
+            network.sendBikeValues("100", "0000", "", user.username);
+            //Warming up:
+            for(int minutes = 15; minutes > 0; minutes--)
+            {
+                SendChatMessage("Just " + minutes + " minutes left",user);
+                //Thread.Sleep(60000);
+                Thread.Sleep(10);
+            }
+            //Making new test on server side:
+            network.sendMeasurement(null, "", "CreateTest", user.username);
+            //First part of the test:
+            SendChatMessage("You are all warmed up now", user);
+            SendChatMessage("Now lets start with 90 rpm for the next 120 seconds",user);
+            network.sendBikeValues("100", "", "", user.username);
+            for(int seconds = 120; seconds > 0; seconds --)
+            {
+                user = (UserClient) network.getUser(user.username);
+                network.sendMeasurement(user.lastSession().GetLastMeasurement(),"", "AddToTest",user.username);
+                if (seconds % 30 == 0 || seconds < 10)
+                    SendChatMessage("Just " + seconds + " seconds left", user);
+                Thread.Sleep(1000);
+            }
+            network.sendSaveData();
+            //Second part of the test:
+            SendChatMessage("First part of the test finished!", user);
+            SendChatMessage("Now we will keep repeating this pattern until you can't handle it no more", user);
+            int power = 100;
+            int time = 100;
+            while (test && time > 0)
+            {
+                power += 20;
+                time -= 20;
+                SendChatMessage("Now cycle at 90 rpm for the next " + time + " seconds", user);
+                network.sendBikeValues("" + power, "", "", user.username);
+                for (int seconds = time; seconds > 0; seconds--)
+                {
+                    user = (UserClient)network.getUser(user.username);
+                    Measurement m = (user.lastSession().GetLastMeasurement());
+                    if (m.rpm == 0)
+                        test = false;
+                    network.sendMeasurement(m, "", "AddToTest", user.username);
+                    if (seconds % 25 == 0 || seconds < 10)
+                        SendChatMessage("Just " + seconds + " seconds left", user);
+                    Thread.Sleep(1000);
+                }
+                network.sendSaveData();
+            }
+            SendChatMessage("End of the test!", user);
+            network.sendSaveData();
+        }
+
+        private void olddataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+              OldTestData old = new OldTestData((UserClient) currentUser);
+              DialogResult dialogResult = old.ShowDialog();
+              if (dialogResult == DialogResult.OK) { }
+              old.Dispose();      
         }
     } 
 }
